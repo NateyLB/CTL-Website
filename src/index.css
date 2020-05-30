@@ -17,7 +17,19 @@ code {
 header {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   border: 3px solid black;
+  height: 10vh;
+}
+@media (min-width: 992px) {
+  header {
+    height: 5vh;
+  }
+}
+@media (min-width: 1200px) {
+  header {
+    height: 10vh;
+  }
 }
 
 .nav {

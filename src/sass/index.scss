@@ -28,7 +28,17 @@ body {
   header{
     display:flex;
     justify-content: flex-end;
+    align-items: center;
     border: 3px solid black;
+    height: 10vh;
+
+    @media #{$large}{
+      height: 5vh;
+    }
+
+    @media #{$xlarge}{
+      height: 10vh;
+    }
   }
 
   //NAV
