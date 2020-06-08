@@ -4,7 +4,7 @@ $medium: "(min-width: 768px)";
 $large: "(min-width: 992px)";
 $xlarge: "(min-width: 1200px)";
 //fonts
-$title-font: OldEnglish;
+$title-font: OldEnglish, sans-serif;
 $text-font: 'Tenali Ramakrishna', sans-serif;
 //colors
 $purple: rgb(138, 0, 180);
@@ -122,7 +122,17 @@ body {
     line-height: 1.75rem;
   }
   img{
-    height: 2.5vh;
-    width: 2.5%;
+    height: 4vh;
+    width: 7%;
+
+    @media #{$large}{
+      height: 4vh;
+      width: 4%;
+    }
+
+    @media #{$xlarge}{
+      height: 3vh;
+      width: 3%;
+    }
   }
 }

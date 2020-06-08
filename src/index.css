@@ -42,7 +42,7 @@ header {
   align-items: center;
   height: 7vh;
   width: 100%;
-  font-family: OldEnglish;
+  font-family: OldEnglish, sans-serif;
 }
 @media (min-width: 992px) {
   .nav {
@@ -94,7 +94,7 @@ header {
   align-items: center;
 }
 #about h1 {
-  font-family: OldEnglish;
+  font-family: OldEnglish, sans-serif;
   font-size: 1.75rem;
 }
 #about p {
@@ -103,8 +103,20 @@ header {
   line-height: 1.75rem;
 }
 #about img {
-  height: 2.5vh;
-  width: 2.5%;
+  height: 4vh;
+  width: 7%;
+}
+@media (min-width: 992px) {
+  #about img {
+    height: 4vh;
+    width: 4%;
+  }
+}
+@media (min-width: 1200px) {
+  #about img {
+    height: 3vh;
+    width: 3%;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
