@@ -61,6 +61,10 @@ body {
             color: black;
             font-size: 1.5rem;
 
+            @media #{$large}{
+              font-size: 2rem;
+            }
+
             &:hover{
               color: rgb(138, 0, 180);
             }

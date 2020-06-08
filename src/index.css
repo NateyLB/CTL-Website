@@ -51,6 +51,11 @@ header {
   color: black;
   font-size: 1.5rem;
 }
+@media (min-width: 992px) {
+  .nav a {
+    font-size: 2rem;
+  }
+}
 .nav a:hover {
   color: #8a00b4;
 }
