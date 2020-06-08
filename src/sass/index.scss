@@ -9,6 +9,12 @@ $xlarge: "(min-width: 1200px)";
   src: url(./fonts/CloisterBlack.ttf);
 }
 
+$title-font: OldEnglish;
+$text-font: 'Tenali Ramakrishna', sans-serif;
+
+html{
+  scroll-behavior: smooth;
+}
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -31,9 +37,17 @@ body {
     align-items: center;
     border: 3px solid black;
     height: 10vh;
+    position: fixed;
+    top:0;
+    width: 96.5%;
+    overflow: hidden;
+    background-color: white;
+    margin-top: 1%;
+
 
     @media #{$large}{
       height: 5vh;
+      width: 97.75%;;
     }
 
     @media #{$xlarge}{
@@ -49,7 +63,8 @@ body {
     align-items: center;
     height: 5vh;
     width: 100%;
-    font-family: OldEnglish;
+    font-family: $title-font;
+    background-color: white;
 
     @media #{$large}{
       height: 10vh;
@@ -85,4 +100,25 @@ body {
             transform: rotateY(0deg);
           }
         }
+}
+
+.body-content{
+  margin-top: 15vh;
+}
+
+//ABOUT
+
+#about{
+  padding-top: 17.5vh;
+  margin-top: -7.5vh;
+  h1{
+    font-family: $title-font;
+    font-size: 1.75rem;
+    text-align: center;
+  }
+  p{
+    font-family: $text-font;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+  }
 }

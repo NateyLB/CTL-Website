@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 
-import Nav from './components/Nav.js'
+import Nav from './components/Nav.js';
+import About from './components/About.js';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <header >
        <Nav/>
       </header>
+       <About/>
     </div>
   );
 }

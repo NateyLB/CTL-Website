@@ -6,18 +6,16 @@ const Nav = props =>{
     return(
         
         <nav className="nav">
-            <Link to="/">
-                Home
-            </Link>
+            <a href="#about" >Home</a>
             <Link to="/gallery">
                 Gallery
             </Link>
             <Link to="/contact">
                 Contact
             </Link>
-            <Link to="/">
+            <a href="#about" >
             <img className='logo' src={require('../resources/favicon_io_transparent/favicon.ico')} alt="CausingTheLost.logo"></img>
-            </Link>
+            </a>
         </nav>
     )
 }
