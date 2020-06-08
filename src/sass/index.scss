@@ -1,19 +1,22 @@
-
+//media queries
 $small: "(min-width:576px)";
 $medium: "(min-width: 768px)";
 $large: "(min-width: 992px)";
 $xlarge: "(min-width: 1200px)";
+//fonts
+$title-font: OldEnglish;
+$text-font: 'Tenali Ramakrishna', sans-serif;
+//colors
+$purple: rgb(138, 0, 180);
 
 @font-face {
   font-family: OldEnglish;
   src: url(./fonts/CloisterBlack.ttf);
 }
 
-$title-font: OldEnglish;
-$text-font: 'Tenali Ramakrishna', sans-serif;
-
 html{
   scroll-behavior: smooth;
+  margin: 0;
 }
 
 body {
@@ -23,7 +26,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 62.5%;
-    margin: 1% 1%;
+    margin: 0;
   }
   
   code {
@@ -35,23 +38,15 @@ body {
     display:flex;
     justify-content: flex-end;
     align-items: center;
-    border: 3px solid black;
-    height: 10vh;
+    height: 7vh;
     position: fixed;
     top:0;
-    width: 96.5%;
+    width: 100%;
     overflow: hidden;
-    background-color: white;
-    margin-top: 1%;
-
-
-    @media #{$large}{
-      height: 5vh;
-      width: 97.75%;;
-    }
+    background-color: $purple;
 
     @media #{$xlarge}{
-      height: 10vh;
+      height: 8vh;
     }
   }
 
@@ -61,15 +56,18 @@ body {
     display:flex;
     justify-content: space-between;
     align-items: center;
-    height: 5vh;
+    height: 7vh;
     width: 100%;
     font-family: $title-font;
-    background-color: white;
 
     @media #{$large}{
-      height: 10vh;
       width: 60%;
     }
+
+    @media #{$xlarge}{
+      height: 8vh;
+    }
+
 
         a{
             text-decoration: none;
@@ -81,7 +79,7 @@ body {
             }
 
             &:hover{
-              color: rgb(138, 0, 180);
+              color: white;
             }
         }
 
@@ -111,14 +109,20 @@ body {
 #about{
   padding-top: 17.5vh;
   margin-top: -7.5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   h1{
     font-family: $title-font;
     font-size: 1.75rem;
-    text-align: center;
   }
   p{
     font-family: $text-font;
     font-size: 1.5rem;
     line-height: 1.75rem;
+  }
+  img{
+    height: 2.5vh;
+    width: 2.5%;
   }
 }

@@ -4,6 +4,7 @@
 }
 html {
   scroll-behavior: smooth;
+  margin: 0;
 }
 
 body {
@@ -11,7 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 62.5%;
-  margin: 1% 1%;
+  margin: 0;
 }
 
 code {
@@ -22,24 +23,16 @@ header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  border: 3px solid black;
-  height: 10vh;
+  height: 7vh;
   position: fixed;
   top: 0;
-  width: 96.5%;
+  width: 100%;
   overflow: hidden;
-  background-color: white;
-  margin-top: 1%;
-}
-@media (min-width: 992px) {
-  header {
-    height: 5vh;
-    width: 97.75%;
-  }
+  background-color: #8a00b4;
 }
 @media (min-width: 1200px) {
   header {
-    height: 10vh;
+    height: 8vh;
   }
 }
 
@@ -47,15 +40,18 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 5vh;
+  height: 7vh;
   width: 100%;
   font-family: OldEnglish;
-  background-color: white;
 }
 @media (min-width: 992px) {
   .nav {
-    height: 10vh;
     width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  .nav {
+    height: 8vh;
   }
 }
 .nav a {
@@ -69,7 +65,7 @@ header {
   }
 }
 .nav a:hover {
-  color: #8a00b4;
+  color: white;
 }
 .nav .logo {
   animation: logo-rotate 1s both infinite;
@@ -93,16 +89,22 @@ header {
 #about {
   padding-top: 17.5vh;
   margin-top: -7.5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #about h1 {
   font-family: OldEnglish;
   font-size: 1.75rem;
-  text-align: center;
 }
 #about p {
   font-family: "Tenali Ramakrishna", sans-serif;
   font-size: 1.5rem;
   line-height: 1.75rem;
+}
+#about img {
+  height: 2.5vh;
+  width: 2.5%;
 }
 
 /*# sourceMappingURL=index.css.map */
