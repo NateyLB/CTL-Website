@@ -14,6 +14,9 @@ const Nav = props =>{
         <Link to="/admin/tools/users">
             Users
         </Link>
+        <Link to="/admin/tools/register">
+            Register Admin
+        </Link>
 
         </nav>
     )

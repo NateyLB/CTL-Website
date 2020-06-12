@@ -225,11 +225,12 @@ header {
   }
 }
 #admin-nav a {
-  margin-top: 50%;
+  margin: 50% 0;
   text-decoration: none;
   color: black;
   font-family: "Tenali Ramakrishna", sans-serif;
   font-size: 1.5rem;
+  line-height: 1.25rem;
 }
 #admin-nav a:hover {
   color: white;

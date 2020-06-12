@@ -256,11 +256,12 @@ body {
 
 
     a{
-      margin-top: 50%;
+      margin: 50% 0;
       text-decoration: none;
       color: black;
       font-family: $text-font;
       font-size: 1.5rem;
+      line-height: 1.25rem;
 
       &:hover{
         color:white;
