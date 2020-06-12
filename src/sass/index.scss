@@ -216,6 +216,49 @@ body {
   }
 }
 
+//ADMIN NAV
+
+#admin-nav{
+  position: fixed;
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  background-color: $purple;
+  visibility: hidden;
+
+  @media #{$xlarge}{
+    width: 10%;
+  }
+
+    i{
+      text-align: end;
+      margin-right: 5%;;
+    }
+
+    a{
+      margin-top: 50%;
+      text-decoration: none;
+      color: black;
+      font-family: $text-font;
+      font-size: 1rem;
+    }
+
+}
+
+//admin tools home
+.admin-tools{
+margin-top: 7vh;
+
+  i{
+    font-size: 2rem;
+
+    @media #{$xlarge}{
+      margin-top: 1%;
+    }
+  }
+}
+
 
 
 

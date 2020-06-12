@@ -8,6 +8,8 @@ import Gallery from './components/Home/Gallery.js';
 import Contact from './components/Home/Contact.js';
 import Shop from './components/Shop/Shop.js';
 import AdminLogin from './components/Admin/AdminLogin.js'
+import PrivateAdminRoute from './components/Admin/PrivateAdminRoute.js';
+import AdminTools from './components/Admin/AdminTools.js';
 
 function App() {
 
@@ -27,6 +29,7 @@ function App() {
       <Route exact path="/admin">
         <AdminLogin/>
       </Route>
+      <PrivateAdminRoute path={"/admin/tools"} component={AdminTools}/>
     </div>
   );
 }

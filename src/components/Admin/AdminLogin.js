@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
+import { connect } from 'react-redux'; 
+import { login } from '../../actions/adminActions.js'
 
 const AdminLogin = props => {
     const [credentials, setCredential] = useState({ username: '', password: '' })
+    const match = useHistory();
 
     const changeHandler = event =>{
         setCredential({
@@ -9,18 +13,25 @@ const AdminLogin = props => {
             [event.target.name]: event.target.value
         })
     }
+
     const validate = () =>{
         if(credentials.username.length > 0 && credentials.password.length > 0){
             return false
         }
         return true
     }
-    console.log(credentials)
 
+    const onSubmit = event => {
+        event.preventDefault();
+        props.login(credentials, match)
+      }
+    if (localStorage.getItem("adminToken")){
+        match.push("/admin/tools")
+    }
     return (
         <div id="admin-login">
             <h1>Admin Login</h1>
-            <form>
+            <form onSubmit={onSubmit}>
                 <label>
                     Username:
                     <input type ="text"
@@ -31,7 +42,7 @@ const AdminLogin = props => {
                 </label>
                 <label>
                     Password:
-                    <input type="text"
+                    <input type="password"
                             name="password"
                             value={credentials.password}
                             onChange={changeHandler}
@@ -45,4 +56,12 @@ const AdminLogin = props => {
     )
 }
 
-export default AdminLogin;
+const mapStateToProps = state => {
+    return {
+    };
+  };
+  
+  export default connect(
+  mapStateToProps,
+  {login}
+  )(AdminLogin)
