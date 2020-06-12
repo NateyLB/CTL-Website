@@ -215,7 +215,30 @@ body {
     }
   }
 }
+//admin tools home
+.admin-tools{
+  margin-top: 7vh;
 
+  #x{
+    visibility: hidden;
+  }
+  
+    i{
+      font-size: 2rem;
+      position:fixed;
+      left: 90%;
+      margin-top: 1%;
+
+      @media #{$large}{
+        left: 96%;
+      }
+  
+      @media #{$xlarge}{
+        left: 97%;
+      }
+
+    }
+  }
 //ADMIN NAV
 
 #admin-nav{
@@ -231,10 +254,6 @@ body {
     width: 10%;
   }
 
-    i{
-      text-align: end;
-      margin-right: 5%;;
-    }
 
     a{
       margin-top: 50%;
@@ -246,18 +265,6 @@ body {
 
 }
 
-//admin tools home
-.admin-tools{
-margin-top: 7vh;
-
-  i{
-    font-size: 2rem;
-
-    @media #{$xlarge}{
-      margin-top: 1%;
-    }
-  }
-}
 
 
 

@@ -187,6 +187,29 @@ header {
   background-color: white;
 }
 
+.admin-tools {
+  margin-top: 7vh;
+}
+.admin-tools #x {
+  visibility: hidden;
+}
+.admin-tools i {
+  font-size: 2rem;
+  position: fixed;
+  left: 90%;
+  margin-top: 1%;
+}
+@media (min-width: 992px) {
+  .admin-tools i {
+    left: 96%;
+  }
+}
+@media (min-width: 1200px) {
+  .admin-tools i {
+    left: 97%;
+  }
+}
+
 #admin-nav {
   position: fixed;
   height: 93vh;
@@ -201,28 +224,12 @@ header {
     width: 10%;
   }
 }
-#admin-nav i {
-  text-align: end;
-  margin-right: 5%;
-}
 #admin-nav a {
   margin-top: 50%;
   text-decoration: none;
   color: black;
   font-family: "Tenali Ramakrishna", sans-serif;
   font-size: 1rem;
-}
-
-.admin-tools {
-  margin-top: 7vh;
-}
-.admin-tools i {
-  font-size: 2rem;
-}
-@media (min-width: 1200px) {
-  .admin-tools i {
-    margin-top: 1%;
-  }
 }
 
 /*# sourceMappingURL=index.css.map */
