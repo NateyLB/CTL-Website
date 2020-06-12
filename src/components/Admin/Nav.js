@@ -9,7 +9,7 @@ const Nav = props =>{
 
     return(
         <nav id="admin-nav">
-        <i className="fas fa-arrow-left" onClick={clickX}></i>
+        <i className="fas fa-times" onClick={clickX}></i>
         <Link to="/admin/tools/products">
             Product Management
         </Link>
