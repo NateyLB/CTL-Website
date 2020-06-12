@@ -238,6 +238,7 @@ header {
 @media (min-width: 992px) {
   #admin-nav a {
     font-size: 1.75rem;
+    margin: 20% 0;
   }
 }
 
