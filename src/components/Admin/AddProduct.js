@@ -24,7 +24,7 @@ const AddProduct = props => {
         <Form id="add-product">
             <FormGroup>
                 <Label for="name">Name</Label>
-                <Input type="text" name="name" id="form-name" placeholder="Enter the name of the product" />
+                <Input type="text" name="name" id="form-name" placeholder="Olde-English Dior" />
             </FormGroup>
             <FormGroup>
                 <Label for="type">Select</Label>
@@ -40,18 +40,20 @@ const AddProduct = props => {
                 </Input>
             </FormGroup>
             <FormGroup>
-                <Label for="exampleSelectMulti">Select Multiple</Label>
-                <Input type="select" name="selectMulti" id="exampleSelectMulti" multiple>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </Input>
+                <Label for="description">Description</Label>
+                <Input type="textarea" name="description" id="form-description" />
             </FormGroup>
             <FormGroup>
-                <Label for="exampleText">Text Area</Label>
-                <Input type="textarea" name="text" id="exampleText" />
+                <Label for="color">Color</Label>
+                <Input type="text" name="color" id="form-color" placeholder="Blue" />
+            </FormGroup>
+            <FormGroup>
+                <Label for="size">Size</Label>
+                <Input type="text" name="size" id="form-size" placeholder="7 5/8" />
+            </FormGroup>
+            <FormGroup>
+                <Label for="price">Price</Label>
+                <Input type="number" name="price" id="form-price" placeholder="123.45" step=".01" />
             </FormGroup>
             <FormGroup>
                 <Label for="exampleFile">File</Label>

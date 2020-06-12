@@ -218,7 +218,7 @@ header {
   width: 20%;
   background-color: #8a00b4;
   visibility: hidden;
-  margin-top: -3vh;
+  margin-top: -4vh;
 }
 @media (min-width: 1200px) {
   #admin-nav {
