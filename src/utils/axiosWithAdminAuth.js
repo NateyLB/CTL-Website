@@ -7,6 +7,6 @@ export const axiosWithAdminAuth = () => {
     headers: {
       Authorization: token
     },
-    baseURL: 'https://ctl-shop.herokuapp.com/'
+    baseURL: 'https://ctl-shop.herokuapp.com/api/admin'
   });
 };
