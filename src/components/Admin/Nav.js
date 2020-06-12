@@ -6,7 +6,7 @@ const Nav = props =>{
     return(
         <nav id="admin-nav">
         <Link to="/admin/tools/products">
-            Product Management
+            Products
         </Link>
         <Link to="/admin/tools/orders">
             Orders
