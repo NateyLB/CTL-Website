@@ -16,7 +16,7 @@ const AdminTools = props =>{
         document.getElementById("x").style.visibility="visible"
         let marginPercent = 0;
         if(window.screen.width >= 1200){
-            marginPercent = 11
+            marginPercent = 0
         }else{
             marginPercent = 21
         }

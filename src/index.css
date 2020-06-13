@@ -244,10 +244,57 @@ header {
   }
 }
 
+#admin-products {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 #admin-products h1 {
   font-family: OldEnglish, sans-serif;
   font-size: 1.75rem;
   text-align: center;
+}
+#admin-products form {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 60vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 80%;
+}
+#admin-products form #form-description {
+  width: 100%;
+  height: 7.5vh;
+}
+#admin-products form #file-group {
+  width: 90%;
+  margin-left: 10%;
+}
+#admin-products form #size-group {
+  margin-left: 25%;
+}
+#admin-products form #form-size {
+  width: 15%;
+  margin-right: 5%;
+}
+#admin-products form #form-size-quantity {
+  width: 15%;
+  margin-right: 1%;
+}
+#admin-products form #form-price {
+  width: 35%;
+}
+#admin-products form #form-quantity {
+  width: 10%;
+}
+@media (min-width: 992px) {
+  #admin-products form {
+    flex-direction: column;
+    width: 30%;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

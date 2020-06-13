@@ -1,34 +1,65 @@
 import React, { useState } from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
+const initialProductState = {
+    name: '',
+    type: 1,
+    description: '',
+    color: '',
+    sizes: [],
+    price: 0,
+    quantity: 0,
+    imgFile: ''
+}
 
 const AddProduct = props => {
-    const [product, setProduct] = useState({
-        name: '',
-        type: '',
-        color:'',
-        size: '',
-        price: 0,
-        quantity: 0,
-        imgFile:''
-    })
+    const [product, setProduct] = useState(initialProductState)
+    const [size, setSize] = useState({ size: '', quantity: 0 })
 
     const changeHandler = event => {
         setProduct({
             ...product,
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.name === 'type' || event.target.name === 'price'? parseInt(event.target.value): event.target.value
         })
     }
+
+    const sizeHandler = event => {
+        setSize({ ...size, [event.target.name]: event.target.name === 'quantity' ? parseInt(event.target.value) : event.target.value })
+    }
+    console.log({ size })
+
+    const addSize = event => {
+        event.preventDefault();
+        setProduct({ ...product, sizes: [...product.sizes, size] });
+        setSize({ size: '', quantity: 0 });
+        document.getElementById('form-size').value = '';
+        document.getElementById('form-size-quantity').value = 0;
+    }
+
+    const submitProduct = event => {
+        event.preventDefault();
+        let total = 0;
+        product.sizes.forEach(size=>{
+            total += size.quantity
+        });
+        setProduct({
+            ...product, quantity: total
+        });
+        //post the product here
+        //then set back to initial state
+        //setProduct(initialProductState);
+    }
+    console.log({ product })
 
     return (
         <Form id="add-product">
             <FormGroup>
                 <Label for="name">Name</Label>
-                <Input type="text" name="name" id="form-name" placeholder="Olde-English Dior" />
+                <Input type="text" name="name" id="form-name" placeholder="Olde-English Dior" value={product.name} onChange={changeHandler} />
             </FormGroup>
             <FormGroup>
                 <Label for="type">Select</Label>
-                <Input type="select" name="type" id="form-type">
+                <Input type="select" name="type" id="form-type" value={product.type} onChange={changeHandler}>
                     <option value="1">Hat</option>
                     <option value="2">Pants</option>
                     <option value="3">Shirt</option>
@@ -41,56 +72,30 @@ const AddProduct = props => {
             </FormGroup>
             <FormGroup>
                 <Label for="description">Description</Label>
-                <Input type="textarea" name="description" id="form-description" />
+                <Input type="textarea" name="description" id="form-description" placeholder="A bootleg Dior hat" value={product.description}  onChange={changeHandler} />
+            </FormGroup>
+               <FormGroup id="price-group">
+                <Label for="price">Price</Label>
+                <Input type="number" name="price" id="form-price" placeholder="140" step="20" min="0" value={product.price} onChange={changeHandler} />
             </FormGroup>
             <FormGroup>
                 <Label for="color">Color</Label>
-                <Input type="text" name="color" id="form-color" placeholder="Blue" />
+                <Input type="text" name="color" id="form-color" placeholder="Blue" value={product.color} onChange={changeHandler} />
             </FormGroup>
-            <FormGroup>
+            <FormGroup id="size-group">
                 <Label for="size">Size</Label>
-                <Input type="text" name="size" id="form-size" placeholder="7 5/8" />
+                <Input type="text" name="size" id="form-size" placeholder="7 5/8" value={size.size} onChange={sizeHandler} />
+                <Label for="quanitity">Quanitity</Label>
+                <Input type="number" name="quantity" id="form-size-quantity" placeholder="10" step="5" min='0' value={parseInt(size.quantity)} onChange={sizeHandler} />
+                <Button onClick={addSize}>+</Button>
             </FormGroup>
-            <FormGroup>
-                <Label for="price">Price</Label>
-                <Input type="number" name="price" id="form-price" placeholder="123.45" step=".01" />
+         
+            <FormGroup id="file-group">
+                <Label for="imgFile">File</Label>
+                <Input type="file" name="imgFile" id="form-file" value={product.imgFile} onChange={changeHandler} />
             </FormGroup>
-            <FormGroup>
-                <Label for="exampleFile">File</Label>
-                <Input type="file" name="file" id="exampleFile" />
-                <FormText color="muted">
-                    This is some placeholder block-level help text for the above input.
-                    It's a bit lighter and easily wraps to a new line.
-          </FormText>
-            </FormGroup>
-            <FormGroup tag="fieldset">
-                <legend>Radio Buttons</legend>
-                <FormGroup check>
-                    <Label check>
-                        <Input type="radio" name="radio1" />{' '}
-              Option one is this and that—be sure to include why it's great
-            </Label>
-                </FormGroup>
-                <FormGroup check>
-                    <Label check>
-                        <Input type="radio" name="radio1" />{' '}
-              Option two can be something else and selecting it will deselect option one
-            </Label>
-                </FormGroup>
-                <FormGroup check disabled>
-                    <Label check>
-                        <Input type="radio" name="radio1" disabled />{' '}
-              Option three is disabled
-            </Label>
-                </FormGroup>
-            </FormGroup>
-            <FormGroup check>
-                <Label check>
-                    <Input type="checkbox" />{' '}
-            Check me out
-          </Label>
-            </FormGroup>
-            <Button>Submit</Button>
+            <br />
+            <Button onClick={submitProduct}>Submit</Button>
         </Form>
     )
 }
