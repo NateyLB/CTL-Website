@@ -27,9 +27,11 @@ export const login = (credentials, match) => dispatch =>{
 }
 
 export const postProduct =(product) => dispatch =>{
+    dispatch({type:POST_PRODUCT_START});
     axiosWithAdminAuth()
     .post('/products', product)
     .then(res=>{
+        console.log(res)
         dispatch({type:POST_PRODUCT_SUCCESS, payload: res.data});
 
     })

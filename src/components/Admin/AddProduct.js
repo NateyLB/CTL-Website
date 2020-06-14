@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux'; 
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+
+import { postProduct } from '../../actions/adminActions.js'
+
 
 const initialProductState = {
     name: '',
@@ -26,8 +30,12 @@ const AddProduct = props => {
     const sizeHandler = event => {
         setSize({ ...size, [event.target.name]: event.target.name === 'quantity' ? parseInt(event.target.value) : event.target.value })
     }
-    console.log({ size })
-
+    const fileHandler = event =>{
+        setProduct({
+            ...product,
+            [event.target.name]: event.target.files[0]
+        })
+    }
     const addSize = event => {
         event.preventDefault();
         setProduct({ ...product, sizes: [...product.sizes, size] });
@@ -45,11 +53,11 @@ const AddProduct = props => {
         setProduct({
             ...product, quantity: total
         });
-        //post the product here
-        //then set back to initial state
-        //setProduct(initialProductState);
+        console.log({product}, "before post")
+        props.postProduct(product)
+        setProduct(initialProductState);
     }
-    console.log({ product })
+    console.log(product)
 
     return (
         <Form id="add-product">
@@ -92,7 +100,7 @@ const AddProduct = props => {
          
             <FormGroup id="file-group">
                 <Label for="imgFile">File</Label>
-                <Input type="file" name="imgFile" id="form-file" value={product.imgFile} onChange={changeHandler} />
+                <Input type="file" name="imgFile" id="form-file" onChange={changeHandler} />
             </FormGroup>
             <br />
             <Button onClick={submitProduct}>Submit</Button>
@@ -100,4 +108,12 @@ const AddProduct = props => {
     )
 }
 
-export default AddProduct;
+const mapStateToProps = state => {
+    return {
+    };
+  };
+  
+  export default connect(
+  mapStateToProps,
+  {postProduct}
+  )(AddProduct)
