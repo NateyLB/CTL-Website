@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect } from "react-router";
 // Requirements:
 // 1. It has the same API as <Route />.
 // 2. It renders a <Route /> and passes all the props through to it.

@@ -1,13 +1,26 @@
 import React, { useEffect } from 'react';
-import { Route } from 'react-router';
+import { Route, useHistory } from 'react-router';
+import   jwt_decode   from 'jwt-decode';
+
 
 import Nav from "./Nav.js";
 import Products from "./Products.js";
 
 
+
 const AdminTools = props =>{
+    const match = useHistory();
     useEffect(()=>{
         document.title="Admin Tools"
+        const token = localStorage.getItem('adminToken')
+        if(token){
+            const decoded = jwt_decode(token)
+            //check if token is expired
+            if(Date.now() >= decoded.exp*1000){
+                localStorage.removeItem('adminToken')
+                match.push('/admin')
+            }
+        }
     },[])
 
     const clickBars = ()=>{
@@ -20,7 +33,6 @@ const AdminTools = props =>{
         }else{
             marginPercent = 21
         }
-        console.log(window.screen.width)
         document.getElementById("admin-content").style.marginLeft=`${marginPercent}%`
     }
 
