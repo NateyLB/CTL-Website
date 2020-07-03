@@ -9,7 +9,7 @@
     "acorn-jsx": "^5.2.0",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
-    "espree": "^7.0.0",
+    "espree": "^7.1.0",
     "jwt-decode": "^2.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
