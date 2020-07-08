@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { connect } from 'react-redux'; 
-import { login } from '../../actions/adminActions.js'
+import { login } from '../../actions/adminActions'
 
 const AdminLogin = props => {
     const [credentials, setCredential] = useState({ username: '', password: '' })

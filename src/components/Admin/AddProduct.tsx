@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux'; 
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-import { postProduct } from '../../actions/adminActions.js'
+import { postProduct } from '../../actions/adminActions'
 
 interface Size{
     size: string,
@@ -137,6 +137,9 @@ const AddProduct = props => {
                 <Label for="quantity">Quantity</Label>
                 <Input type="number" name="quantity" id="form-size-quantity" placeholder="10" step="5" min='0' value={size.quantity} onChange={sizeHandler} />
                 <Button onClick={addSize}>+</Button>
+                {product.sizes.length > 0 ?
+                product.sizes.map(size =><p>Size: {size.size} Quantity: {size.quantity}</p>)
+                 : null}
             </FormGroup>
          
             <FormGroup id="file-group">

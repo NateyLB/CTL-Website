@@ -1,5 +1,5 @@
 import React from 'react';
-import AddProduct from './AddProduct.tsx';
+import AddProduct from './AddProduct';
 
 const Products = props =>{
 

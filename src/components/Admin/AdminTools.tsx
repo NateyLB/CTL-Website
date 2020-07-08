@@ -3,8 +3,8 @@ import { Route, useHistory } from 'react-router';
 import   jwt_decode   from 'jwt-decode';
 
 
-import Nav from "./Nav.js";
-import Products from "./Products.js";
+import Nav from "./Nav";
+import Products from "./Products";
 
 
 
@@ -24,23 +24,31 @@ const AdminTools = props =>{
     },[])
 
     const clickBars = ()=>{
-        document.getElementById("admin-nav").style.visibility="visible";
-        document.getElementById("bars").style.visibility="hidden"
-        document.getElementById("x").style.visibility="visible"
+        const adminNav = document.getElementById("admin-nav") as HTMLElement
+        adminNav.style.visibility="visible";
+        const bars = document.getElementById("bars") as HTMLElement
+        bars.style.visibility="hidden"
+        const x = document.getElementById("x") as HTMLElement
+        x.style.visibility="visible"
         let marginPercent = 0;
         if(window.screen.width >= 1200){
             marginPercent = 0
         }else{
             marginPercent = 21
         }
-        document.getElementById("admin-content").style.marginLeft=`${marginPercent}%`
+        const adminContent = document.getElementById("admin-content") as HTMLDivElement
+        adminContent.style.marginLeft=`${marginPercent}%`
     }
 
     const clickX = ()=>{
-        document.getElementById("admin-nav").style.visibility="hidden";
-        document.getElementById("x").style.visibility="hidden";
-        document.getElementById("bars").style.visibility="visible";
-        document.getElementById("admin-content").style.marginLeft="0"
+        const adminNav = document.getElementById("admin-nav") as HTMLElement
+        adminNav.style.visibility="hidden";
+        const x = document.getElementById("x") as HTMLElement
+        x.style.visibility="hidden";
+        const bars = document.getElementById("bars") as HTMLElement
+        bars.style.visibility="visible";
+        const adminContent = document.getElementById("admin-content") as HTMLDivElement
+        adminContent.style.marginLeft="0"
 
     }
 

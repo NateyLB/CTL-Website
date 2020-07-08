@@ -1,4 +1,4 @@
-import { axiosWithAdminAuth } from '../utils/axiosWithAdminAuth.js';
+import { axiosWithAdminAuth } from '../utils/axiosWithAdminAuth';
 
 
 export const POST_LOGIN_START = 'POST_LOGIN_START';
