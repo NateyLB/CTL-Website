@@ -22,6 +22,7 @@ export const login = (credentials, match) => dispatch =>{
         match.push('/admin/tools')
     })
     .catch(err =>{
+        console.log(err)
         dispatch({type:POST_LOGIN_FAILURE, payload: err})
     })
 }
@@ -31,11 +32,12 @@ export const postProduct =(product) => dispatch =>{
     axiosWithAdminAuth()
     .post('/products', product)
     .then(res=>{
-        console.log(res)
+        console.log(res.data)
         dispatch({type:POST_PRODUCT_SUCCESS, payload: res.data});
 
     })
     .catch(err=>{
+        console.log(err)
         dispatch({type:POST_PRODUCT_FAILURE, payload: err})
 
     })

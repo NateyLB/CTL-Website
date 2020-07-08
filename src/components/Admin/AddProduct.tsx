@@ -4,8 +4,23 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { postProduct } from '../../actions/adminActions.js'
 
+interface Size{
+    size: string,
+    quantity: number
+}
+interface Sizes extends Array<Size>{}
 
-const initialProductState = {
+interface Product{
+    name: string,
+    type: number,
+    description: string,
+    color: string,
+    sizes: Sizes
+    price: number,
+    quantity: number
+}
+
+const initialProductState:Product = {
     name: '',
     type: 1,
     description: '',
@@ -13,22 +28,26 @@ const initialProductState = {
     sizes: [],
     price: 0,
     quantity: 0,
-    file: ''
 }
+
+const initialSize:Size ={
+    size:'',
+    quantity: 0
+}
+
 
 
 
 const AddProduct = props => {
     const [product, setProduct] = useState(initialProductState)
-    const [size, setSize] = useState({ size: '', quantity: 0 })
-    const formData = new FormData()
+    const [size, setSize] = useState(initialSize)
+    let formData = new FormData()
 
     useEffect(()=>{
         let total = 0;
         product.sizes.forEach(size=>{
             total += size.quantity
         });
-        console.log(total, "total quantity")
         setProduct({...product, quantity: total})
     },[product.sizes])
 
@@ -43,25 +62,41 @@ const AddProduct = props => {
         setSize({ ...size, [event.target.name]: event.target.name === 'quantity' ? parseInt(event.target.value) : event.target.value });
     }
     const fileHandler = event =>{
-        setProduct({
-            ...product,
-            [event.target.name]: event.target.files[0]
-        })
-        formData.append('file',event.target.files[0])
+        if( event.target.files.length > 1){
+            Array.from(event.target.files).forEach((file, index) => {
+                formData.append('file', event.target.files[index])
+            });
+        }else{
+            formData.append('file',event.target.files[0])
+        }
     }
     const addSize = event => {
         event.preventDefault();
         setProduct({ ...product, sizes: [...product.sizes, size] });
         setSize({ size: '', quantity: 0 });
-        document.getElementById('form-size').value = '';
-        document.getElementById('form-size-quantity').value = 0;
+        let formSize = document.getElementById('form-size' ) as HTMLFormElement
+        formSize.value = '';
+        let formSizeQuantity = document.getElementById('form-size-quantity') as HTMLFormElement
+        formSizeQuantity.value = 0;
     }
     
     const submitProduct = event => {
         event.preventDefault();
-        console.log({product}, "before post")
+        for(const key in product){
+            if(key==="sizes"){
+                product.sizes.forEach(size =>{
+                    formData.append(key, JSON.stringify(size))
+                })
+            }else{
+                formData.append(key, product[key])
+            }
+        }
+        console.log(formData, "BEOFRE SUBMIT")
         props.postProduct(formData)
+        let formFile = document.getElementById('form-file') as HTMLFormElement
+        formFile.value = null;
         setProduct(initialProductState)
+        formData = new FormData()
     }
     console.log(product)
 
@@ -69,7 +104,7 @@ const AddProduct = props => {
         <Form id="add-product" >
             <FormGroup>
                 <Label for="name">Name</Label>
-                <Input type="text" name="name" id="form-name" placeholder="Olde-English Dior"  />
+                <Input type="text" name="name" id="form-name" placeholder="Olde-English Dior" value={product.name} onChange={changeHandler} />
             </FormGroup>
             <FormGroup>
                 <Label for="type">Select</Label>
@@ -100,13 +135,13 @@ const AddProduct = props => {
                 <Label for="size">Size</Label>
                 <Input type="text" name="size" id="form-size" placeholder="7 5/8" value={size.size} onChange={sizeHandler} />
                 <Label for="quantity">Quantity</Label>
-                <Input type="number" name="quantity" id="form-size-quantity" placeholder="10" step="5" min='0' value={parseInt(size.quantity)} onChange={sizeHandler} />
+                <Input type="number" name="quantity" id="form-size-quantity" placeholder="10" step="5" min='0' value={size.quantity} onChange={sizeHandler} />
                 <Button onClick={addSize}>+</Button>
             </FormGroup>
          
             <FormGroup id="file-group">
                 <Label for="imgFile">File</Label>
-                <Input type="file" name="file" id="form-file" onChange={fileHandler} />
+                <Input type="file" name="file" multiple="multiple" id="form-file" onChange={fileHandler} />
             </FormGroup>
             <br />
             <Button onClick={submitProduct}>Submit</Button>
