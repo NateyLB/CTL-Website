@@ -91,14 +91,12 @@ const AddProduct = props => {
                 formData.append(key, product[key])
             }
         }
-        console.log(formData, "BEOFRE SUBMIT")
         props.postProduct(formData)
         let formFile = document.getElementById('form-file') as HTMLFormElement
         formFile.value = null;
         setProduct(initialProductState)
         formData = new FormData()
     }
-    console.log(product)
 
     return (
         <Form id="add-product" >

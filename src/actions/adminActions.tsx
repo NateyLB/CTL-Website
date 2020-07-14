@@ -32,8 +32,9 @@ export const postProduct =(product) => dispatch =>{
     axiosWithAdminAuth()
     .post('/products', product)
     .then(res=>{
-        console.log(res.data)
+        console.log(res)
         dispatch({type:POST_PRODUCT_SUCCESS, payload: res.data});
+        alert("Successfully posted product.")
 
     })
     .catch(err=>{
