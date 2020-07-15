@@ -3,7 +3,7 @@ import AddProduct from './AddProduct';
 import Product from './Product';
 
 import { connect } from 'react-redux'; 
-import { getProducts } from '../../actions/adminActions'
+import { getProducts } from '../../actions/productActions'
 
 const Products = props =>{
     useEffect(()=>{

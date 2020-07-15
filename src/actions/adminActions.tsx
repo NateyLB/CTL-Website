@@ -1,5 +1,5 @@
 import { axiosWithAdminAuth } from '../utils/axiosWithAdminAuth';
-
+import { axiosBase } from '../utils/axiosBase'
 
 export const POST_LOGIN_START = 'POST_LOGIN_START';
 export const POST_LOGIN_SUCCESS = 'POST_LOGIN_SUCCESS';
@@ -9,9 +9,7 @@ export const POST_PRODUCT_START = 'POST_PRODUCT_START';
 export const POST_PRODUCT_SUCCESS = 'POST_PRODUCT_SUCCESS';
 export const POST_PRODUCT_FAILURE = 'POST_PRODUCT_FAILURE';
 
-export const GET_PRODUCT_START = 'GET_PRODUCT_START';
-export const GET_PRODUCT_SUCCESS = 'GET_PRODUCT_SUCCESS';
-export const GET_PRODUCT_FAILURE = 'GET_PRODUCT_FAILURE'
+
 
 
 
@@ -49,17 +47,5 @@ export const postProduct = (product) => dispatch => {
         })
 }
 
-export const getProducts = () => dispatch => {
-    dispatch({ type: GET_PRODUCT_START });
-    axiosWithAdminAuth()
-        .get('/products')
-        .then(res => {
-            console.log(res)
-            dispatch({ type: GET_PRODUCT_SUCCESS, payload: res.data })
-        })
-        .catch(err => {
-            console.log(err)
-            dispatch({type: GET_PRODUCT_FAILURE, payload: err})
-         })
-}
+
 
