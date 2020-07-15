@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import { adminReducer } from '../reducers/adminReducer.js'
+import { productsReducer } from '../reducers/adminReducer'
 
 
 
 export default combineReducers({
- adminReducer
+ productsReducer
 })
