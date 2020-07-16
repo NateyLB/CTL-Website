@@ -13,6 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 62.5%;
   margin: 0;
+  font-family: "Tenali Ramakrishna", sans-serif;
 }
 
 code {
@@ -151,11 +152,112 @@ header {
 #shop {
   padding-top: 17.5vh;
   margin-top: -7.5vh;
+  font-size: 1rem;
 }
-#shop h1 {
+#shop .title {
   font-family: OldEnglish, sans-serif;
   font-size: 1.75rem;
   text-align: center;
+}
+#shop .shop-product-card {
+  display: flex;
+  margin: 2vh 0;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  #shop .shop-product-card {
+    width: 45%;
+    margin: 2vh 2%;
+    justify-content: space-between;
+  }
+}
+#shop .shop-product-card .shop-product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+#shop .shop-product-card .shop-product-info h1 {
+  margin: 0;
+}
+#shop .shop-product-card .shop-product-info p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  height: fit-content;
+}
+#shop .shop-product-card .shop-product-info p h2 {
+  margin: 0;
+  margin-right: 10px;
+}
+#shop .shop-product-card .shop-product-info .shop-product-sizes h2 {
+  margin: 0;
+}
+#shop .shop-product-card .shop-product-info .shop-product-sizes .shop-product-size-button-container {
+  display: flex;
+  margin-bottom: 2vh;
+  flex-wrap: wrap;
+}
+#shop .shop-product-card .shop-product-info .shop-product-sizes .shop-product-size-button-container .shop-product-size-button {
+  height: 3vh;
+  width: 50px;
+  border: 1px solid #8a00b4;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1vh;
+}
+@media (min-width: 1200px) {
+  #shop .shop-product-card .shop-product-info .shop-product-sizes .shop-product-size-button-container .shop-product-size-button {
+    height: 5vh;
+  }
+}
+#shop .shop-products-container {
+  width: 100%;
+}
+@media (min-width: 992px) {
+  #shop .shop-products-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.carousel {
+  position: relative;
+  height: 25vh;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 1200px) {
+  .carousel {
+    width: 45%;
+    height: 35vh;
+  }
+}
+.carousel img {
+  height: 25vh;
+  width: 100%;
+}
+@media (min-width: 1200px) {
+  .carousel img {
+    height: 35vh;
+  }
+}
+.carousel .carousel-arrows {
+  position: absolute;
+  display: flex;
+  bottom: 10vh;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+}
+.carousel .carousel-arrows h2 {
+  color: #8a00b4;
+}
+.carousel .carousel-arrows h2:hover {
+  color: black;
 }
 
 #admin-login {
@@ -249,6 +351,7 @@ header {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  font-size: 1rem;
 }
 #admin-products h1 {
   font-family: OldEnglish, sans-serif;
@@ -294,6 +397,58 @@ header {
   #admin-products form {
     flex-direction: column;
     width: 30%;
+  }
+}
+#admin-products .admin-product-card {
+  width: 100%;
+  display: flex;
+  margin: 2vh 0;
+}
+@media (min-width: 992px) {
+  #admin-products .admin-product-card {
+    width: 50%;
+  }
+}
+#admin-products .admin-product-card .admin-product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+#admin-products .admin-product-card .admin-product-info p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  height: fit-content;
+}
+#admin-products .admin-product-card .admin-product-info p h2 {
+  margin: 0;
+  margin-right: 10px;
+}
+#admin-products .admin-product-card .admin-product-info .admin-product-sizes h2 {
+  margin: 0;
+}
+#admin-products .admin-product-card .admin-product-info .admin-product-sizes .admin-product-size-button-container {
+  display: flex;
+  margin-bottom: 2vh;
+  flex-wrap: wrap;
+}
+#admin-products .admin-product-card .admin-product-info .admin-product-sizes .admin-product-size-button-container .admin-product-size-button {
+  height: 3vh;
+  width: 75px;
+  border: 1px solid #8a00b4;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1vh 1vh;
+}
+#admin-products .admin-products-container {
+  width: 100%;
+}
+@media (min-width: 992px) {
+  #admin-products .admin-products-container {
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 

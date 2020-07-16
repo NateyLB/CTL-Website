@@ -12,7 +12,12 @@ export const POST_PRODUCT_FAILURE = 'POST_PRODUCT_FAILURE';
 
 
 
-
+/**
+ * @desc takes a credentials and posts them to login endpoint, then takes JWT and stores
+ * it in localStorage and goes to /admin/tools
+ * @param credentials username and password
+ * @param match useHistory match object to go to /admin/tools
+ */
 //makes a call to backend api and returns a toekn on success
 export const login = (credentials, match) => dispatch => {
 
@@ -30,6 +35,10 @@ export const login = (credentials, match) => dispatch => {
         })
 }
 
+/**
+ * @desc posts a product to DB and then sends the response as a payload to productReducer
+ * @param product product object from from form
+ */
 export const postProduct = (product) => dispatch => {
     dispatch({ type: POST_PRODUCT_START });
     axiosWithAdminAuth()

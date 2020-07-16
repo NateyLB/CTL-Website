@@ -2,8 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom"
 import { useHistory } from 'react-router'
 
+/**
+ * @desc main nav bar for the site
+ * @param props not used
+ */
 const Nav = props =>{
     const match = useHistory();
+    
+    /**
+     * @desc go to /home
+     * @return boolean
+     */
     const pushHome =()=>{
         match.push('/home')
         return true

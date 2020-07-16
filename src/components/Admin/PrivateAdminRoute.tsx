@@ -5,6 +5,11 @@ import { Route, Redirect } from "react-router";
 // 2. It renders a <Route /> and passes all the props through to it.
 // 3. It checks if the user is authenticated, if they are, it renders
 // the “component” prop. If not, it redirects the user to /login.
+/**
+ * 
+ * @param component which component to render
+ * @param rest the rest of the params when PrivateRoute is called, path={} 
+ */
 const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
     <Route

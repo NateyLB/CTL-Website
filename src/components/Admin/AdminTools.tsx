@@ -7,7 +7,10 @@ import Nav from "./Nav";
 import Products from "./Products";
 
 
-
+/**
+ * @desc container for all of our admin tools
+ * @param props not used
+ */
 const AdminTools = props =>{
     const match = useHistory();
     useEffect(()=>{
@@ -23,6 +26,9 @@ const AdminTools = props =>{
         }
     },[])
 
+    /**
+     * @desc shows admin tools nav bar 
+     */
     const clickBars = ()=>{
         const adminNav = document.getElementById("admin-nav") as HTMLElement
         adminNav.style.visibility="visible";
@@ -39,7 +45,9 @@ const AdminTools = props =>{
         const adminContent = document.getElementById("admin-content") as HTMLDivElement
         adminContent.style.marginLeft=`${marginPercent}%`
     }
-
+    /**
+     * @desc hides admin tools nav bar
+     */
     const clickX = ()=>{
         const adminNav = document.getElementById("admin-nav") as HTMLElement
         adminNav.style.visibility="hidden";

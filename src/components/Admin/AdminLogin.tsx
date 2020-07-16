@@ -3,6 +3,10 @@ import { useHistory } from 'react-router';
 import { connect } from 'react-redux'; 
 import { login } from '../../actions/adminActions'
 
+/**
+ * 
+ * @param props actions from action store that posts login info to endpoint in API
+ */
 const AdminLogin = props => {
     const [credentials, setCredential] = useState({ username: '', password: '' })
     const match = useHistory();

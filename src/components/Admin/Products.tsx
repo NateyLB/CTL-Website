@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import AddProduct from './AddProduct';
-import Product from './Product';
+import Product from './ProductCard/Product';
 
 import { connect } from 'react-redux'; 
 import { getProducts } from '../../actions/productActions'
@@ -21,7 +21,9 @@ const Products = props =>{
                 Product Management
             </h1>
             <AddProduct/>
+            <div className="admin-products-container">
             {createProductCards()}
+            </div>
         </div>
     )
 }

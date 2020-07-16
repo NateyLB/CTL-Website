@@ -1,5 +1,8 @@
 import React from 'react'
-
+/**
+ * @desc the contace section in the landing page
+ * @param props not used
+ */
 const Contact = props =>{
     
     return(

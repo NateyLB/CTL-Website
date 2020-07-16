@@ -1,5 +1,9 @@
 import React from 'react'
 
+/**
+ * @desc the gallery of work in the landing page
+ * @param props not used
+ */
 const Gallery = props =>{
 
     return(

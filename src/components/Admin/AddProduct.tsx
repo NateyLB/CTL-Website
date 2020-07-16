@@ -37,12 +37,16 @@ const initialSize:Size ={
 
 
 
-
+/**
+ * @desc a form that collects product data and posts it to an enpoint in API
+ * @param props actions from the action store used to post the product to an endpoint in API
+ */
 const AddProduct = props => {
     const [product, setProduct] = useState(initialProductState)
     const [size, setSize] = useState(initialSize)
     let formData = new FormData()
 
+    //get total quantity on state change of product.sizes
     useEffect(()=>{
         let total = 0;
         product.sizes.forEach(size=>{
@@ -51,25 +55,28 @@ const AddProduct = props => {
         setProduct({...product, quantity: total})
     },[product.sizes])
 
+    /**
+     * @desc change handler for form, sets state on on change of form inputs
+     * @param event event object
+     */
     const changeHandler = event => {
         setProduct({
             ...product,
             [event.target.name]: event.target.name === 'type' || event.target.name === 'price'? parseInt(event.target.value): event.target.value
         })
     }
-
+    /**
+     * @desc shapes a size object to set to product state
+     * @param event event onbject
+     */
     const sizeHandler = event => {
         setSize({ ...size, [event.target.name]: event.target.name === 'quantity' ? parseInt(event.target.value) : event.target.value });
     }
-    const fileHandler = event =>{
-        if( event.target.files.length > 1){
-            Array.from(event.target.files).forEach((file, index) => {
-                formData.append('file', event.target.files[index])
-            });
-        }else{
-            formData.append('file',event.target.files[0])
-        }
-    }
+
+    /**
+     * @desc sets size object to product state
+     * @param event event object
+     */
     const addSize = event => {
         event.preventDefault();
         setProduct({ ...product, sizes: [...product.sizes, size] });
@@ -79,7 +86,24 @@ const AddProduct = props => {
         let formSizeQuantity = document.getElementById('form-size-quantity') as HTMLFormElement
         formSizeQuantity.value = 0;
     }
+    /**
+     * @desc handles setting the file to formData
+     * @param event event object
+     */
+    const fileHandler = event =>{
+        if( event.target.files.length > 1){
+            Array.from(event.target.files).forEach((file, index) => {
+                formData.append('file', event.target.files[index])
+            });
+        }else{
+            formData.append('file',event.target.files[0])
+        }
+    }
     
+    /**
+     * @desc posts the product to endpoint in API and clears product and form state
+     * @param event event object
+     */
     const submitProduct = event => {
         event.preventDefault();
         for(const key in product){

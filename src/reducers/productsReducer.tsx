@@ -52,7 +52,12 @@ export const initialState: State = {
   error: ""
 };
 
-//handles REGISTER actions, puts an auth token in local storage
+/**
+ * @desc 
+ * @param state state that is shared 
+ * @param action action from the store
+ */
+
 export const productsReducer = (state = initialState, action) => {
   switch (action.type) {
     case POST_PRODUCT_START: {

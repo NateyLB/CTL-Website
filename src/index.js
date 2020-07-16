@@ -10,7 +10,9 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 
 
-
+/**
+ * @set up router and redux
+ */
 export const store = createStore(rootReducer, applyMiddleware(thunk));
 
 

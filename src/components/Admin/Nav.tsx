@@ -1,6 +1,10 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 
+/**
+ * @desc admin nav bar
+ * @param props not used
+ */
 const Nav = props =>{
 
     return(

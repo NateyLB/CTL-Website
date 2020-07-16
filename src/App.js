@@ -11,6 +11,9 @@ import AdminLogin from './components/Admin/AdminLogin.tsx'
 import PrivateAdminRoute from './components/Admin/PrivateAdminRoute.tsx';
 import AdminTools from './components/Admin/AdminTools.tsx';
 
+/**
+ * @desc main app, contains all routes
+ */
 function App() {
 
   return (

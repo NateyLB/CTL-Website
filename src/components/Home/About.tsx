@@ -1,5 +1,9 @@
 import  React, { useEffect } from 'react';
 
+/**
+ * @desc the about section in the landing page
+ * @param props not used
+ */
 const About = props =>{
     useEffect(()=>{
         document.title="CausingTheLost"
