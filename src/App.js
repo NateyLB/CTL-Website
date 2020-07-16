@@ -1,4 +1,4 @@
-import  React, { useEffect } from 'react';
+import  React from 'react';
 import { Route } from 'react-router'
 import './App.css';
 

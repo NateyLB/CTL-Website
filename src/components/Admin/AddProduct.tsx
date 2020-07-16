@@ -160,7 +160,7 @@ const AddProduct = props => {
                 <Input type="number" name="quantity" id="form-size-quantity" placeholder="10" step="5" min='0' value={size.quantity} onChange={sizeHandler} />
                 <Button onClick={addSize}>+</Button>
                 {product.sizes.length > 0 ?
-                product.sizes.map(size =><p>Size: {size.size} Quantity: {size.quantity}</p>)
+                product.sizes.map(size =><p key={size.size}>Size: {size.size} Quantity: {size.quantity}</p>)
                  : null}
             </FormGroup>
          

@@ -5,13 +5,21 @@ import Carousel from './Carousel'
  * @param props product data from the shop page,
  */
 const Product = props =>{
+
+    const createSizeButtons = () =>{
+        const sizes = props.product.sizes.filter(size => size.quantity > 0)
+        return  sizes.map(size => {
+            return <div className="shop-product-size-button" key={size.size}>{size.size}</div> 
+        })
+    }
+
     return(
         <div className="shop-product-card">
             <div className="shop-product-info">
             <h1 className="shop-product-name">{props.product.name}</h1>
-            <p className="shop-product-descriptipn">{props.product.description}</p>
-            <p><h2>Color</h2>  {props.product.color}</p>
-            <p><h2>Price</h2>  {props.product.price}</p>
+            <div className="shop-product-descriptipn">{props.product.description}</div>
+            <div><h2>Color</h2>  {props.product.color}</div>
+            <div><h2>Price</h2>  {props.product.price}</div>
             {/* <label htmlFor="sizes">
                 <select name="sizes">
                     {props.product.sizes.map(size => {
@@ -22,9 +30,7 @@ const Product = props =>{
             <div className="shop-product-sizes">
                     <h2>Sizes</h2>
                     <div className="shop-product-size-button-container">
-                    {props.product.sizes.map(size => {
-                        return <div className="shop-product-size-button">{size.size}</div> 
-                    })}
+                    {createSizeButtons()}
                     </div>
             </div>
             </div>

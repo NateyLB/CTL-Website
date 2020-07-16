@@ -6,7 +6,7 @@ import React, { useState} from 'react'
 const Carousel = props => {
     const [index, setIndex] = useState(0)
     const next = () =>{
-        if (index != props.img_urls.length - 1){
+        if (index !== props.img_urls.length - 1){
             setIndex(currIndex => currIndex + 1)
         }
     }

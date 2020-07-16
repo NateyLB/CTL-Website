@@ -7,7 +7,7 @@ import React, { useState} from 'react'
 const Carousel = props => {
     const [index, setIndex] = useState(0)
     const next = () =>{
-        if (index != props.img_urls.length - 1){
+        if (index !== props.img_urls.length - 1){
             setIndex(currIndex => currIndex + 1)
         }
     }
@@ -17,7 +17,6 @@ const Carousel = props => {
             setIndex(currIndex => currIndex - 1)
         }
     }
-    console.log(index)
     return(
         <div className='carousel'>
             <img src={props.img_urls[index].img_url} alt={props.img_urls[index]}/>

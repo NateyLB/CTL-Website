@@ -12,15 +12,15 @@ const Product = props =>{
         <div className="admin-product-card">
             <div className="admin-product-info">
             <h3 className="admin-product-name">{props.product.name}</h3>
-            <p className="admin-product-descriptip]on">{props.product.description}</p>
-            <p><h2>Color:</h2> {props.product.color}</p>
-            <p><h2>Price:</h2> {props.product.price}</p>
-            <p><h2>Total in stock:</h2> {props.product.quantity}</p>
+            <div className="admin-product-descriptip]on">{props.product.description}</div>
+            <div><h2>Color:</h2> {props.product.color}</div>
+            <div><h2>Price:</h2> {props.product.price}</div>
+            <div><h2>Total in stock:</h2> {props.product.quantity}</div>
             <div className="admin-product-sizes">
                 <h2>Sizes</h2>
                 <div className="admin-product-size-button-container">
                 {props.product.sizes.map(size => {
-                        return <div className="admin-product-size-button">{size.size}: {size.quantity}</div> 
+                        return <div className="admin-product-size-button" key={size.size}>{size.size}: {size.quantity}</div> 
                     })}
                 </div>
             </div>

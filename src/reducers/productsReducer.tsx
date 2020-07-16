@@ -1,4 +1,3 @@
-import { LOCATION_CHANGE } from 'react-router-redux'
 
 import {
   POST_PRODUCT_START,
@@ -41,6 +40,7 @@ interface Product {
 }
 
 interface Products extends Array<Product> { }
+
 interface State {
   loading: boolean,
   products: Products,

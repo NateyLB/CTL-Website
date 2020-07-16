@@ -1,5 +1,4 @@
 import { axiosWithAdminAuth } from '../utils/axiosWithAdminAuth';
-import { axiosBase } from '../utils/axiosBase'
 
 export const POST_LOGIN_START = 'POST_LOGIN_START';
 export const POST_LOGIN_SUCCESS = 'POST_LOGIN_SUCCESS';

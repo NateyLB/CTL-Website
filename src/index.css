@@ -179,15 +179,20 @@ header {
 #shop .shop-product-card .shop-product-info h1 {
   margin: 0;
 }
-#shop .shop-product-card .shop-product-info p {
+#shop .shop-product-card .shop-product-info div {
   display: flex;
   align-items: center;
   margin: 0;
   height: fit-content;
 }
-#shop .shop-product-card .shop-product-info p h2 {
+#shop .shop-product-card .shop-product-info div h2 {
   margin: 0;
   margin-right: 10px;
+}
+#shop .shop-product-card .shop-product-info .shop-product-sizes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 #shop .shop-product-card .shop-product-info .shop-product-sizes h2 {
   margin: 0;
@@ -205,11 +210,11 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 1vh;
+  margin: 1vh 8px;
 }
 @media (min-width: 1200px) {
   #shop .shop-product-card .shop-product-info .shop-product-sizes .shop-product-size-button-container .shop-product-size-button {
-    height: 5vh;
+    height: 4vh;
   }
 }
 #shop .shop-products-container {
@@ -406,7 +411,9 @@ header {
 }
 @media (min-width: 992px) {
   #admin-products .admin-product-card {
-    width: 50%;
+    width: 45%;
+    margin: 2vh 2%;
+    justify-content: space-between;
   }
 }
 #admin-products .admin-product-card .admin-product-info {
@@ -414,13 +421,13 @@ header {
   flex-direction: column;
   justify-content: space-evenly;
 }
-#admin-products .admin-product-card .admin-product-info p {
+#admin-products .admin-product-card .admin-product-info div {
   display: flex;
   align-items: center;
   margin: 0;
   height: fit-content;
 }
-#admin-products .admin-product-card .admin-product-info p h2 {
+#admin-products .admin-product-card .admin-product-info div h2 {
   margin: 0;
   margin-right: 10px;
 }
@@ -441,6 +448,11 @@ header {
   align-items: center;
   justify-content: center;
   margin: 1vh 1vh;
+}
+@media (min-width: 1200px) {
+  #admin-products .admin-product-card .admin-product-info .admin-product-sizes .admin-product-size-button-container .admin-product-size-button {
+    height: 5vh;
+  }
 }
 #admin-products .admin-products-container {
   width: 100%;
