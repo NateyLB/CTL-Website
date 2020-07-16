@@ -30,6 +30,7 @@ header {
   width: 100%;
   overflow: hidden;
   background-color: #8a00b4;
+  z-index: 1;
 }
 @media (min-width: 1200px) {
   header {

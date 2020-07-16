@@ -48,6 +48,7 @@ body {
     width: 100%;
     overflow: hidden;
     background-color: $purple;
+    z-index: 1;
 
     @media #{$xlarge}{
       height: 8vh;
