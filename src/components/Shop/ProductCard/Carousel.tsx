@@ -21,8 +21,8 @@ const Carousel = props => {
         <div className='carousel'>
             <img src={props.img_urls[index].img_url} alt={props.img_urls[index]}/>
             <div className="carousel-arrows">
-            <h2 onClick={prev} style={index > 0 ? {visibility:"visible"} : {visibility: "hidden"}}> {'<'} </h2>
-            <h2 onClick={next} style={index < props.img_urls.length - 1 ? {visibility:"visible"} : {visibility: "hidden"}}> {'>'} </h2>
+            <button onClick={prev} style={index > 0 ? {visibility:"visible"} : {visibility: "hidden"}}> {'<'} </button>
+            <button onClick={next} style={index < props.img_urls.length - 1 ? {visibility:"visible"} : {visibility: "hidden"}}> {'>'} </button>
             </div>
         </div>
     )

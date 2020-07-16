@@ -258,10 +258,19 @@ header {
   align-items: center;
   width: 70%;
 }
-.carousel .carousel-arrows h2 {
-  color: #8a00b4;
+@media (min-width: 1200px) {
+  .carousel .carousel-arrows {
+    bottom: 15vh;
+  }
 }
-.carousel .carousel-arrows h2:hover {
+.carousel .carousel-arrows button {
+  color: #8a00b4;
+  border: hidden;
+  background-color: transparent;
+  font-size: 2rem;
+  font-family: "Tenali Ramakrishna", sans-serif;
+}
+.carousel .carousel-arrows button:hover {
   color: black;
 }
 

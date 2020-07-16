@@ -287,9 +287,16 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 70%;
+    @media #{$xlarge} {
+      bottom: 15vh;
+    }
 
-    h2{
+    button{
       color: $purple;
+      border: hidden;
+      background-color: transparent;
+      font-size: 2rem;
+      font-family: $text-font;
 
       &:hover{
         color: black;
