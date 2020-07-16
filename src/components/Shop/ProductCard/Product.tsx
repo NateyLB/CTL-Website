@@ -12,13 +12,16 @@ const Product = props =>{
             return <div className="shop-product-size-button" key={size.size}>{size.size}</div> 
         })
     }
+    const colorStyle = {
+        color: props.product.color
+    }
 
     return(
         <div className="shop-product-card">
             <div className="shop-product-info">
             <h1 className="shop-product-name">{props.product.name}</h1>
             <div className="shop-product-descriptipn">{props.product.description}</div>
-            <div><h2>Color</h2>  {props.product.color}</div>
+            <div><h2>Color</h2>  <p style={colorStyle}>{props.product.color}</p></div>
             <div><h2>Price</h2>  {props.product.price}</div>
             {/* <label htmlFor="sizes">
                 <select name="sizes">
