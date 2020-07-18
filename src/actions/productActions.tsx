@@ -4,6 +4,8 @@ export const GET_PRODUCT_START = 'GET_PRODUCT_START';
 export const GET_PRODUCT_SUCCESS = 'GET_PRODUCT_SUCCESS';
 export const GET_PRODUCT_FAILURE = 'GET_PRODUCT_FAILURE';
 
+
+
 /**
  * @desc gets all products in DB and sends as a payload to productsReducer
  */
@@ -21,3 +23,4 @@ export const getProducts = () => dispatch => {
             dispatch({type: GET_PRODUCT_FAILURE, payload: err})
          })
 }
+

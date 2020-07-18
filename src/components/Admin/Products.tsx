@@ -11,9 +11,8 @@ const Products = props =>{
             props.getProducts()
         }
     },[])
-    console.log(props.products)
     const createProductCards = () =>{
-        return (props.products.products.map(product => <Product key={product.product_id} product={product}/>))
+        return (props.products.products.map((product, index) => <Product key={product.product_id} product={product} index={index}/>))
     }
     return (
         <div id="admin-products">

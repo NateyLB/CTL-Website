@@ -6,6 +6,7 @@ import { postProduct } from '../../actions/adminActions'
 
 interface Size{
     size: string,
+    color: string,
     quantity: number
 }
 interface Sizes extends Array<Size>{}
@@ -14,8 +15,7 @@ interface Product{
     name: string,
     type: number,
     description: string,
-    color: string,
-    sizes: Sizes
+    sizes: Sizes,
     price: number,
     quantity: number
 }
@@ -24,7 +24,6 @@ const initialProductState:Product = {
     name: '',
     type: 1,
     description: '',
-    color: '',
     sizes: [],
     price: 0,
     quantity: 0,
@@ -32,6 +31,7 @@ const initialProductState:Product = {
 
 const initialSize:Size ={
     size:'',
+    color:'',
     quantity: 0
 }
 
@@ -80,9 +80,11 @@ const AddProduct = props => {
     const addSize = event => {
         event.preventDefault();
         setProduct({ ...product, sizes: [...product.sizes, size] });
-        setSize({ size: '', quantity: 0 });
+        setSize({ size: '', color:'', quantity: 0 });
         let formSize = document.getElementById('form-size' ) as HTMLFormElement
         formSize.value = '';
+        let formSizeColor = document.getElementById('form-size-color') as HTMLFormElement
+        formSizeColor.value = ''
         let formSizeQuantity = document.getElementById('form-size-quantity') as HTMLFormElement
         formSizeQuantity.value = 0;
     }
@@ -149,18 +151,16 @@ const AddProduct = props => {
                 <Label for="price">Price</Label>
                 <Input type="number" name="price" id="form-price" placeholder="140" step="20" min="0" value={product.price} onChange={changeHandler} />
             </FormGroup>
-            <FormGroup>
-                <Label for="color">Color</Label>
-                <Input type="text" name="color" id="form-color" placeholder="Blue" value={product.color} onChange={changeHandler} />
-            </FormGroup>
             <FormGroup id="size-group">
                 <Label for="size">Size</Label>
                 <Input type="text" name="size" id="form-size" placeholder="7 5/8" value={size.size} onChange={sizeHandler} />
+                <Label for="color">Color </Label>
+                <Input type="text" name="color" id="form-size-color" placeholder="Blue" onChange={sizeHandler} />
                 <Label for="quantity">Quantity</Label>
                 <Input type="number" name="quantity" id="form-size-quantity" placeholder="10" step="5" min='0' value={size.quantity} onChange={sizeHandler} />
                 <Button onClick={addSize}>+</Button>
                 {product.sizes.length > 0 ?
-                product.sizes.map(size =><p key={size.size}>Size: {size.size} Quantity: {size.quantity}</p>)
+                product.sizes.map(size =><p key={size.size + size.color + size.quantity}>Size: {size.size} Color: {size.color} Quantity: {size.quantity}</p>)
                  : null}
             </FormGroup>
          

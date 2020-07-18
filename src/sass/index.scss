@@ -177,7 +177,7 @@ body {
 #shop{
   padding-top: 17.5vh;
   margin-top: -7.5vh;
-  font-size: 1rem;
+  font-size: 1.25rem;
   .title{
     font-family: $title-font;
     font-size: 1.75rem;
@@ -188,7 +188,6 @@ body {
     // border: 1px solid black;
     display: flex;
     margin: 2vh 0;
-    width: 100%;
 
     @media #{$large}{
       width: 45%;
@@ -201,8 +200,12 @@ body {
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
+      width: 100%;
       h1{
         margin: 0;
+      }
+      .shop-product-description{
+        width:95%;
       }
       div{
         display: flex;
@@ -212,6 +215,15 @@ body {
         h2{
           margin:0;
           margin-right: 10px;
+        }
+      }
+
+      .shop-product-colors{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        h2{
+          margin:0;
         }
       }
 
@@ -239,6 +251,10 @@ body {
               height: 4vh;
             }
           }
+
+          .shop-product-color-button{
+            border: 1px solid black;
+          }
         }
       }
 
@@ -258,7 +274,7 @@ body {
   }
 }
 
-//CAROUSEL
+//SHOP - CAROUSEL
 .carousel{
   position: relative;
   height: 25vh;
@@ -378,6 +394,7 @@ body {
   background-color: $purple;
   visibility: hidden;
   margin-top:-4vh;
+  z-index: 1;
 
   @media #{$xlarge}{
     width: 10%;
@@ -412,14 +429,15 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font-size: 1rem;
+  font-size: 1.25rem;
+  width: 100%;
   h1{
     font-family: $title-font;
     font-size: 1.75rem;
     text-align: center;
   }
   //ADD PRODUCT FORM
-  form{
+  #add-product{
     border: 1px solid black;
     border-radius: 5px;
     height: 60vh;
@@ -472,18 +490,37 @@ body {
     width:100%;
     display: flex;
     margin: 2vh 0;
+    position: relative;
 
     @media #{$large}{
       width: 45%;
       margin: 2vh 2%;
       justify-content: space-between;
     }
+   
+      #name{
+        width:50%
+      }
+      textarea{
+        width:280px;
+        height: 43px;
+      }
+      
 
     
     .admin-product-info{
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
+      width: 100%;
+
+      .price-input{
+        width:40px;
+      }
+
+      .admin-product-description{
+        width:100%;
+      }
 
       div{
         display:flex;
@@ -497,33 +534,87 @@ body {
         }
       }
      
-      .admin-product-sizes{
+      .admin-product-stock{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         h2{
           margin:0;
         }
 
-        .admin-product-size-button-container{
+        .admin-product-stock-container{
           display: flex;
           margin-bottom: 2vh;
           flex-wrap: wrap;
-          .admin-product-size-button{
-            height: 3vh;
-            width: 75px;
+          width: 100%;
+          .admin-product-stock-form-container{
+            position: relative;
+            display:flex;
+            flex-direction: column;
             border: 1px solid $purple;
-            border-radius: 7px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 1vh 1vh;
-            // color:$purple
+            border-radius: 5px;
+            margin:4px 2%;
+            width:25%;
+            height:10vh;
+
             @media #{$xlarge} {
-              height: 5vh;
+              width: 15%;
+              height: 12vh;
+            }
+            input{
+              width: 85%;
+              border:gray;
+            }
+
+            .admin-size-edit-icon{
+              position: absolute;
+              left: 60px;
+              font-size: .9rem;
+              color: $purple;
+              
+              @media #{$xlarge} {
+                left:50px;
+              }
+
+              &:hover{
+                color: black;
+              }
+            }
+
+            .save-size{
+              position: absolute;
+              bottom: 4px;
+              left: 5px;
+            }
+          }
+          .admin-product-stock-data-container{
+            display:flex;
+            flex-direction: column;
+            border: 1px solid $purple;
+            border-radius: 5px;
+            margin:4px 2%;
+            // padding: 1%;
+            p{
+              margin:-5px 0;
             }
           }
         }
       }
     }
+    .admin-product-edit-icon{
+      position: absolute;
+      color: $purple;
+
+      &:hover{
+        color: black;
+      }
+    }
+
+    .submit{
+      width:30%;
+    }
   }
+
 
   //ADMIN PRODUCTS CONTAINER
   .admin-products-container{

@@ -8,6 +8,10 @@ export const POST_PRODUCT_START = 'POST_PRODUCT_START';
 export const POST_PRODUCT_SUCCESS = 'POST_PRODUCT_SUCCESS';
 export const POST_PRODUCT_FAILURE = 'POST_PRODUCT_FAILURE';
 
+export const UPDATE_PRODUCT_START = 'UPDATE_PRODUCT_START';
+export const UPDATE_PRODUCT_SUCCESS = 'UPDATE_PRODUCT_SUCCESS';
+export const UPDATE_PRODUCT_FAILURE = 'UPDATE_PRODUCT_FAILURE';
+
 
 
 
@@ -55,5 +59,23 @@ export const postProduct = (product) => dispatch => {
         })
 }
 
+/**
+ * @desc updates product information in DB and send updated product as payload to productsReducer
+ */
+
+export const updateProduct = (product, index) => dispatch => {
+    dispatch({type: UPDATE_PRODUCT_START});
+       axiosWithAdminAuth()
+       .post(`/products/${product.product_id}`, product)
+       .then(res => {
+           console.log(res)
+           dispatch({ type: UPDATE_PRODUCT_SUCCESS, payload: {product: res.data, index: index} })
+           alert("Successfully updated product.")
+       })
+       .catch(err => {
+           console.log(err)
+           dispatch({type: UPDATE_PRODUCT_FAILURE, payload: err})
+        })
+}
 
 
