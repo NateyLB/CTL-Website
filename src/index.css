@@ -69,9 +69,11 @@ header {
 .nav a:hover {
   color: white;
 }
-.nav .logo {
+
+.logo {
   animation: logo-rotate 1s both infinite;
 }
+
 @keyframes logo-rotate {
   0% {
     transform: rotateY(0);
@@ -83,7 +85,6 @@ header {
     transform: rotateY(0deg);
   }
 }
-
 .body-content {
   margin-top: 15vh;
 }
@@ -163,12 +164,14 @@ header {
 #shop .shop-product-card {
   display: flex;
   margin: 2vh 0;
+  padding-left: 1%;
 }
 @media (min-width: 992px) {
   #shop .shop-product-card {
     width: 45%;
     margin: 2vh 2%;
     justify-content: space-between;
+    padding: 0;
   }
 }
 #shop .shop-product-card .shop-product-info {
@@ -234,6 +237,20 @@ header {
 }
 #shop .shop-products-container {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#shop .shop-products-container .loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#shop .shop-products-container .loading-container .loading {
+  width: 10%;
+  height: 10vh;
 }
 @media (min-width: 992px) {
   #shop .shop-products-container {
@@ -287,6 +304,9 @@ header {
 }
 .carousel .carousel-arrows button:hover {
   color: black;
+}
+.carousel .delete-image {
+  color: red;
 }
 
 #admin-login {
@@ -435,6 +455,7 @@ header {
   display: flex;
   margin: 2vh 0;
   position: relative;
+  padding-left: 1%;
 }
 @media (min-width: 992px) {
   #admin-products .admin-product-card {

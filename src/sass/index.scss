@@ -86,23 +86,23 @@ body {
             &:hover{
               color: white;
             }
-        }
+        }   
+}
+//class for rotating logo
+.logo{
+  animation:logo-rotate 1s both infinite;
+}
 
-        .logo{
-          animation:logo-rotate 1s both infinite;
-        }
-
-        @keyframes logo-rotate{
-          0% {
-            transform: rotateY(0);
-          }
-          50%{
-            transform: rotateY(180deg);
-          }
-          100%{
-            transform: rotateY(0deg);
-          }
-        }
+@keyframes logo-rotate{
+  0% {
+    transform: rotateY(0);
+  }
+  50%{
+    transform: rotateY(180deg);
+  }
+  100%{
+    transform: rotateY(0deg);
+  }
 }
 
 .body-content{
@@ -178,21 +178,25 @@ body {
   padding-top: 17.5vh;
   margin-top: -7.5vh;
   font-size: 1.25rem;
+
   .title{
     font-family: $title-font;
     font-size: 1.75rem;
     text-align: center;
   }
 
+
   .shop-product-card{
     // border: 1px solid black;
     display: flex;
     margin: 2vh 0;
+    padding-left: 1%;
 
     @media #{$large}{
       width: 45%;
       margin: 2vh 2%;
       justify-content: space-between;
+      padding: 0;
     }
 
 
@@ -266,6 +270,25 @@ body {
 
   .shop-products-container{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .loading-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .loading{
+        width: 10%;
+        height: 10vh;
+      }
+
+    }
+
+    
 
     @media #{$large} {
       display: flex;
@@ -319,8 +342,14 @@ body {
         color: black;
       }
     }
-
   }
+      .delete-image{
+        color:red;
+        // position: absolute;
+        // bottom: 60px;
+      }
+
+  
 }
 
 //ADMIN
@@ -491,6 +520,7 @@ body {
     display: flex;
     margin: 2vh 0;
     position: relative;
+  padding-left: 1%;
 
     @media #{$large}{
       width: 45%;

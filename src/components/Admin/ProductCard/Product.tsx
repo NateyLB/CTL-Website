@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux'; 
-import Carousel from './Carousel'
+import Carousel from '../../Shop/ProductCard/Carousel'
 import  { updateProduct } from '../../../actions/adminActions'
 
 interface Size{
@@ -86,6 +86,7 @@ const Product = props => {
         event.preventDefault()
         props.updateProduct(product, index)
     }
+    console.log(edit)
     return (
         edit == false ? <div className="admin-product-card">
             <div className="admin-product-info">

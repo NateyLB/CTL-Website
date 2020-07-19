@@ -44,6 +44,7 @@ const Carousel = props => {
         console.log(order, "ordered")
         return ordered
     }
+    console.log(props.edit)
 
     return (
         <div className='carousel'>
@@ -52,6 +53,7 @@ const Carousel = props => {
                 <button onClick={prev} style={index > 0 ? { visibility: "visible" } : { visibility: "hidden" }}> {'<'} </button>
                 <button onClick={next} style={index < props.img_urls.length - 1 ? { visibility: "visible" } : { visibility: "hidden" }}> {'>'} </button>
             </div>
+            {props.edit ? <div className="delete-image">DELETE</div>: null }
         </div>
     )
 }
