@@ -288,7 +288,7 @@ header {
   bottom: 10vh;
   justify-content: space-between;
   align-items: center;
-  width: 70%;
+  width: 100%;
 }
 @media (min-width: 1200px) {
   .carousel .carousel-arrows {
@@ -301,6 +301,7 @@ header {
   background-color: transparent;
   font-size: 2rem;
   font-family: "Tenali Ramakrishna", sans-serif;
+  padding: 0;
 }
 .carousel .carousel-arrows button:hover {
   color: black;

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import AddProduct from './AddProduct';
-import Product from './ProductCard/Product';
+import Product from './Product';
 
 import { connect } from 'react-redux'; 
 import { getProducts } from '../../actions/productActions'

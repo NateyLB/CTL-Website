@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'; 
+import  { deleteImg } from '../../../actions/adminActions'
+
 
 
 /**
@@ -7,16 +10,18 @@ import React, { useState } from 'react'
  */
 const Carousel = props => {
     const [index, setIndex] = useState(0)
-    const next = () => {
+    const next = event => {
+        event.preventDefault();
         if (index !== props.img_urls.length - 1) {
             setIndex(currIndex => currIndex + 1)
-        }
+        };
     }
 
-    const prev = () => {
+    const prev = event => {
+        event.preventDefault();
         if (index > 0) {
             setIndex(currIndex => currIndex - 1)
-        }
+        };
     }
 
 
@@ -40,22 +45,28 @@ const Carousel = props => {
         })
         order.sort(sortFunction)
         const ordered = order.map(img_url => img_url[1])
-        console.log(props.img_urls)
-        console.log(order, "ordered")
         return ordered
     }
-    console.log(props.edit)
+    const images = getOrderedImgs()
 
     return (
         <div className='carousel'>
-            <img src={getOrderedImgs()[index]} alt={props.img_urls[index]} />
+            <img src={images[index]} alt={props.img_urls[index]} />
             <div className="carousel-arrows">
-                <button onClick={prev} style={index > 0 ? { visibility: "visible" } : { visibility: "hidden" }}> {'<'} </button>
-                <button onClick={next} style={index < props.img_urls.length - 1 ? { visibility: "visible" } : { visibility: "hidden" }}> {'>'} </button>
+                <button onClick={event => prev(event)} style={index > 0 ? { visibility: "visible" } : { visibility: "hidden" }}> {'<'} </button>
+                <button onClick={event => next(event)} style={index < props.img_urls.length - 1 ? { visibility: "visible" } : { visibility: "hidden" }}> {'>'} </button>
             </div>
-            {props.edit ? <div className="delete-image">DELETE</div>: null }
+            {props.edit == false ? null : <div className="delete-image" onClick={() => props.deleteImg(images[index], props.img_urls[0].product_id, props.index)}>DELETE</div> }
         </div>
     )
 }
 
-export default Carousel
+const mapStateToProps = state => {
+    return {
+    };
+  };
+  
+  export default connect(
+  mapStateToProps,
+  {deleteImg}
+  )(Carousel)

@@ -5,7 +5,10 @@ import {
   POST_PRODUCT_FAILURE,
   UPDATE_PRODUCT_START,
   UPDATE_PRODUCT_SUCCESS,
-  UPDATE_PRODUCT_FAILURE
+  UPDATE_PRODUCT_FAILURE,
+  DELETE_IMG_START,
+  DELETE_IMG_SUCCESS,
+  DELETE_IMG_FAILURE
 } from '../actions/adminActions'
 
 import {
@@ -111,6 +114,27 @@ export const productsReducer = (state = initialState, action) => {
       console.log("UPDATE_PRODUCT_FAILURE")
       return { ...state, loading: false, error: action.payload } 
     }
+
+    case DELETE_IMG_START: {
+      console.log("DELETE_IMG_START")
+      return { ...state, loading: true }
+    }
+
+    case DELETE_IMG_SUCCESS: {
+      console.log("DELETE_IMG_SUCCESS")
+      console.log(action.payload)
+      const productsCopy = JSON.parse(JSON.stringify(state.products));
+      productsCopy[action.payload.index].img_urls = action.payload.imgs
+      console.log(productsCopy[action.payload.index])
+      return {...state, loading:false, products: productsCopy}
+    }
+
+    // case DELETE_IMG_FAILURE: {
+    //   console.log("DELETE_IMG_FAILURE")
+    //   return { ...state, loading: false, error: action.payload } 
+    // }
+
+    
 
     default:
       return state;

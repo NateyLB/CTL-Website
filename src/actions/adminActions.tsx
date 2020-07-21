@@ -12,6 +12,10 @@ export const UPDATE_PRODUCT_START = 'UPDATE_PRODUCT_START';
 export const UPDATE_PRODUCT_SUCCESS = 'UPDATE_PRODUCT_SUCCESS';
 export const UPDATE_PRODUCT_FAILURE = 'UPDATE_PRODUCT_FAILURE';
 
+export const DELETE_IMG_START = 'DELETE_IMG_START';
+export const DELETE_IMG_SUCCESS = 'DELETE_IMG_SUCCESS';
+export const DELETE_IMG_FAILURE = 'DELETE_IMG_FAILURE';
+
 
 
 
@@ -76,6 +80,21 @@ export const updateProduct = (product, index) => dispatch => {
            console.log(err)
            dispatch({type: UPDATE_PRODUCT_FAILURE, payload: err})
         })
+}
+
+export const deleteImg = (img_url, product_id, index) => dispatch => {
+    dispatch({type:DELETE_IMG_START});
+    axiosWithAdminAuth()
+    .post(`/products/${product_id}/images`, {img_url: img_url})
+    .then(res => {
+        console.log(res)
+        dispatch({type: DELETE_IMG_SUCCESS, payload:{ imgs: res.data, index: index} })
+    })
+    .catch(err => {
+        console.log(err)
+        dispatch({type: DELETE_IMG_FAILURE, payload: err})
+    })
+
 }
 
 

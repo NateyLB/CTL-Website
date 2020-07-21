@@ -55,7 +55,7 @@ const Product = props =>{
                     </div>
             </div>
             </div>
-            <Carousel key={`Carousel${props.product.product_id}`} img_urls={props.product.img_urls}/>
+            <Carousel key={`Carousel${props.product.product_id}`} img_urls={props.product.img_urls} edit={false}/>
         </div>
     )
 }

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { connect } from 'react-redux'; 
-import Carousel from '../../Shop/ProductCard/Carousel'
-import  { updateProduct } from '../../../actions/adminActions'
+import Carousel from '../Shop/ProductCard/Carousel'
+import  { updateProduct } from '../../actions/adminActions'
 
 interface Size{
     size: string,
@@ -39,10 +39,8 @@ const Product = props => {
     const [sizes, setSizes] = useState(edits);
     const [editSizes, setEditSizes] = useState(edits);
     const [sizeToEdit, setSizeToEdit] = useState(initialSize);
-
-    // useEffect(()=>{
-    
-    // },[product.sizes])
+    const editRef = useRef(edit)
+    editRef.current = edit;
 
     const toggleEditSize =(index) => {
         const editSizesCopy = JSON.parse(JSON.stringify(edits));
@@ -86,7 +84,6 @@ const Product = props => {
         event.preventDefault()
         props.updateProduct(product, index)
     }
-    console.log(edit)
     return (
         edit == false ? <div className="admin-product-card">
             <div className="admin-product-info">
@@ -103,7 +100,7 @@ const Product = props => {
                 </div>
                 <div><h2>Total in stock:</h2> {props.product.quantity}</div>
             </div>
-            <Carousel key={`Carousel${props.product.product_id}`} img_urls={props.product.img_urls} edit={edit} />
+            <Carousel key={`Carousel${props.product.product_id}`} img_urls={props.product.img_urls} edit={edit} index={props.index}/>
             <i className="far fa-edit admin-product-edit-icon" onClick={toggleEdit}></i>
         </div> :
             <form className="admin-product-card">
@@ -138,7 +135,7 @@ const Product = props => {
                     <div><h2>Total in stock:</h2> {product.quantity}</div>
                     <button className="submit" onClick={event=> updateProduct(event, props.index)}> Submit </button>
                 </div>
-                <Carousel key={`Carousel${props.product.product_id}`} img_urls={props.product.img_urls} delete={edit} />
+                <Carousel key={`Carousel${props.product.product_id}`} img_urls={props.product.img_urls} delete={edit} index={props.index} />
                 <i className="fas fa-times admin-product-edit-icon"  onClick={toggleEdit}></i>
             </form>
     )
