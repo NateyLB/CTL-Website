@@ -22,7 +22,6 @@ const Shop = props =>{
         }
         
     },[])
-
     /**
      * @desc create product cards
      */
@@ -33,7 +32,7 @@ const Shop = props =>{
         <section id='shop'>
             <h1 className="title">Shop</h1>
             <div className='shop-products-container'>
-            {props.products.isLoading ? <div className="loading-container"><img className='logo loading' src={require('../../resources/favicon_io_transparent/android-chrome-512x512.png')} alt="CausingTheLost.logo"></img><p>Loading...</p></div> : createProductCards()}
+            {props.products.loading  ? <div className="loading-container"><img className='logo loading' src={require('../../resources/favicon_io_transparent/android-chrome-512x512.png')} alt="CausingTheLost.logo"></img><p>Loading...</p></div> : createProductCards()}
 
             </div>
         </section>
