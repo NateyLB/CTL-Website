@@ -2,14 +2,14 @@ import  React from 'react';
 import { Route } from 'react-router'
 import './App.css';
 
-import Nav from './components/Nav.tsx';
-import About from './components/Home/About.tsx';
-import Gallery from './components/Home/Gallery.tsx';
-import Contact from './components/Home/Contact.tsx';
-import Shop from './components/Shop/Shop.tsx';
-import AdminLogin from './components/Admin/AdminLogin.tsx'
-import PrivateAdminRoute from './components/Admin/PrivateAdminRoute.tsx';
-import AdminTools from './components/Admin/AdminTools.tsx';
+import Nav from './components/Nav';
+import About from './components/Home/About';
+import Gallery from './components/Home/Gallery';
+import Contact from './components/Home/Contact';
+import Shop from './components/Shop/Shop';
+import AdminLogin from './components/Admin/AdminLogin'
+import PrivateAdminRoute from './components/Admin/PrivateAdminRoute';
+import AdminTools from './components/Admin/AdminTools';
 
 /**
  * @desc main app, contains all routes

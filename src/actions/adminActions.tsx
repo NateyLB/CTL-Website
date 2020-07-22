@@ -70,7 +70,7 @@ export const postProduct = (product) => dispatch => {
 export const updateProduct = (product, index) => dispatch => {
     dispatch({type: UPDATE_PRODUCT_START});
        axiosWithAdminAuth()
-       .post(`/products/${product.product_id}`, product)
+       .put(`/products/${product.product_id}`, product)
        .then(res => {
            console.log(res)
            dispatch({ type: UPDATE_PRODUCT_SUCCESS, payload: {product: res.data, index: index} })
