@@ -186,15 +186,26 @@ body {
   }
 
 
+.product-link{
+  width: 95%;
+  text-decoration: none;
+  color: black;
+  margin: 2vh 0;
+
+
+  @media #{$large}{
+    width: 45%;
+    margin: 2vh 2%;
+    justify-content: space-between;
+    padding: 0;
+  }
+
   .shop-product-card{
     // border: 1px solid black;
     display: flex;
     margin: 2vh 0;
-    padding-left: 1%;
 
     @media #{$large}{
-      width: 45%;
-      margin: 2vh 2%;
       justify-content: space-between;
       padding: 0;
     }
@@ -251,6 +262,7 @@ body {
             align-items: center;
             justify-content: center;
             margin: 1vh 8px;
+            padding-top: 7%;
             @media #{$xlarge} {
               height: 4vh;
             }
@@ -265,6 +277,7 @@ body {
      
     }
   }
+}
 
   //SHOP PRODUCTS CONTAINER
 
@@ -294,6 +307,7 @@ body {
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
+      justify-content: flex-start;
     }
   }
 }

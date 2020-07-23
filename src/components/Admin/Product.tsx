@@ -82,7 +82,7 @@ const Product = props => {
 
     const updateProduct = (event, index) => {
         event.preventDefault()
-        props.updateProduct(product, index)
+        props.updateProduct(product, index, toggleEdit)
     }
     return (
         edit == false ? <div className="admin-product-card">

@@ -26,7 +26,7 @@ function App() {
         <Gallery/>
         <Contact/>
       </Route>
-      <Route exact path="/shop">
+      <Route path="/shop">
         <Shop/>
       </Route>
       <Route exact path="/admin">

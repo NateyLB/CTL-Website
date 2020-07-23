@@ -67,13 +67,14 @@ export const postProduct = (product) => dispatch => {
  * @desc updates product information in DB and send updated product as payload to productsReducer
  */
 
-export const updateProduct = (product, index) => dispatch => {
+export const updateProduct = (product, index, toggleEdit) => dispatch => {
     dispatch({type: UPDATE_PRODUCT_START});
        axiosWithAdminAuth()
        .put(`/products/${product.product_id}`, product)
        .then(res => {
            console.log(res)
            dispatch({ type: UPDATE_PRODUCT_SUCCESS, payload: {product: res.data, index: index} })
+           toggleEdit()
            alert("Successfully updated product.")
        })
        .catch(err => {
