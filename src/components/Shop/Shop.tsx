@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router';
 import { Link } from 'react-router-dom';
-import Product from './ProductCard/ProductCard';
+import ProductCard from './ProductCard/ProductCard';
+import Product from './Product'
 
 import { getProducts } from '../../actions/productActions';
 
@@ -28,10 +29,10 @@ const Shop = props => {
      * @desc create product cards
      */
     const createProductCards = () => {
-        return (props.products.products.map(product => {
+        return (props.products.products.map((product, index) => {
         return (
-        <Link className="product-link" to={`/shop/product/${product.product_id}`}>
-        <Product key={product.product_id} product={product} />
+        <Link key={index + product.product_id} className="product-link" to={`/shop/product/${index}`}>
+        <ProductCard  product={product} />
         </Link>
         )}))
     }
@@ -47,7 +48,8 @@ const Shop = props => {
                 }
             </div>
             </Route>
-            <Route path='/shop/product/:id'>
+            <Route path='/shop/product/:index'>
+                <Product/>
             </Route>
         </section>
     )

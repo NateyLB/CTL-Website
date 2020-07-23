@@ -129,10 +129,10 @@ export const productsReducer = (state = initialState, action) => {
       return {...state, loading:false, products: productsCopy}
     }
 
-    // case DELETE_IMG_FAILURE: {
-    //   console.log("DELETE_IMG_FAILURE")
-    //   return { ...state, loading: false, error: action.payload } 
-    // }
+    case DELETE_IMG_FAILURE: {
+      console.log("DELETE_IMG_FAILURE")
+      return { ...state, loading: false, error: action.payload } 
+    }
 
     
 

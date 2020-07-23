@@ -4,7 +4,7 @@ import Carousel from './Carousel'
  * @desc productCard that displays product data for the shop
  * @param props product data from the shop page,
  */
-const Product = props =>{
+const ProductCard = props =>{
 
     const createSizeButtons = () =>{
         const sizes = props.product.sizes.filter(size => size.quantity > 0)
@@ -60,4 +60,4 @@ const Product = props =>{
     )
 }
 
-export default Product
+export default ProductCard

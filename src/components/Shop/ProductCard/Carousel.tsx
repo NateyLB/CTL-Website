@@ -50,8 +50,8 @@ const Carousel = props => {
     const images = getOrderedImgs()
 
     return (
-        <div className='carousel'>
-            <img src={images[index]} alt={props.img_urls[index]} />
+        <div className='carousel' style={props.height ? {height:`${props.height}`} : {} }>
+            <img src={images[index]} alt={props.img_urls[index]} style={props.height ? {height:`${props.height}`} : {} }/>
             <div className="carousel-arrows">
                 <button onClick={event => prev(event)} style={index > 0 ? { visibility: "visible" } : { visibility: "hidden" }}> {'<'} </button>
                 <button onClick={event => next(event)} style={index < props.img_urls.length - 1 ? { visibility: "visible" } : { visibility: "hidden" }}> {'>'} </button>
