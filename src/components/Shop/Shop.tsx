@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Route } from 'react-router';
 import { Link } from 'react-router-dom';
 import ProductCard from './ProductCard/ProductCard';
-import Product from './Product'
+import Product from './Product/Product'
 
 import { getProducts } from '../../actions/productActions';
 
@@ -21,7 +21,7 @@ const Shop = props => {
         document.title = "Shop"
         if (props.products.products.length <= 0) {
 
-            setTimeout(props.getProducts(), 10000)
+            props.getProducts()
         }
 
     }, [])

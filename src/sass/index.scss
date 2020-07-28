@@ -222,6 +222,9 @@ body {
       .shop-product-description{
         width:95%;
       }
+      p{
+        margin: 0;
+      }
       div{
         display: flex;
         align-items: center;
@@ -249,11 +252,11 @@ body {
         h2{
           margin:0;
         }
-        .shop-product-size-button-container{
+        .shop-productcard-size-button-container{
           display: flex;
           margin-bottom: 2vh;
           flex-wrap: wrap;
-          .shop-product-size-button{
+          .shop-productcard-size-button{
             height: 3vh;
             width: 50px;
             border: 1px solid $purple;
@@ -268,7 +271,7 @@ body {
             }
           }
 
-          .shop-product-color-button{
+          .shop-productcard-color-button{
             border: 1px solid black;
           }
         }
@@ -312,22 +315,75 @@ body {
   }
 }
 
-//SHOP - CAROUSEL
+// SHOP PRODUCT
+
+.product-container{
+  display:flex;
+  flex-direction: column;
+
+  @media #{$large} {
+    flex-direction: row;
+  }
+  .product-info{
+    padding-left: 5%;
+    h1, h2{
+      margin:0;
+    }
+    p{
+      margin:0;
+    }
+    .product-price{
+      display: flex;
+      align-items: center;
+      margin: 0;
+      height: fit-content;
+      h2{
+        margin:0;
+        margin-right: 10px;
+      }
+    }
+  
+  .product-button-container{
+    display: flex;
+    flex-wrap: wrap;
+    .product-size-button{
+      height: 2vh;
+      width: 50px;
+      border: 1px solid $purple;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 2%;
+      padding-bottom: 1%;
+      margin: 1vh 8px;
+      transition: background-color 0.5s ease-in-out;
+      &:hover{
+        background-color: $purple;
+        color: white;
+        border: 1px solid black;
+      }
+    }
+  }
+}
+}
+
+//SHOP - CAROUSEL ProductCard
 .carousel{
   position: relative;
-  height: 25vh;
-  width: 45%;
+  height: 20vh;
+  width: 55%;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   @media #{$xlarge} {
-    width: 45%;
+    width: 55%;
     height: 35vh;
   }
 
   img{
-    height: 25vh;
+    height: 20vh;
     width: 100%;
 
     @media #{$xlarge} {
@@ -344,6 +400,72 @@ body {
     width: 100%;
     @media #{$xlarge} {
       bottom: 15vh;
+    }
+
+    button{
+      color: $purple;
+      border: hidden;
+      background-color: transparent;
+      font-size: 2rem;
+      font-family: $text-font;
+      padding: 0;
+
+      &:hover{
+        color: black;
+      }
+    }
+  }
+      .delete-image{
+        color:red;
+        // position: absolute;
+        // bottom: 60px;
+      }
+
+  
+}
+
+// PRODUCT CAROUSEL
+.product-carousel{
+  position: relative;
+  height: 35vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media #{$large} {
+    width: 55%;
+    height: 45vh;
+  }
+  @media #{$xlarge} {
+    height: 55vh;
+  }
+
+  img{
+    height: 35vh;
+    width: 100%;
+
+    @media #{$large} {
+      height: 45vh;
+    }
+    @media #{$xlarge} {
+    height: 55vh;
+    }
+
+  }
+  .product-carousel-arrows{
+    position: absolute;
+    display: flex;
+    bottom: 15vh;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    @media #{$large} {
+      bottom: 25vh;
+    }
+    @media #{$xlarge} {
+      bottom: 28vh;
     }
 
     button{

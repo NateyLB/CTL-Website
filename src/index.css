@@ -197,6 +197,9 @@ header {
 #shop .product-link .shop-product-card .shop-product-info .shop-product-description {
   width: 95%;
 }
+#shop .product-link .shop-product-card .shop-product-info p {
+  margin: 0;
+}
 #shop .product-link .shop-product-card .shop-product-info div {
   display: flex;
   align-items: center;
@@ -223,12 +226,12 @@ header {
 #shop .product-link .shop-product-card .shop-product-info .shop-product-sizes h2 {
   margin: 0;
 }
-#shop .product-link .shop-product-card .shop-product-info .shop-product-sizes .shop-product-size-button-container {
+#shop .product-link .shop-product-card .shop-product-info .shop-product-sizes .shop-productcard-size-button-container {
   display: flex;
   margin-bottom: 2vh;
   flex-wrap: wrap;
 }
-#shop .product-link .shop-product-card .shop-product-info .shop-product-sizes .shop-product-size-button-container .shop-product-size-button {
+#shop .product-link .shop-product-card .shop-product-info .shop-product-sizes .shop-productcard-size-button-container .shop-productcard-size-button {
   height: 3vh;
   width: 50px;
   border: 1px solid #8a00b4;
@@ -240,11 +243,11 @@ header {
   padding-top: 7%;
 }
 @media (min-width: 1200px) {
-  #shop .product-link .shop-product-card .shop-product-info .shop-product-sizes .shop-product-size-button-container .shop-product-size-button {
+  #shop .product-link .shop-product-card .shop-product-info .shop-product-sizes .shop-productcard-size-button-container .shop-productcard-size-button {
     height: 4vh;
   }
 }
-#shop .product-link .shop-product-card .shop-product-info .shop-product-sizes .shop-product-size-button-container .shop-product-color-button {
+#shop .product-link .shop-product-card .shop-product-info .shop-product-sizes .shop-productcard-size-button-container .shop-productcard-color-button {
   border: 1px solid black;
 }
 #shop .shop-products-container {
@@ -273,22 +276,73 @@ header {
   }
 }
 
+.product-container {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 992px) {
+  .product-container {
+    flex-direction: row;
+  }
+}
+.product-container .product-info {
+  padding-left: 5%;
+}
+.product-container .product-info h1, .product-container .product-info h2 {
+  margin: 0;
+}
+.product-container .product-info p {
+  margin: 0;
+}
+.product-container .product-info .product-price {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  height: fit-content;
+}
+.product-container .product-info .product-price h2 {
+  margin: 0;
+  margin-right: 10px;
+}
+.product-container .product-info .product-button-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.product-container .product-info .product-button-container .product-size-button {
+  height: 2vh;
+  width: 50px;
+  border: 1px solid #8a00b4;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2%;
+  padding-bottom: 1%;
+  margin: 1vh 8px;
+  transition: background-color 0.5s ease-in-out;
+}
+.product-container .product-info .product-button-container .product-size-button:hover {
+  background-color: #8a00b4;
+  color: white;
+  border: 1px solid black;
+}
+
 .carousel {
   position: relative;
-  height: 25vh;
-  width: 45%;
+  height: 20vh;
+  width: 55%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 @media (min-width: 1200px) {
   .carousel {
-    width: 45%;
+    width: 55%;
     height: 35vh;
   }
 }
 .carousel img {
-  height: 25vh;
+  height: 20vh;
   width: 100%;
 }
 @media (min-width: 1200px) {
@@ -321,6 +375,72 @@ header {
   color: black;
 }
 .carousel .delete-image {
+  color: red;
+}
+
+.product-carousel {
+  position: relative;
+  height: 35vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 992px) {
+  .product-carousel {
+    width: 55%;
+    height: 45vh;
+  }
+}
+@media (min-width: 1200px) {
+  .product-carousel {
+    height: 55vh;
+  }
+}
+.product-carousel img {
+  height: 35vh;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .product-carousel img {
+    height: 45vh;
+  }
+}
+@media (min-width: 1200px) {
+  .product-carousel img {
+    height: 55vh;
+  }
+}
+.product-carousel .product-carousel-arrows {
+  position: absolute;
+  display: flex;
+  bottom: 15vh;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .product-carousel .product-carousel-arrows {
+    bottom: 25vh;
+  }
+}
+@media (min-width: 1200px) {
+  .product-carousel .product-carousel-arrows {
+    bottom: 28vh;
+  }
+}
+.product-carousel .product-carousel-arrows button {
+  color: #8a00b4;
+  border: hidden;
+  background-color: transparent;
+  font-size: 2rem;
+  font-family: "Tenali Ramakrishna", sans-serif;
+  padding: 0;
+}
+.product-carousel .product-carousel-arrows button:hover {
+  color: black;
+}
+.product-carousel .delete-image {
   color: red;
 }
 

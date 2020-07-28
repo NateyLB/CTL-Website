@@ -9,9 +9,10 @@ const ProductCard = props =>{
     const createSizeButtons = () =>{
         const sizes = props.product.sizes.filter(size => size.quantity > 0)
         return  sizes.map(size => {
-            return <div className="shop-product-size-button" key={size.size + size.color + size.quantity}>{size.size}</div> 
+            return <div className="shop-productcard-size-button" key={size.size + size.color + size.quantity}>{size.size} </div> 
         })
     }
+
     const createColorButtons = () =>{
         const colors:Array<string> = []
         props.product.sizes.forEach(size =>{
@@ -23,34 +24,26 @@ const ProductCard = props =>{
             const colorStyle = {
                 color: color
             }
-            return <div className="shop-product-size-button shop-product-color-button " key={color} style={colorStyle} >{color}</div>
+            return <div className="shop-productcard-size-button shop-productcard-color-button " key={color} style={colorStyle} >{color}</div>
         })
     }
-    createColorButtons()
     
 
     return(
         <div className="shop-product-card">
             <div className="shop-product-info">
             <h1 className="shop-product-name">{props.product.name}</h1>
-            <div className="shop-product-description">{props.product.description}</div>
+            <p className="shop-product-description">{props.product.description}</p>
             <div><h2>Price</h2>  ${props.product.price}</div>
             <div className="shop-product-sizes">
                 <h2>Colors</h2> 
-                <div className="shop-product-size-button-container">
+                <div className="shop-productcard-size-button-container">
                 {createColorButtons()}
                 </div>
                 </div>
-            {/* <label htmlFor="sizes">
-                <select name="sizes">
-                    {props.product.sizes.map(size => {
-                        return <option value={size.size}> {size.size} </option>
-                    })}
-                </select>
-            </label> */}
             <div className="shop-product-sizes">
                     <h2>Sizes</h2>
-                    <div className="shop-product-size-button-container">
+                    <div className="shop-productcard-size-button-container">
                     {createSizeButtons()}
                     </div>
             </div>
