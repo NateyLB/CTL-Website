@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import Carousel from './Carousel'
 
 
+
+
 const Product = props => {
     const [color, setColor] = useState('')
     const match = useRouteMatch()
@@ -24,9 +26,7 @@ const Product = props => {
         console.log(color)
         const sizes = product.sizes.filter(size => size.quantity > 0)
         let colorSizes = sizes
-        // if(color != ''){
             colorSizes = sizes.filter(size => size.color == color)
-        // }
         return  colorSizes.map(size => {
             return <div className="product-size-button" key={size.size + size.color + size.quantity}>{size.size}</div> 
         })
@@ -41,7 +41,7 @@ const Product = props => {
         })
         return colors.map(color =>{
         
-            return <div className="product-size-button product-color-button " key={color} onClick={() => toggleColor(color)} >{color}</div>
+            return <div className="product-size-button product-color-button " key={color} onClick={() => {toggleColor(color); }} >{color}</div>
         })
     }   
 

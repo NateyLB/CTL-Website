@@ -185,7 +185,7 @@ body {
     text-align: center;
   }
 
-
+//PRODUCTCARD
 .product-link{
   width: 95%;
   text-decoration: none;
@@ -258,14 +258,13 @@ body {
           flex-wrap: wrap;
           .shop-productcard-size-button{
             height: 3vh;
-            width: 50px;
+            width: 60px;
             border: 1px solid $purple;
             border-radius: 7px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 1vh 8px;
-            padding-top: 7%;
             @media #{$xlarge} {
               height: 4vh;
             }
@@ -326,6 +325,9 @@ body {
   }
   .product-info{
     padding-left: 5%;
+    @media #{$large} {
+      margin-left: 10%;
+    }
     h1, h2{
       margin:0;
     }
@@ -348,7 +350,7 @@ body {
     flex-wrap: wrap;
     .product-size-button{
       height: 2vh;
-      width: 50px;
+      width: 60px;
       border: 1px solid $purple;
       border-radius: 7px;
       display: flex;
@@ -362,6 +364,7 @@ body {
         background-color: $purple;
         color: white;
         border: 1px solid black;
+        cursor: pointer;
       }
     }
   }
@@ -412,6 +415,7 @@ body {
 
       &:hover{
         color: black;
+        cursor: pointer;
       }
     }
   }
@@ -434,7 +438,7 @@ body {
   align-items: center;
 
   @media #{$large} {
-    width: 55%;
+    width: 45%;
     height: 45vh;
   }
   @media #{$xlarge} {
@@ -478,6 +482,7 @@ body {
 
       &:hover{
         color: black;
+        cursor: pointer;
       }
     }
   }

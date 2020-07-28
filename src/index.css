@@ -233,14 +233,13 @@ header {
 }
 #shop .product-link .shop-product-card .shop-product-info .shop-product-sizes .shop-productcard-size-button-container .shop-productcard-size-button {
   height: 3vh;
-  width: 50px;
+  width: 60px;
   border: 1px solid #8a00b4;
   border-radius: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 1vh 8px;
-  padding-top: 7%;
 }
 @media (min-width: 1200px) {
   #shop .product-link .shop-product-card .shop-product-info .shop-product-sizes .shop-productcard-size-button-container .shop-productcard-size-button {
@@ -288,6 +287,11 @@ header {
 .product-container .product-info {
   padding-left: 5%;
 }
+@media (min-width: 992px) {
+  .product-container .product-info {
+    margin-left: 10%;
+  }
+}
 .product-container .product-info h1, .product-container .product-info h2 {
   margin: 0;
 }
@@ -310,7 +314,7 @@ header {
 }
 .product-container .product-info .product-button-container .product-size-button {
   height: 2vh;
-  width: 50px;
+  width: 60px;
   border: 1px solid #8a00b4;
   border-radius: 7px;
   display: flex;
@@ -325,6 +329,7 @@ header {
   background-color: #8a00b4;
   color: white;
   border: 1px solid black;
+  cursor: pointer;
 }
 
 .carousel {
@@ -373,6 +378,7 @@ header {
 }
 .carousel .carousel-arrows button:hover {
   color: black;
+  cursor: pointer;
 }
 .carousel .delete-image {
   color: red;
@@ -388,7 +394,7 @@ header {
 }
 @media (min-width: 992px) {
   .product-carousel {
-    width: 55%;
+    width: 45%;
     height: 45vh;
   }
 }
@@ -439,6 +445,7 @@ header {
 }
 .product-carousel .product-carousel-arrows button:hover {
   color: black;
+  cursor: pointer;
 }
 .product-carousel .delete-image {
   color: red;
