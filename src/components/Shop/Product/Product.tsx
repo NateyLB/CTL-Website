@@ -4,49 +4,66 @@ import { connect } from 'react-redux';
 
 import Carousel from './Carousel'
 
-
-
-
 const Product = props => {
     const [color, setColor] = useState('')
+    const [colorButtonStyles, setColorButtonStyles] :any[] = useState([])
+    const [sizeButtonStyles, setSizeButtonStyles] :any[] = useState([])
+    const [sizeToBuy, setSizeToBuy] = useState({})
     const match = useRouteMatch()
     const product = props.products.products[match.params.index]
 
     const toggleColor = (colorParam) =>{
-        if(color == colorParam){
-            setColor('')
-        }
-        else{
+        // if(color == colorParam){
+        //     setColor('')
+        // }
+        // else{
             setColor(colorParam)
-        }
+        // }
     }
 
+    const toggleStyle = (state, setState, index) =>{
+        if (state[index] == {}){
+            const stateCopy = JSON.parse(JSON.stringify(state));
+            stateCopy[index] = {
+            backgroundColor: "rgb(138, 0, 180)",
+            color: "white",
+            border: "1px solid black"
+            }
+        setState(stateCopy)
+        }
+        
+    }
 
     const createSizeButtons = () =>{
-        console.log(color)
         const sizes = product.sizes.filter(size => size.quantity > 0)
-        let colorSizes = sizes
-            colorSizes = sizes.filter(size => size.color == color)
-        return  colorSizes.map(size => {
-            return <div className="product-size-button" key={size.size + size.color + size.quantity}>{size.size}</div> 
+        const colorSizes = sizes.filter(size => size.color == color)
+        // if (sizeButtonStyles.length > 0) {
+        //     setSizeButtonStyles([])
+        // }
+        return  colorSizes.map((size,index) => {
+            // sizeButtonStyles.push({})
+            return <div style={sizeButtonStyles[index]} className="product-size-button" key={size.size + size.color + size.quantity} onClick={() => setSizeToBuy(size)}>{size.size}</div> 
         })
     }
     
     const createColorButtons = () =>{
         const colors:Array<string> = []
+        // if( colorButtonStyles.length > 0){
+        //     setColorButtonStyles([])
+        // }
         product.sizes.forEach(size =>{
             if( colors.includes(size.color) != true ){
                 colors.push(size.color)
             }
         })
-        return colors.map(color =>{
-        
-            return <div className="product-size-button product-color-button " key={color} onClick={() => {toggleColor(color); }} >{color}</div>
+        return colors.map((color,index) =>{
+            // colorButtonStyles.push({})
+            return <div style={colorButtonStyles[index]} className="product-size-button" key={color} onClick={() => {toggleColor(color); }} >{color}</div>
         })
-    }   
-
-    
-
+    } 
+    console.log(colorButtonStyles,'color')
+    console.log(sizeButtonStyles, 'size')
+    console.log(sizeToBuy)
     return (
         props.products.products.length ? 
         <div className='product-container'>

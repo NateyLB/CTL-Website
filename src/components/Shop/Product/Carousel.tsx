@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import { connect } from 'react-redux'; 
-import  { deleteImg } from '../../../actions/adminActions'
 
 
 
@@ -60,12 +58,4 @@ const Carousel = props => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-    };
-  };
-  
-  export default connect(
-  mapStateToProps,
-  {deleteImg}
-  )(Carousel)
+export default Carousel;

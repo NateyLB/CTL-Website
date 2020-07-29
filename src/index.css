@@ -358,7 +358,7 @@ header {
 .carousel .carousel-arrows {
   position: absolute;
   display: flex;
-  bottom: 10vh;
+  bottom: 7.5vh;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -491,6 +491,7 @@ header {
   font-size: 2rem;
   position: fixed;
   left: 90%;
+  z-index: 1;
 }
 @media (min-width: 992px) {
   .admin-tools i {
