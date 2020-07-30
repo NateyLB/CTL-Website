@@ -70,6 +70,15 @@ header {
 .nav a:hover {
   color: white;
 }
+.nav .fa-shopping-cart {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+@media (min-width: 992px) {
+  .nav .fa-shopping-cart {
+    font-size: 1.75rem;
+  }
+}
 
 .logo {
   animation: logo-rotate 1s both infinite;
@@ -88,6 +97,56 @@ header {
 }
 .body-content {
   margin-top: 15vh;
+}
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+.modal .cart-overlay {
+  background-color: #fefefe;
+  margin: 10% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, dependin */
+  height: 60vh;
+}
+@media (min-width: 992px) {
+  .modal .cart-overlay {
+    height: 80vh;
+  }
+}
+.modal .close {
+  position: relative;
+  color: #aaa;
+  float: right;
+  right: -10px;
+  top: -20px;
+  font-size: 28px;
+  font-weight: bold;
+}
+.modal .close:hover, .modal .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 #about {
@@ -338,7 +397,7 @@ header {
   align-items: center;
 }
 .product-container .product-info .product-quantity-container .product-quantity {
-  margin-left: 2%;
+  margin-left: 8%;
   width: fit-content;
   height: fit-content;
   border-radius: 7px;
@@ -360,6 +419,11 @@ header {
   background-color: #8a00b4;
   color: white;
   border: 1px solid black;
+}
+@media (min-width: 992px) {
+  .product-container .product-info .product-add-to-cart {
+    margin-top: 10%;
+  }
 }
 
 .carousel {

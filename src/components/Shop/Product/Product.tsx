@@ -79,10 +79,36 @@ const Product = props => {
     }
 
     const addToCart = () => {
-        setSizeToBuy({ ...sizeToBuy, quantity: quantity })
+        const formQuantity = (document.getElementById('product-quantity') as HTMLInputElement).value
+        const productToBuy = {
+            product_id: product.product_id,
+            description: product.description,
+            img_urls: product.img_urls,
+            name: product.name,
+            price: product.price,
+            item_type: product.item_type,
+            size: {...sizeToBuy, quantity: formQuantity }
+        }
+        // props.addToCart(productToBuy)
+        if (localStorage.getItem("cart")){
+            console.log('HELLO')
+            let cart = JSON.parse(localStorage.getItem("cart"))
+            cart = [...cart, productToBuy]
+            localStorage.setItem('cart', JSON.stringify(cart));
+        } else {
+            localStorage.setItem('cart', JSON.stringify([productToBuy]));
+        }
+        //reinitialize states used
+        setColor('')
+        setSizeToBuy(null)
+        for (let i = 0; i < colorButtonStylesCopy.length; i++) {
+            colorButtonStylesCopy[i] = {}
+        }
+        setColorButtonStyles(sizeButtonStylesCopy)
+        setQuantity(0)
+        
     }
-    console.log(quantity)
-    console.log(sizeToBuy)
+    
     return (
         props.products.products.length ?
             <div className='product-container'>
@@ -101,8 +127,9 @@ const Product = props => {
                     </div>
                     {sizeToBuy == null ? null : <form className='product-quantity-container'>
                         <label htmlFor='quantity'><h2>Quantity</h2></label>
-                        <input className='product-quantity' type="number" step="1" min='0' max={maxQuantity} value={quantity} onChange={changeHandler} />
+                        <input className='product-quantity' id='product-quantity' type="number" step="1" min='0' max={maxQuantity} value={quantity} onChange={changeHandler} />
                     </form>}
+
                     {sizeToBuy == null ? null : <div className="product-add-to-cart" onClick={addToCart}>Add to Cart</div>}
                 </div>
             </div>
@@ -120,5 +147,6 @@ const mapStateToProps = state => {
 };
 
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    { }
 )(Product)

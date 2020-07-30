@@ -5,6 +5,10 @@ import Product from './Product';
 import { connect } from 'react-redux'; 
 import { getProducts } from '../../actions/productActions'
 
+/**
+ * @desc conatiner for product cards
+ * @param props passed in product data from reducer and actions
+ */
 const Products = props =>{
     useEffect(()=>{
         if (props.products.products.length <= 0){

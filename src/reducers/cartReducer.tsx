@@ -1,31 +1,17 @@
-interface Size {
-    id: number,
-    product_id: number,
-    size: string,
-  }
+import {
+TOGGLE_CART
+} from '../actions/cartActions'
 
-interface Product {
-    product_id: number,
-    name: string,
-    item_type: number,
-    description: string,
-    color: string,
-    size: Size,
-    price: number,
-    quantity: number,
-  }
-  
-  interface Products extends Array<Product> { }
 
 interface State {
     loading: boolean,
-    cart: Array<Products>,
+    cart: boolean,
     error: string
   }
 
 export const initialState: State = {
     loading: false,
-    cart: [],
+    cart: false,
     error: ""
   };
 
@@ -37,7 +23,9 @@ export const initialState: State = {
 
 export const cartReducer = (state = initialState, action) => {
     switch(action.type){
-
+      case TOGGLE_CART: {
+        return{...state, cart:!state.cart}
+      }
 
         default:
             return state;

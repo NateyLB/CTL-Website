@@ -3,6 +3,7 @@ import { Route } from 'react-router'
 import './App.css';
 
 import Nav from './components/Nav';
+import Cart from './components/Shop/Cart/Cart'
 import About from './components/Home/About';
 import Gallery from './components/Home/Gallery';
 import Contact from './components/Home/Contact';
@@ -15,13 +16,21 @@ import AdminTools from './components/Admin/AdminTools';
  * @desc main app, contains all routes
  */
 function App() {
+  window.onclick = function(event) {
+    let modal = document.getElementById("modal") as HTMLElement
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
 
- 
   return (
     <div >
       <header >
        <Nav/>
       </header>
+      <div id="modal" className='modal'>
+      <Cart/> 
+      </div>
       <Route exact path={["/", "/home"]} >
         <About/>
         <Gallery/>
@@ -37,5 +46,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
