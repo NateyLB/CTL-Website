@@ -31,6 +31,7 @@ body {
     font-size: 62.5%;
     margin: 0;
     font-family: $text-font;
+    // cursor:url(./resources/favicon_io_transparent/favicon.ico), auto;
   }
   
   code {
@@ -64,6 +65,7 @@ body {
     height: 7vh;
     width: 100%;
     font-family: $title-font;
+    padding-left: 2%;
 
     @media #{$large}{
       width: 60%;
@@ -191,6 +193,8 @@ body {
   text-decoration: none;
   color: black;
   margin: 2vh 0;
+  // cursor:url(./resources/favicon_io_transparent/favicon.ico), auto;
+  cursor: default;
 
 
   @media #{$large}{
@@ -360,12 +364,43 @@ body {
       padding-bottom: 1%;
       margin: 1vh 8px;
       transition: background-color 0.5s ease-in-out;
+      cursor: pointer;
       &:hover{
         background-color: $purple;
         color: white;
         border: 1px solid black;
-        cursor: pointer;
       }
+    }
+  }
+  .product-quantity-container{
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    .product-quantity{
+      margin-left: 2%;
+      width: fit-content;
+      height: fit-content;
+      border-radius: 7px;
+      border: 1px solid $purple
+    }
+  }
+
+  .product-add-to-cart{
+    // margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 47%;
+    height: 5vh;
+    width: 180px;
+    border: 1px solid $purple;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+    &:hover{
+      background-color: $purple;
+      color: white;
+      border: 1px solid black;
     }
   }
 }

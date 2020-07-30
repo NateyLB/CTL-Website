@@ -45,6 +45,7 @@ header {
   height: 7vh;
   width: 100%;
   font-family: OldEnglish, sans-serif;
+  padding-left: 2%;
 }
 @media (min-width: 992px) {
   .nav {
@@ -166,6 +167,7 @@ header {
   text-decoration: none;
   color: black;
   margin: 2vh 0;
+  cursor: default;
 }
 @media (min-width: 992px) {
   #shop .product-link {
@@ -324,12 +326,40 @@ header {
   padding-bottom: 1%;
   margin: 1vh 8px;
   transition: background-color 0.5s ease-in-out;
+  cursor: pointer;
 }
 .product-container .product-info .product-button-container .product-size-button:hover {
   background-color: #8a00b4;
   color: white;
   border: 1px solid black;
+}
+.product-container .product-info .product-quantity-container {
+  display: flex;
+  align-items: center;
+}
+.product-container .product-info .product-quantity-container .product-quantity {
+  margin-left: 2%;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 7px;
+  border: 1px solid #8a00b4;
+}
+.product-container .product-info .product-add-to-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 47%;
+  height: 5vh;
+  width: 180px;
+  border: 1px solid #8a00b4;
+  border-radius: 7px;
   cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+}
+.product-container .product-info .product-add-to-cart:hover {
+  background-color: #8a00b4;
+  color: white;
+  border: 1px solid black;
 }
 
 .carousel {

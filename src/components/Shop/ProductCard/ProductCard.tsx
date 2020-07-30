@@ -1,5 +1,6 @@
 import React from 'react';
 import Carousel from './Carousel'
+import { v4 as uuidv4 } from 'uuid';
 /**
  * @desc productCard that displays product data for the shop
  * @param props product data from the shop page,
@@ -7,10 +8,11 @@ import Carousel from './Carousel'
 const ProductCard = props =>{
 
     const createSizeButtons = () =>{
-        const sizes = props.product.sizes.filter(size => size.quantity > 0)
-        return  sizes.map(size => {
-            return <div className="shop-productcard-size-button" key={size.size + size.color + size.quantity}>{size.size} </div> 
-        })
+        let sizes = props.product.sizes.filter(size => size.quantity > 0)
+        sizes = sizes.map(size => size.size )
+        sizes = Array.from(new Set(sizes))
+        return sizes.map(size =><div className="shop-productcard-size-button" key={size + uuidv4}>{size} </div>)
+        
     }
 
     const createColorButtons = () =>{
@@ -21,10 +23,10 @@ const ProductCard = props =>{
             }
         })
         return colors.map(color =>{
-            const colorStyle = {
-                color: color
-            }
-            return <div className="shop-productcard-size-button shop-productcard-color-button " key={color} style={colorStyle} >{color}</div>
+            // const colorStyle = {
+            //     color: color
+            // }
+            return <div className="shop-productcard-size-button " key={color + uuidv4} >{color}</div>
         })
     }
     
