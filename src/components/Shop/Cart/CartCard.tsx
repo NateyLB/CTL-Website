@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import { removeFromCart, updateProductQuantity } from '../../../actions/cartActions'
 
 const CartCard = props => {
-    const product = props.product;
     let quantity = props.product.size.quantity;
-
+    const product = props.product;
     const removeFromCart = () =>{
         if (localStorage.getItem("cart")){
             let cart = JSON.parse(localStorage.getItem("cart"))
@@ -35,12 +34,13 @@ const CartCard = props => {
             localStorage.setItem('cart', JSON.stringify(newCart));  
             props.updateProductQuantity(props.index, quantity)
     }
-    document.addEventListener('keydown', event => {
-        if(event.key == 'Enter') {
-            props.updateProductQuantity(props.index, quantity)
-        }
-    })
 
+    const form = document.getElementById('quantity-form') as HTMLFormElement
+    if(form){
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+        }, false);
+    }
     return (
         <div className='cart-card'>
             <img src={product.img_urls[0].img_url} alt='Product Image'/>
