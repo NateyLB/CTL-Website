@@ -85,7 +85,7 @@ const Product = props => {
         props.updateProduct(product, index, toggleEdit)
     }
     return (
-        edit == false ? <div className="admin-product-card">
+        edit === false ? <div className="admin-product-card">
             <div className="admin-product-info">
                 <h3 className="admin-product-name">{props.product.name}</h3>
                 <div className="admin-product-description">{props.product.description}</div>

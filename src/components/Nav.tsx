@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React from "react";
 import { Link } from "react-router-dom"
 import { useHistory } from 'react-router'
 import { connect } from 'react-redux'; 
@@ -8,7 +8,6 @@ import { connect } from 'react-redux';
  * @param props not used
  */
 const Nav = props =>{
-    const [cart, setCart] = useState(false);
     const match = useHistory();
   
     const openCart = () => {

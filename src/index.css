@@ -649,6 +649,17 @@ header {
   color: red;
 }
 
+#checkout {
+  padding-top: 17.5vh;
+  margin-top: -7.5vh;
+  font-size: 1.25rem;
+}
+#checkout .title {
+  font-family: OldEnglish, sans-serif;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
 #admin-login {
   padding-top: 17.5vh;
   margin-top: -7.5vh;

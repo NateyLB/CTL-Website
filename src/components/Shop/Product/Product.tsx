@@ -53,7 +53,7 @@ const Product = props => {
     //creates buttons to select sizes, keeps track of which color is selected and which sizes are in stock
     const createSizeButtons = () => {
         const sizes = product.sizes.filter(size => size.quantity > 0)
-        const colorSizes = sizes.filter(size => size.color == color)
+        const colorSizes = sizes.filter(size => size.color === color)
         if (sizeButtonStylesCopy.length > 0) {
             sizeButtonStylesCopy = []
         }
@@ -72,7 +72,7 @@ const Product = props => {
             colorButtonStylesCopy = []
         }
         product.sizes.forEach(size => {
-            if (colors.includes(size.color) != true) {
+            if (colors.includes(size.color) !== true) {
                 colors.push(size.color)
             }
         })
@@ -124,16 +124,16 @@ const Product = props => {
                     <div className="product-button-container">
                         {createColorButtons()}
                     </div>
-                    {color != '' ? <h2>Size</h2> : null}
+                    {color !== '' ? <h2>Size</h2> : null}
                     <div className="product-button-container">
                         {createSizeButtons()}
                     </div>
-                    {sizeToBuy == null ? null : <form className='product-quantity-container'>
+                    {sizeToBuy === null ? null : <form className='product-quantity-container'>
                         <label htmlFor='quantity'><h2>Quantity</h2></label>
                         <input className='product-quantity' id='product-quantity' type="number" step="1" min='0' max={maxQuantity} value={quantity} onChange={changeHandler} />
                     </form>}
 
-                    {sizeToBuy == null ? null : <div className="product-add-to-cart" onClick={addToCart}>Add to Cart</div>}
+                    {quantity === 0 ? null : <div className="product-add-to-cart" onClick={addToCart}>Add to Cart</div>}
                 </div>
             </div>
             : null

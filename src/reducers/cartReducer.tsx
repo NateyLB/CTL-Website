@@ -56,7 +56,7 @@ export const cartReducer = (state = initialState, action) => {
       case REMOVE_FROM_CART: {
         let newCart=[]
         for (const product of state.cart){
-            if (product != state.cart[action.payload]){
+            if (product !== state.cart[action.payload]){
                 newCart.push(product)
                 console.log(product, "reducer")
             }

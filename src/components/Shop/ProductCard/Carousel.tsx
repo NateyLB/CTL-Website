@@ -25,8 +25,6 @@ const Carousel = props => {
     }
 
 
-    interface Imgs extends Array<string> { }
-    const imgs: Imgs = []
     const getOrderedImgs = () => {
         function sortFunction(a, b) {
             if (a[0].slice(-1) === b[0].slice(-1)) {
@@ -56,7 +54,7 @@ const Carousel = props => {
                 <button onClick={event => prev(event)} style={index > 0 ? { visibility: "visible" } : { visibility: "hidden" }}> {'<'} </button>
                 <button onClick={event => next(event)} style={index < props.img_urls.length - 1 ? { visibility: "visible" } : { visibility: "hidden" }}> {'>'} </button>
             </div>
-            {props.edit == false ? null : <div className="delete-image" onClick={() => props.deleteImg(images[index], props.img_urls[0].product_id, props.index)}>DELETE</div> }
+            {props.edit === false ? null : <div className="delete-image" onClick={() => props.deleteImg(images[index], props.img_urls[0].product_id, props.index)}>DELETE</div> }
         </div>
     )
 }

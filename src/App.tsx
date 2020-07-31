@@ -8,7 +8,8 @@ import About from './components/Home/About';
 import Gallery from './components/Home/Gallery';
 import Contact from './components/Home/Contact';
 import Shop from './components/Shop/Shop';
-import AdminLogin from './components/Admin/AdminLogin'
+import Checkout from './components/Checkout/Checkout';
+import AdminLogin from './components/Admin/AdminLogin';
 import PrivateAdminRoute from './components/Admin/PrivateAdminRoute';
 import AdminTools from './components/Admin/AdminTools';
 
@@ -38,6 +39,9 @@ function App() {
       </Route>
       <Route path="/shop">
         <Shop/>
+      </Route>
+      <Route path="/checkout">
+        <Checkout/>
       </Route>
       <Route exact path="/admin">
         <AdminLogin/>

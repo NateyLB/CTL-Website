@@ -677,6 +677,19 @@ body {
   
 }
 
+//CHECKOUT
+#checkout{
+  padding-top: 17.5vh;
+  margin-top: -7.5vh;
+  font-size: 1.25rem;
+
+  .title{
+    font-family: $title-font;
+    font-size: 1.75rem;
+    text-align: center;
+  }
+}
+
 //ADMIN
 
   //LOGIN
