@@ -41,16 +41,23 @@ const Cart = props => {
         // } 
         
     },[props.cart.cart])
-
+    //close cart
     const closeCart = () => {
         const modal = document.getElementById("modal") as HTMLElement;
         modal.style.display = "none"
 
     }
-
+    //card for cart
     const createCartCards = () =>{
         return props.cart.cart.map((product,index) => <CartCard key={product.name + product.size.size} product={product} index={index}/>)
     }
+
+    //close cart no prss pf ESC or BACKSPACE
+    document.addEventListener('keydown', (e) => {
+        if(e.key == 'Escape' || e.key == 'Backspace'){
+        closeCart()
+        }
+    })
     return(
         <div className='cart-overlay'>
             <div>

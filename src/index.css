@@ -507,7 +507,11 @@ header {
   border-radius: 7px;
   border: 1px solid #8a00b4;
 }
-.product-container .product-info .product-add-to-cart {
+.product-container .product-info a {
+  text-decoration: none;
+  color: black;
+}
+.product-container .product-info a .product-add-to-cart {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -519,13 +523,13 @@ header {
   cursor: pointer;
   transition: background-color 0.5s ease-in-out;
 }
-.product-container .product-info .product-add-to-cart:hover {
+.product-container .product-info a .product-add-to-cart:hover {
   background-color: #8a00b4;
   color: white;
   border: 1px solid black;
 }
 @media (min-width: 992px) {
-  .product-container .product-info .product-add-to-cart {
+  .product-container .product-info a .product-add-to-cart {
     margin-top: 10%;
   }
 }

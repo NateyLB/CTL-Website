@@ -41,7 +41,7 @@ export const initialState: State = {
   };
 
 /**
- * @desc 
+ * @desc reducer for shopping cart
  * @param state state that is shared 
  * @param action action from the store
  */

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useRouteMatch } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { addToCart } from '../../../actions/cartActions'
+import { Link } from 'react-router-dom'
 
 import Carousel from './Carousel'
 
@@ -72,9 +73,9 @@ const Product = props => {
             colorButtonStylesCopy = []
         }
         product.sizes.forEach(size => {
-            if (colors.includes(size.color) !== true) {
-                colors.push(size.color)
-            }
+                if (colors.includes(size.color) !== true && size.quantity > 0) {
+                    colors.push(size.color)
+                }
         })
         return colors.map((color, index) => {
             colorButtonStylesCopy.push({})
@@ -133,7 +134,11 @@ const Product = props => {
                         <input className='product-quantity' id='product-quantity' type="number" step="1" min='0' max={maxQuantity} value={quantity} onChange={changeHandler} />
                     </form>}
 
-                    {quantity === 0 ? null : <div className="product-add-to-cart" onClick={addToCart}>Add to Cart</div>}
+                    {quantity === 0 ? null :
+                    <Link to="/shop"> 
+                    <div className="product-add-to-cart" onClick={addToCart}>Add to Cart</div>
+                    </Link>
+                    }
                 </div>
             </div>
             : null

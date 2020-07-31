@@ -19,6 +19,7 @@ $xlarge: "(min-width: 1200px)";
 $title-font: OldEnglish, sans-serif;
 $text-font: 'Tenali Ramakrishna', sans-serif;
 //colors
+//hex 8a00b4
 $purple: rgb(138, 0, 180);
 
 @font-face {
@@ -531,25 +532,31 @@ body {
       border: 1px solid $purple
     }
   }
-
-  .product-add-to-cart{
-    // margin-top: 5vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 47%;
-    height: 5vh;
-    width: 180px;
-    border: 1px solid $purple;
-    border-radius: 7px;
-    cursor: pointer;
-    transition: background-color 0.5s ease-in-out;
-    @include purple-hover;
-
-    @media #{$large} {
-      margin-top: 10%;
+  a{
+    text-decoration: none;
+    color: black;
+    .product-add-to-cart{
+      // margin-top: 5vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 47%;
+      height: 5vh;
+      width: 180px;
+      border: 1px solid $purple;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: background-color 0.5s ease-in-out;
+      @include purple-hover;
+  
+      @media #{$large} {
+        margin-top: 10%;
+      }
     }
+
   }
+
+  
 }
 }
 

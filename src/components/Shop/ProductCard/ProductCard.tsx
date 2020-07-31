@@ -18,8 +18,8 @@ const ProductCard = props =>{
     const createColorButtons = () =>{
         const colors:Array<string> = []
         props.product.sizes.forEach(size =>{
-            if( colors.includes(size.color) !== true ){
-                colors.push(size.color)
+                if( colors.includes(size.color) !== true && size.quantity > 0 ){
+                    colors.push(size.color)
             }
         })
         return colors.map(color =>{
