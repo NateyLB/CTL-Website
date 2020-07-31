@@ -34,7 +34,7 @@ const CartCard = props => {
             localStorage.setItem('cart', JSON.stringify(newCart));  
     }
     document.addEventListener('keydown', event => {
-        if(event.key == 'Enter') {
+        if(event.key == 'Done') {
             props.updateProductQuantity(props.index, quantity)
         }
     })
