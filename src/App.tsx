@@ -1,4 +1,4 @@
-import  React, { useEffect } from 'react';
+import  React from 'react';
 import { Route } from 'react-router'
 import './App.css';
 
@@ -18,7 +18,7 @@ import AdminTools from './components/Admin/AdminTools';
 function App() {
   window.onclick = function(event) {
     let modal = document.getElementById("modal") as HTMLElement
-    if (event.target == modal) {
+    if (event.target === modal) {
       modal.style.display = "none";
     }
   }

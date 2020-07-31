@@ -23,8 +23,7 @@ const Carousel = props => {
     }
 
 
-    interface Imgs extends Array<string> { }
-    const imgs: Imgs = []
+   
     const getOrderedImgs = () => {
         function sortFunction(a, b) {
             if (a[0].slice(-1) === b[0].slice(-1)) {

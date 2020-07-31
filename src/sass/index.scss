@@ -154,7 +154,27 @@ body {
     @media #{$large} {
       height: 80vh;
     }
+    .CTL-logo{
+      height: 10vh;
+      width: 35%;
+      position: relative;
+      right: 12%;
 
+      @media #{$medium}{
+        right: 8%;
+      }
+
+      @media#{$large}{
+        right: 4%;
+        height: 15vh;
+        width: 22.5%;
+      }
+
+      @media#{$xlarge}{
+        width: 17.5%;
+        right: 2%
+      }
+    }
     .cart-card{
       position: relative;
       border-bottom: 1px solid black;

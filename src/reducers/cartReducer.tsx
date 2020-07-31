@@ -1,5 +1,6 @@
 import {
-ADD_TO_CART
+ADD_TO_CART,
+REMOVE_FROM_CART
 } from '../actions/cartActions'
 
 interface Size {
@@ -47,8 +48,20 @@ export const initialState: State = {
 
 export const cartReducer = (state = initialState, action) => {
     switch(action.type){
+
       case ADD_TO_CART: {
         return{...state, cart:[...state.cart, action.payload]}
+      }
+
+      case REMOVE_FROM_CART: {
+        let newCart=[]
+        for (const product of state.cart){
+            if (product != state.cart[action.payload]){
+                newCart.push(product)
+                console.log(product, "reducer")
+            }
+        }
+        return{...state, cart: newCart}
       }
 
         default:

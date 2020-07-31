@@ -32,6 +32,8 @@ const Cart = props => {
         // if (localStorage.getItem("cart")){
             // let localCart = JSON.parse(localStorage.getItem("cart"))
             // setCart(localCart)
+            setTotalQuantity(0)
+            setTotalPrice(0)
             props.cart.cart.forEach(product => {
                 setTotalQuantity(cur => cur += product.size.quantity)
                 setTotalPrice(cur => cur += product.price * product.size.quantity)
@@ -47,20 +49,21 @@ const Cart = props => {
     }
 
     const createCartCards = () =>{
-        return props.cart.cart.map(product => <CartCard key={product.name + product.size.size} product={product}/>)
+        return props.cart.cart.map((product,index) => <CartCard key={product.name + product.size.size} product={product} index={index}/>)
     }
-    console.log(props.cart)
     return(
         <div className='cart-overlay'>
             <div>
+            <img className='CTL-logo' src={require('../../../resources/favicon_io_transparent/android-chrome-512x512.png')} alt='Lost Cause'/>
             <span className="close" onClick={closeCart}>&times;</span>
             <CartHeader/>
             {createCartCards()}
             <CartFooter totalQuantity={totalQuantity} totalPrice={totalPrice}/>
             </div>
-            <Link to='/checkout' >
-                <div className="checkout-button">Checkout</div>
-            </Link>
+            {props.cart.cart.length > 0 ? <Link to='/checkout'  >
+                <div className="checkout-button" onClick={closeCart}>Checkout</div>
+            </Link> : null}
+            
         </div>
     )
 }

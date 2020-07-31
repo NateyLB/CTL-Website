@@ -21,7 +21,6 @@ const Nav = props =>{
      */
     const pushHome =()=>{
         match.push('/home')
-        return true
     }
 
     return(
