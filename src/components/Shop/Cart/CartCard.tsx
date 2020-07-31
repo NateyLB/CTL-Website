@@ -30,10 +30,14 @@ const CartCard = props => {
                 newCart.push(product)
             }
             quantity = parseInt(event.target.value)
+            if (isNaN(quantity)){
+                quantity = 0
+            }
             localStorage.removeItem("cart")
             localStorage.setItem('cart', JSON.stringify(newCart));  
             props.updateProductQuantity(props.index, quantity)
     }
+    
 
     const form = document.getElementById('quantity-form') as HTMLFormElement
     if(form){
