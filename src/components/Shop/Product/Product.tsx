@@ -6,6 +6,22 @@ import { Link } from 'react-router-dom'
 
 import Carousel from './Carousel'
 
+interface Size{
+    size: string,
+    color: string,
+    quantity: number
+}
+
+interface Product{
+    product_id:number,
+    name: string,
+    type: number,
+    description: string,
+    size: Size,
+    price: number,
+    quantity: number
+}
+
 /**
  * @desc the full screen product, displays when productCard from shop is clicked
  * @props product data from product card
@@ -101,9 +117,24 @@ const Product = props => {
         }
         props.addToCart(productToBuy)
         if (localStorage.getItem("cart")){
-            let cart = JSON.parse(localStorage.getItem("cart"))
+            let newCart = []
+            let updated = false;
+            let cart  = JSON.parse(localStorage.getItem("cart"))
+            // let product :any;
+            console.log(cart)
+            for(let i = 0; i < cart.length; i++){
+                if( cart[i].product_id === productToBuy.product_id && cart[i].size.id === productToBuy.size.id ){
+                    cart[i].size.quantity += productToBuy.size.quantity
+                    updated = true
+                  } 
+                  console.log(cart[i])
+                  newCart.push(cart[i])
+            }
+            if(updated === false){
+                newCart.push(productToBuy)
+            }
             cart = [...cart, productToBuy]
-            localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('cart', JSON.stringify(newCart));
         } else {
             localStorage.setItem('cart', JSON.stringify([productToBuy]));
         }

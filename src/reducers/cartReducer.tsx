@@ -23,6 +23,7 @@ interface Product {
   }
   
   interface Products extends Array<Product> {
+    product_id: any;
     size: any;
 }
 //if there is a cart in local storage, grab contents and add to cart reducer
@@ -54,7 +55,20 @@ export const cartReducer = (state = initialState, action) => {
     switch(action.type){
 
       case ADD_TO_CART: {
-        return{...state, cart:[...state.cart, action.payload]}
+        let updated = false;
+        let newCart=[];
+        for (const product of state.cart){
+          if( product.product_id === action.payload.product_id && product.size.id === action.payload.size.id ){
+            product.size.quantity += action.payload.size.quantity
+            updated = true
+          } 
+          newCart.push(product)
+        }
+        if(updated === false){
+          newCart.push(action.payload)
+        }
+        
+        return{...state, cart: newCart}
       }
 
       case REMOVE_FROM_CART: {
