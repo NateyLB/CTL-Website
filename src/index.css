@@ -128,20 +128,100 @@ header {
   width: 80%;
   /* Could be more or less, dependin */
   height: 60vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 @media (min-width: 992px) {
   .modal .cart-overlay {
     height: 80vh;
   }
 }
+.modal .cart-overlay .cart-card {
+  position: relative;
+  border-bottom: 1px solid black;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  height: fit-content;
+}
+.modal .cart-overlay .cart-card h1 {
+  width: 15%;
+  margin: 0% 3%;
+}
+@media (min-width: 992px) {
+  .modal .cart-overlay .cart-card h1 {
+    width: 10%;
+  }
+}
+.modal .cart-overlay .cart-card img, .modal .cart-overlay .cart-card div {
+  height: 4.5vh;
+  margin-top: 2%;
+  width: 15.5%;
+}
+@media (min-width: 992px) {
+  .modal .cart-overlay .cart-card img, .modal .cart-overlay .cart-card div {
+    height: 15vh;
+    margin-top: 3px;
+    width: 10%;
+  }
+}
+.modal .cart-overlay .cart-card .cancel {
+  position: absolute;
+  font-size: 1.5rem;
+  right: 0px;
+  top: 2px;
+  cursor: pointer;
+}
+.modal .cart-overlay a {
+  margin-top: -4%;
+  text-decoration: none;
+  color: black;
+}
+@media (min-width: 768px) {
+  .modal .cart-overlay a {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2%;
+  }
+}
+.modal .cart-overlay a .checkout-button {
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4vh;
+  width: 100%;
+  border-radius: 7px;
+  background-color: white;
+  border: 1px solid #8a00b4;
+  cursor: pointer;
+}
+.modal .cart-overlay a .checkout-button:hover {
+  background-color: #8a00b4;
+  color: white;
+  border: 1px solid black;
+}
+@media (min-width: 768px) {
+  .modal .cart-overlay a .checkout-button {
+    width: 20%;
+    height: 5vh;
+    font-size: 1.25rem;
+  }
+}
 .modal .close {
   position: relative;
   color: #aaa;
   float: right;
-  right: -10px;
-  top: -20px;
-  font-size: 28px;
+  font-size: 1.5rem;
   font-weight: bold;
+}
+@media (min-width: 768px) {
+  .modal .close {
+    top: 0%;
+  }
 }
 .modal .close:hover, .modal .close:focus {
   color: black;
@@ -517,7 +597,7 @@ header {
   bottom: 15vh;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 90%;
 }
 @media (min-width: 992px) {
   .product-carousel .product-carousel-arrows {

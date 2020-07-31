@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useRouteMatch } from 'react-router-dom'
 import { connect } from 'react-redux';
+import { addToCart } from '../../../actions/cartActions'
 
 import Carousel from './Carousel'
 
@@ -44,10 +45,12 @@ const Product = props => {
 
     }
 
+    //handles setting a wunatity to buy on inout change
     const changeHandler = event => {
         setQuantity(parseInt(event.target.value))
     }
 
+    //creates buttons to select sizes, keeps track of which color is selected and which sizes are in stock
     const createSizeButtons = () => {
         const sizes = product.sizes.filter(size => size.quantity > 0)
         const colorSizes = sizes.filter(size => size.color == color)
@@ -62,6 +65,7 @@ const Product = props => {
         })
     }
 
+    //creates buttons for colors, handles multiples color of some type
     const createColorButtons = () => {
         const colors: Array<string> = []
         if (colorButtonStylesCopy.length > 0) {
@@ -78,6 +82,7 @@ const Product = props => {
         })
     }
 
+    //adds the product that is selcted to a cart in local storage
     const addToCart = () => {
         const formQuantity = (document.getElementById('product-quantity') as HTMLInputElement).value
         const productToBuy = {
@@ -87,11 +92,10 @@ const Product = props => {
             name: product.name,
             price: product.price,
             item_type: product.item_type,
-            size: {...sizeToBuy, quantity: formQuantity }
+            size: {...sizeToBuy, quantity: parseInt(formQuantity) }
         }
-        // props.addToCart(productToBuy)
+        props.addToCart(productToBuy)
         if (localStorage.getItem("cart")){
-            console.log('HELLO')
             let cart = JSON.parse(localStorage.getItem("cart"))
             cart = [...cart, productToBuy]
             localStorage.setItem('cart', JSON.stringify(cart));
@@ -108,7 +112,6 @@ const Product = props => {
         setQuantity(0)
         
     }
-    
     return (
         props.products.products.length ?
             <div className='product-container'>
@@ -148,5 +151,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { }
+    { addToCart }
 )(Product)

@@ -6,6 +6,15 @@ $small: "(min-width:576px)";
 $medium: "(min-width: 768px)";
 $large: "(min-width: 992px)";
 $xlarge: "(min-width: 1200px)";
+//mixins
+@mixin purple-hover{
+  &:hover{
+    background-color: $purple;
+    color: white;
+    border: 1px solid black;
+  }
+}
+
 //fonts
 $title-font: OldEnglish, sans-serif;
 $text-font: 'Tenali Ramakrishna', sans-serif;
@@ -138,18 +147,92 @@ body {
     border: 1px solid #888;
     width: 80%; /* Could be more or less, dependin */
     height: 60vh;
+    overflow-y:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     @media #{$large} {
       height: 80vh;
+    }
+
+    .cart-card{
+      position: relative;
+      border-bottom: 1px solid black;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      height: fit-content;
+      h1{
+        width: 15%;
+        margin: 0% 3%;
+
+        @media #{$large}{
+          width: 10%;
+        }
+      }
+      img, div{
+        height: 4.5vh;
+        margin-top: 2%;
+        width: 15.5%;
+
+        @media #{$large} {
+          height: 15vh;
+          margin-top: 3px;
+          width: 10%;
+        }        
+      }
+      .cancel{
+        position: absolute;
+        font-size: 1.5rem;
+        right: 0px;
+        top:2px;
+        cursor: pointer;
+      }
+
+      
+    }
+    a{
+      margin-top: -4%;
+      text-decoration: none;
+      color: black;
+      @media #{$medium}{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 2%
+      }
+      .checkout-button{
+      font-size: 1rem;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 4vh;
+      width: 100%;
+      border-radius: 7px;
+      background-color: white;
+      border: 1px solid $purple;
+      cursor: pointer;
+
+      @include purple-hover;
+
+      @media #{$medium}{
+        width: 20%;
+        height: 5vh;
+        font-size: 1.25rem;
+      }
+      }
     }
   }
   .close {
   position: relative;
   color: #aaa;
   float: right;
-  right: -10px;
-  top: -20px;
-  font-size: 28px;
+  font-size: 1.5rem;
   font-weight: bold;
+
+  @media #{$medium}{
+    top: 0%
+  }
 
   &:hover, &:focus{
     color: black;
@@ -413,11 +496,7 @@ body {
       margin: 1vh 8px;
       transition: background-color 0.5s ease-in-out;
       cursor: pointer;
-      &:hover{
-        background-color: $purple;
-        color: white;
-        border: 1px solid black;
-      }
+      @include purple-hover;
     }
   }
   .product-quantity-container{
@@ -445,11 +524,7 @@ body {
     border-radius: 7px;
     cursor: pointer;
     transition: background-color 0.5s ease-in-out;
-    &:hover{
-      background-color: $purple;
-      color: white;
-      border: 1px solid black;
-    }
+    @include purple-hover;
 
     @media #{$large} {
       margin-top: 10%;
@@ -550,7 +625,7 @@ body {
     bottom: 15vh;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 90%;
 
     @media #{$large} {
       bottom: 25vh;

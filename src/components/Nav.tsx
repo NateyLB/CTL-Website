@@ -2,7 +2,6 @@ import React, { useState} from "react";
 import { Link } from "react-router-dom"
 import { useHistory } from 'react-router'
 import { connect } from 'react-redux'; 
- import { toggleCart } from '../actions/cartActions'
 
 /**
  * @desc main nav bar for the site
@@ -15,7 +14,6 @@ const Nav = props =>{
     const openCart = () => {
         const modal = document.getElementById("modal") as HTMLElement;
         modal.style.display = "block"
-        // console.log(modal)
     }
     /**
      * @desc go to /home
@@ -58,6 +56,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(
-    mapStateToProps,
-    { toggleCart }
+    mapStateToProps
 )(Nav)
