@@ -51,6 +51,10 @@ const Product = props => {
         setQuantity(parseInt(event.target.value))
     }
 
+    if (isNaN(quantity)){
+        setQuantity(0)
+    }
+
     //creates buttons to select sizes, keeps track of which color is selected and which sizes are in stock
     const createSizeButtons = () => {
         const sizes = product.sizes.filter(size => size.quantity > 0)
