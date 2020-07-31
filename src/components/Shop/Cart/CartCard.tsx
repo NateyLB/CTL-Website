@@ -33,11 +33,11 @@ const CartCard = props => {
             localStorage.removeItem("cart")
             localStorage.setItem('cart', JSON.stringify(newCart));  
     }
-    // document.addEventListener('keydown', event => {
-    //     if(event.key == 'ArrowUp' || event.key == 'ArrowDown'){
-    //         props.updateProductQuantity(props.index, quantity)
-    //     }
-    // })
+    document.addEventListener('keydown', event => {
+        if(event.key == 'Enter') {
+            props.updateProductQuantity(props.index, quantity)
+        }
+    })
     return (
         <div className='cart-card'>
             <img src={product.img_urls[0].img_url} alt='Product Image'/>
