@@ -179,6 +179,26 @@ header {
     width: 10%;
   }
 }
+.modal .cart-overlay .cart-card form {
+  width: 15%;
+  margin: 0 1%;
+}
+@media (min-width: 768px) {
+  .modal .cart-overlay .cart-card form {
+    margin: 0 -2%;
+    padding-left: 4%;
+  }
+}
+.modal .cart-overlay .cart-card form input {
+  margin-top: 5%;
+  width: 75%;
+}
+@media (min-width: 768px) {
+  .modal .cart-overlay .cart-card form input {
+    margin-top: 2%;
+    width: 25%;
+  }
+}
 .modal .cart-overlay .cart-card img, .modal .cart-overlay .cart-card div {
   height: 4.5vh;
   margin-top: 2%;

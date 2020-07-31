@@ -1,7 +1,9 @@
 import {
 ADD_TO_CART,
-REMOVE_FROM_CART
+REMOVE_FROM_CART,
+UPDATE_PRODUCT_QUANTITY
 } from '../actions/cartActions'
+import { unmountComponentAtNode } from 'react-dom';
 
 interface Size {
     id: number,
@@ -20,7 +22,9 @@ interface Product {
     quantity: number,
   }
   
-  interface Products extends Array<Product> { }
+  interface Products extends Array<Product> {
+    size: any;
+}
 //if there is a cart in local storage, grab contents and add to cart reducer
 let cart = [];
 if (localStorage.getItem("cart")){
@@ -58,10 +62,20 @@ export const cartReducer = (state = initialState, action) => {
         for (const product of state.cart){
             if (product !== state.cart[action.payload]){
                 newCart.push(product)
-                console.log(product, "reducer")
             }
         }
         return{...state, cart: newCart}
+      }
+
+      case UPDATE_PRODUCT_QUANTITY: {
+        let newCart=[]
+        for (const product of state.cart){
+          if (product === state.cart[action.payload.index]){
+              product.size.quantity = action.payload.quantity
+          }
+          newCart.push(product)
+      }
+      return{...state, cart: newCart}
       }
 
         default:

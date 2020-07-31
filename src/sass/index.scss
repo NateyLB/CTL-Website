@@ -191,6 +191,25 @@ body {
           width: 10%;
         }
       }
+      form{
+        width: 15%;
+        margin: 0 1%;
+        @media #{$medium} {
+        margin: 0 -2%;
+        padding-left: 4%;
+        }
+        
+        input{
+          margin-top: 5%;
+          width:75%;
+  
+          @media #{$medium} {
+            margin-top: 2%;
+            width: 25%;
+          }
+  
+        }
+      }
       img, div{
         height: 4.5vh;
         margin-top: 2%;

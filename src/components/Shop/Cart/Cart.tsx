@@ -53,8 +53,8 @@ const Cart = props => {
     }
 
     //close cart no prss pf ESC or BACKSPACE
-    document.addEventListener('keydown', (e) => {
-        if(e.key == 'Escape' || e.key == 'Backspace'){
+    document.addEventListener('keydown', event => {
+        if(event.key == 'Escape' || event.key == 'Backspace'){
         closeCart()
         }
     })
