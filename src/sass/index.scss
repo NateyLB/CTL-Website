@@ -15,6 +15,30 @@ $xlarge: "(min-width: 1200px)";
   }
 }
 
+@mixin display-center{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin display-flex($justify, $align) {
+  display:flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin purple-button{
+  height: 3vh;
+  width: 60px;
+  border: 1px solid $purple;
+  border-radius: 7px;
+  @include display-center;
+  margin: 1vh 8px;
+  @media #{$xlarge} {
+    height: 4vh;
+  }
+}
+
 //fonts
 $title-font: OldEnglish, sans-serif;
 $text-font: 'Tenali Ramakrishna', sans-serif;
@@ -50,9 +74,7 @@ body {
   }
 
   header{
-    display:flex;
-    justify-content: flex-end;
-    align-items: center;
+    @include display-flex(flex-end,center);
     height: 7vh;
     position: fixed;
     top:0;
@@ -69,9 +91,7 @@ body {
   //NAV
 
   .nav{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
+    @include display-flex(space-between, center);
     height: 7vh;
     width: 100%;
     font-family: $title-font;
@@ -243,9 +263,7 @@ body {
       .checkout-button{
       font-size: 1rem;
       font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include display-center;
       height: 4vh;
       width: 100%;
       border-radius: 7px;
@@ -385,7 +403,6 @@ body {
       padding: 0;
     }
 
-
     .shop-product-info{
       display: flex;
       flex-direction: column;
@@ -432,26 +449,13 @@ body {
           margin-bottom: 2vh;
           flex-wrap: wrap;
           .shop-productcard-size-button{
-            height: 3vh;
-            width: 60px;
-            border: 1px solid $purple;
-            border-radius: 7px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 1vh 8px;
-            @media #{$xlarge} {
-              height: 4vh;
-            }
+            @include purple-button;
           }
-
           .shop-productcard-color-button{
             border: 1px solid black;
           }
         }
       }
-
-     
     }
   }
 }
@@ -460,16 +464,14 @@ body {
 
   .shop-products-container{
     width: 100%;
-    display: flex;
+    @include display-center;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    
 
     .loading-container{
-      display: flex;
+      @include display-center;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      
 
       .loading{
         width: 10%;
@@ -477,8 +479,6 @@ body {
       }
 
     }
-
-    
 
     @media #{$large} {
       display: flex;
@@ -492,6 +492,7 @@ body {
 // SHOP PRODUCT
 
 .product-container{
+  
   display:flex;
   flex-direction: column;
 
@@ -499,7 +500,8 @@ body {
     flex-direction: row;
   }
   .product-info{
-    padding-left: 5%;
+    padding-left: 10%;
+    margin-bottom: 5%;
     @media #{$large} {
       margin-left: 10%;
     }
@@ -524,16 +526,9 @@ body {
     display: flex;
     flex-wrap: wrap;
     .product-size-button{
-      height: 2vh;
-      width: 60px;
-      border: 1px solid $purple;
-      border-radius: 7px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include purple-button;
       padding-top: 2%;
       padding-bottom: 1%;
-      margin: 1vh 8px;
       transition: background-color 0.5s ease-in-out;
       cursor: pointer;
       @include purple-hover;
@@ -556,9 +551,7 @@ body {
     color: black;
     .product-add-to-cart{
       // margin-top: 5vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include display-center;
       margin-left: 47%;
       height: 5vh;
       width: 180px;
@@ -572,10 +565,7 @@ body {
         margin-top: 10%;
       }
     }
-
   }
-
-  
 }
 }
 
@@ -584,9 +574,7 @@ body {
   position: relative;
   height: 20vh;
   width: 55%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include display-center;
 
   @media #{$xlarge} {
     width: 55%;
@@ -604,10 +592,8 @@ body {
   }
   .carousel-arrows{
     position: absolute;
-    display: flex;
+    @include display-flex(space-between, center);
     bottom: 7.5vh;
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
     @media #{$xlarge} {
       bottom: 15vh;
@@ -667,10 +653,8 @@ body {
   }
   .product-carousel-arrows{
     position: absolute;
-    display: flex;
+    @include display-flex(space-between, center);
     bottom: 15vh;
-    justify-content: space-between;
-    align-items: center;
     width: 90%;
 
     @media #{$large} {
@@ -699,8 +683,6 @@ body {
         // position: absolute;
         // bottom: 60px;
       }
-
-  
 }
 
 //CHECKOUT
@@ -708,12 +690,108 @@ body {
   padding-top: 17.5vh;
   margin-top: -7.5vh;
   font-size: 1.25rem;
+  @include display-center;
+  flex-direction: column;
+  
 
   .title{
     font-family: $title-font;
     font-size: 1.75rem;
     text-align: center;
   }
+}
+
+//SHIPPING ADDRESS FORM
+
+.shipping-address-form{
+  border: 1px solid black;
+  display:flex;
+  flex-direction: column;
+  height: 60vh;
+  width: 80%;
+
+  @media #{$medium}{
+    width: 60;
+  }
+
+  @media #{$xlarge}{
+    height: 75vh;
+  }
+
+  label{
+    // border: 1px solid black;
+    margin: 7% 0; 
+    @media #{$medium} {
+      margin: 2% 0%;
+    }
+  }
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  .name-container{
+    @include display-flex(space-evenly, center);
+    input{
+      width: 30%;
+    }
+  }
+
+  .email-container{
+    @include display-flex(space-evenly, center);
+    input{
+      width: 69%;
+    }
+  }
+
+  .phone-number-container{
+    @include display-flex(space-evenly, center);
+    .area-code{
+      width: 8%;
+    }
+    .phone-number{
+      width: 25%;
+    }
+  }
+
+  .address-container{
+    input{
+      margin-left: 5%;
+    }
+    .city{
+      width: 30%;
+    }
+    .state{
+      width: 30%;
+    }
+    .zipcode{
+      width: 30%
+    }
+    .country{
+      width: 33%;
+      margin-left:5%;
+    }
+  }
+
+  .button-container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    input{
+      font-family: $text-font;
+      font-size: 1.25rem;
+      @include purple-button;
+      background-color: white;
+      margin-right: 5%; 
+      @include purple-hover;
+      @include display-center;
+    }
+  }
+
 }
 
 //ADMIN
@@ -819,9 +897,7 @@ body {
 //ADMIN PRODUCTS
 
 #admin-products{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include display-center;
   flex-direction: column;
   font-size: 1.25rem;
   width: 100%;
@@ -835,10 +911,8 @@ body {
     border: 1px solid black;
     border-radius: 5px;
     height: 60vh;
-    display: flex;
+    @include display-flex(space-evenly, center);
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
     width: 80%;
 
     #form-description{
@@ -885,7 +959,7 @@ body {
     display: flex;
     margin: 2vh 0;
     position: relative;
-  padding-left: 1%;
+    padding-left: 1%;
 
     @media #{$large}{
       width: 45%;

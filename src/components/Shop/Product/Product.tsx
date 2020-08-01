@@ -120,14 +120,12 @@ const Product = props => {
             let newCart = []
             let updated = false;
             let cart  = JSON.parse(localStorage.getItem("cart"))
-            // let product :any;
-            console.log(cart)
+            //check for duplicates products and update quantity if duplicate
             for(let i = 0; i < cart.length; i++){
                 if( cart[i].product_id === productToBuy.product_id && cart[i].size.id === productToBuy.size.id ){
                     cart[i].size.quantity += productToBuy.size.quantity
                     updated = true
                   } 
-                  console.log(cart[i])
                   newCart.push(cart[i])
             }
             if(updated === false){

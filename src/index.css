@@ -422,8 +422,8 @@ header {
   border: 1px solid #8a00b4;
   border-radius: 7px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   margin: 1vh 8px;
 }
 @media (min-width: 1200px) {
@@ -437,15 +437,15 @@ header {
 #shop .shop-products-container {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 #shop .shop-products-container .loading-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 #shop .shop-products-container .loading-container .loading {
   width: 10%;
@@ -470,7 +470,8 @@ header {
   }
 }
 .product-container .product-info {
-  padding-left: 5%;
+  padding-left: 10%;
+  margin-bottom: 5%;
 }
 @media (min-width: 992px) {
   .product-container .product-info {
@@ -498,18 +499,23 @@ header {
   flex-wrap: wrap;
 }
 .product-container .product-info .product-button-container .product-size-button {
-  height: 2vh;
+  height: 3vh;
   width: 60px;
   border: 1px solid #8a00b4;
   border-radius: 7px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  margin: 1vh 8px;
   padding-top: 2%;
   padding-bottom: 1%;
-  margin: 1vh 8px;
   transition: background-color 0.5s ease-in-out;
   cursor: pointer;
+}
+@media (min-width: 1200px) {
+  .product-container .product-info .product-button-container .product-size-button {
+    height: 4vh;
+  }
 }
 .product-container .product-info .product-button-container .product-size-button:hover {
   background-color: #8a00b4;
@@ -533,8 +539,8 @@ header {
 }
 .product-container .product-info a .product-add-to-cart {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   margin-left: 47%;
   height: 5vh;
   width: 180px;
@@ -559,7 +565,7 @@ header {
   height: 20vh;
   width: 55%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 @media (min-width: 1200px) {
@@ -580,9 +586,9 @@ header {
 .carousel .carousel-arrows {
   position: absolute;
   display: flex;
-  bottom: 7.5vh;
   justify-content: space-between;
   align-items: center;
+  bottom: 7.5vh;
   width: 100%;
 }
 @media (min-width: 1200px) {
@@ -642,9 +648,9 @@ header {
 .product-carousel .product-carousel-arrows {
   position: absolute;
   display: flex;
-  bottom: 15vh;
   justify-content: space-between;
   align-items: center;
+  bottom: 15vh;
   width: 90%;
 }
 @media (min-width: 992px) {
@@ -677,11 +683,123 @@ header {
   padding-top: 17.5vh;
   margin-top: -7.5vh;
   font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 #checkout .title {
   font-family: OldEnglish, sans-serif;
   font-size: 1.75rem;
   text-align: center;
+}
+
+.shipping-address-form {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  width: 80%;
+}
+@media (min-width: 768px) {
+  .shipping-address-form {
+    width: 60;
+  }
+}
+@media (min-width: 1200px) {
+  .shipping-address-form {
+    height: 75vh;
+  }
+}
+.shipping-address-form label {
+  margin: 7% 0;
+}
+@media (min-width: 768px) {
+  .shipping-address-form label {
+    margin: 2% 0%;
+  }
+}
+.shipping-address-form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.shipping-address-form input[type=number] {
+  -moz-appearance: textfield;
+}
+.shipping-address-form .name-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.shipping-address-form .name-container input {
+  width: 30%;
+}
+.shipping-address-form .email-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.shipping-address-form .email-container input {
+  width: 69%;
+}
+.shipping-address-form .phone-number-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.shipping-address-form .phone-number-container .area-code {
+  width: 8%;
+}
+.shipping-address-form .phone-number-container .phone-number {
+  width: 25%;
+}
+.shipping-address-form .address-container input {
+  margin-left: 5%;
+}
+.shipping-address-form .address-container .city {
+  width: 30%;
+}
+.shipping-address-form .address-container .state {
+  width: 30%;
+}
+.shipping-address-form .address-container .zipcode {
+  width: 30%;
+}
+.shipping-address-form .address-container .country {
+  width: 33%;
+  margin-left: 5%;
+}
+.shipping-address-form .button-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.shipping-address-form .button-container input {
+  font-family: "Tenali Ramakrishna", sans-serif;
+  font-size: 1.25rem;
+  height: 3vh;
+  width: 60px;
+  border: 1px solid #8a00b4;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1vh 8px;
+  background-color: white;
+  margin-right: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 1200px) {
+  .shipping-address-form .button-container input {
+    height: 4vh;
+  }
+}
+.shipping-address-form .button-container input:hover {
+  background-color: #8a00b4;
+  color: white;
+  border: 1px solid black;
 }
 
 #admin-login {
@@ -774,8 +892,8 @@ header {
 
 #admin-products {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   font-size: 1.25rem;
   width: 100%;
@@ -790,9 +908,9 @@ header {
   border-radius: 5px;
   height: 60vh;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
   width: 80%;
 }
 #admin-products #add-product #form-description {

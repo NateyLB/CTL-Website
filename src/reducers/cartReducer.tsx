@@ -55,6 +55,7 @@ export const cartReducer = (state = initialState, action) => {
     switch(action.type){
 
       case ADD_TO_CART: {
+        //check for duplicate items and update quantity if duplicate
         let updated = false;
         let newCart=[];
         for (const product of state.cart){
