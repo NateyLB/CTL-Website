@@ -680,6 +680,7 @@ header {
 }
 
 #checkout {
+  overflow-y: auto;
   padding-top: 17.5vh;
   margin-top: -7.5vh;
   font-size: 1.25rem;
@@ -693,8 +694,7 @@ header {
   font-size: 1.75rem;
   text-align: center;
 }
-
-.shipping-address-form {
+#checkout .shipping-address-form {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
@@ -702,87 +702,87 @@ header {
   width: 80%;
 }
 @media (min-width: 768px) {
-  .shipping-address-form {
+  #checkout .shipping-address-form {
     width: 60;
   }
 }
 @media (min-width: 1200px) {
-  .shipping-address-form {
+  #checkout .shipping-address-form {
     height: 75vh;
   }
 }
-.shipping-address-form label {
+#checkout .shipping-address-form label {
   margin: 7% 0;
 }
 @media (min-width: 768px) {
-  .shipping-address-form label {
+  #checkout .shipping-address-form label {
     margin: 2% 0%;
   }
 }
-.shipping-address-form input::-webkit-inner-spin-button {
+#checkout .shipping-address-form input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.shipping-address-form input[type=number] {
+#checkout .shipping-address-form input[type=number] {
   -moz-appearance: textfield;
 }
-.shipping-address-form .name-container {
+#checkout .shipping-address-form .name-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
-.shipping-address-form .name-container input {
+#checkout .shipping-address-form .name-container input {
   width: 30%;
 }
-.shipping-address-form .company-container {
+#checkout .shipping-address-form .company-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
-.shipping-address-form .company-container input {
+#checkout .shipping-address-form .company-container input {
   width: 60%;
 }
-.shipping-address-form .email-container {
+#checkout .shipping-address-form .email-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
-.shipping-address-form .email-container input {
+#checkout .shipping-address-form .email-container input {
   width: 69%;
 }
-.shipping-address-form .phone-number-container {
+#checkout .shipping-address-form .phone-number-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
-.shipping-address-form .phone-number-container .area-code {
+#checkout .shipping-address-form .phone-number-container .area-code {
   width: 8%;
 }
-.shipping-address-form .phone-number-container .phone-number {
+#checkout .shipping-address-form .phone-number-container .phone-number {
   width: 25%;
 }
-.shipping-address-form .address-container input {
+#checkout .shipping-address-form .address-container input {
   margin-left: 5%;
 }
-.shipping-address-form .address-container .city {
+#checkout .shipping-address-form .address-container .city {
   width: 30%;
 }
-.shipping-address-form .address-container .state {
+#checkout .shipping-address-form .address-container .state {
   width: 30%;
 }
-.shipping-address-form .address-container .zipcode {
+#checkout .shipping-address-form .address-container .zipcode {
   width: 30%;
 }
-.shipping-address-form .address-container .country {
+#checkout .shipping-address-form .address-container .country {
   width: 33%;
   margin-left: 5%;
 }
-.shipping-address-form .button-container {
+#checkout .shipping-address-form .button-container {
   width: 100%;
   display: flex;
   justify-content: flex-end;
 }
-.shipping-address-form .button-container input {
+#checkout .shipping-address-form .button-container input {
   font-family: "Tenali Ramakrishna", sans-serif;
   font-size: 1.25rem;
   height: 3vh;
@@ -800,14 +800,144 @@ header {
   align-items: center;
 }
 @media (min-width: 1200px) {
-  .shipping-address-form .button-container input {
+  #checkout .shipping-address-form .button-container input {
     height: 4vh;
   }
 }
-.shipping-address-form .button-container input:hover {
+#checkout .shipping-address-form .button-container input:hover {
   background-color: #8a00b4;
   color: white;
   border: 1px solid black;
+}
+#checkout #payment-form {
+  width: 90%;
+  /* Buttons and links */
+  /* spinner/processing state, errors */
+}
+@media (min-width: 768px) {
+  #checkout #payment-form {
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  #checkout #payment-form {
+    width: 40%;
+  }
+}
+#checkout #payment-form .result-message {
+  line-height: 22px;
+  font-size: 16px;
+}
+#checkout #payment-form .result-message a {
+  color: #8a00b4;
+  font-weight: 600;
+  text-decoration: none;
+}
+#checkout #payment-form .hidden {
+  display: none;
+}
+#checkout #payment-form #card-error {
+  color: #697386;
+  font-size: 16px;
+  line-height: 20px;
+  margin-top: 12px;
+  text-align: center;
+}
+#checkout #payment-form #card-element {
+  border-radius: 4px 4px 0 0;
+  padding: 12px;
+  border: 1px solid rgba(50, 50, 93, 0.1);
+  max-height: 44px;
+  width: 100%;
+  background: white;
+  box-sizing: border-box;
+}
+#checkout #payment-form #payment-request-button {
+  margin-bottom: 32px;
+}
+#checkout #payment-form button {
+  background: #8a00b4;
+  font-family: "Tenali Ramakrishna", sans-serif;
+  color: #ffffff;
+  border-radius: 0 0 4px 4px;
+  border: 0;
+  padding: 12px 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  transition: all 0.2s ease;
+  box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+  width: 100%;
+}
+#checkout #payment-form button:hover {
+  filter: contrast(115%);
+}
+#checkout #payment-form button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+#checkout #payment-form .spinner,
+#checkout #payment-form .spinner:before,
+#checkout #payment-form .spinner:after {
+  border-radius: 50%;
+}
+#checkout #payment-form .spinner {
+  color: #ffffff;
+  font-size: 22px;
+  text-indent: -99999px;
+  margin: 0px auto;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  box-shadow: inset 0 0 0 2px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+#checkout #payment-form .spinner:before,
+#checkout #payment-form .spinner:after {
+  position: absolute;
+  content: "";
+}
+#checkout #payment-form .spinner:before {
+  width: 10.4px;
+  height: 20.4px;
+  background: #5469d4;
+  border-radius: 20.4px 0 0 20.4px;
+  top: -0.2px;
+  left: -0.2px;
+  -webkit-transform-origin: 10.4px 10.2px;
+  transform-origin: 10.4px 10.2px;
+  -webkit-animation: loading 2s infinite ease 1.5s;
+  animation: loading 2s infinite ease 1.5s;
+}
+#checkout #payment-form .spinner:after {
+  width: 10.4px;
+  height: 10.2px;
+  background: #5469d4;
+  border-radius: 0 10.2px 10.2px 0;
+  top: -0.1px;
+  left: 10.2px;
+  -webkit-transform-origin: 0px 10.2px;
+  transform-origin: 0px 10.2px;
+  -webkit-animation: loading 2s infinite ease;
+  animation: loading 2s infinite ease;
+}
+@keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@media only screen and (max-width: 600px) {
+  #checkout #payment-form form {
+    width: 80vw;
+  }
 }
 
 #admin-login {
