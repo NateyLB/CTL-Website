@@ -3,7 +3,7 @@ import React from 'react';
 const CountrySelect = props => {
     
     return(
-        <select className="country" name="country"  value={props.country} onChange={props.changeHandler}> 
+        <select className="country" name="country" value={props.country} onChange={props.changeHandler}> 
                 <option selected={true}>Country</option>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>

@@ -707,7 +707,7 @@ body {
   border: 1px solid black;
   display:flex;
   flex-direction: column;
-  height: 60vh;
+  height: 71vh;
   width: 80%;
 
   @media #{$medium}{
@@ -738,6 +738,13 @@ body {
     @include display-flex(space-evenly, center);
     input{
       width: 30%;
+    }
+  }
+
+  .company-container{
+    @include display-flex(space-evenly, center);
+    input{
+      width: 60%;
     }
   }
 

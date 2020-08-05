@@ -698,7 +698,7 @@ header {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  height: 60vh;
+  height: 71vh;
   width: 80%;
 }
 @media (min-width: 768px) {
@@ -733,6 +733,14 @@ header {
 }
 .shipping-address-form .name-container input {
   width: 30%;
+}
+.shipping-address-form .company-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.shipping-address-form .company-container input {
+  width: 60%;
 }
 .shipping-address-form .email-container {
   display: flex;

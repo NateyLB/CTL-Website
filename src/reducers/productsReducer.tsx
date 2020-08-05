@@ -68,18 +68,18 @@ export const initialState: State = {
 export const productsReducer = (state = initialState, action) => {
   switch (action.type) {
     case POST_PRODUCT_START: {
-      console.log("POST_PRODUCT_START")
+      console.log(POST_PRODUCT_START)
       return { ...state, loading: true }
 
     }
 
     case POST_PRODUCT_SUCCESS: {
-      console.log("POST_PRODUCT_SUCCESS")
+      console.log(POST_PRODUCT_SUCCESS)
       return { ...state, loading: false, products: [...state.products, action.payload] }
     }
 
     case POST_PRODUCT_FAILURE: {
-      console.log("POST_PRODUCT_FAILURE")
+      console.log(POST_PRODUCT_FAILURE)
       return { ...state, loading: false, error: action.payload }
     }
 

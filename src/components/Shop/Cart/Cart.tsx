@@ -58,7 +58,6 @@ const Cart = props => {
         closeCart()
         }
     })
-    console.log(props.cart.cart)
     return(
         <div className='cart-overlay'>
             <div>
