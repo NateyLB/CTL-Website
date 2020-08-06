@@ -1,7 +1,8 @@
 import {
 ADD_TO_CART,
 REMOVE_FROM_CART,
-UPDATE_PRODUCT_QUANTITY
+UPDATE_PRODUCT_QUANTITY,
+CLEAR_CART
 } from '../actions/cartActions'
 import { unmountComponentAtNode } from 'react-dom';
 
@@ -91,6 +92,10 @@ export const cartReducer = (state = initialState, action) => {
           newCart.push(product)
       }
       return{...state, cart: newCart}
+      }
+
+      case CLEAR_CART: {
+        return {...state, cart: []}
       }
 
         default:

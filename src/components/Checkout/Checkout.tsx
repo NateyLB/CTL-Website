@@ -8,6 +8,7 @@ import ShippingAddressForm from './ShippingAddressForm'
 import Stripe from './Billing/Billing'
 import PaypalButton from './Billing/PaypalButton'
 import Cart from '../Shop/Cart/Cart'
+import Confirm from './Confirm'
 
 const promise = loadStripe('pk_test_51GskCkDff7659YjxexBIJDvJWbJkniud4UAEahaunSvGhShEV3lDmtY5VXjZNa45T4UZ9T8Cdj8yhpNc5ri71Qtu003qZcgH99');
 
@@ -41,6 +42,9 @@ const Checkout = props => {
             </Elements>
             </div> : null }
             </div>
+            </Route>
+            <Route path='/checkout/confirmation'>
+                <Confirm/>
             </Route>
         </section>
     )

@@ -30,7 +30,7 @@ export const checkoutReducer = (state= initialState, action) => {
             console.log(VERIFY_ADDRESS_SUCCESS)
             return({...state, loading:false , address: {
                 ...action.payload.address, 
-                name: action.payload.name,
+                ...action.payload.name,
                 email: action.payload.email
             }
             }

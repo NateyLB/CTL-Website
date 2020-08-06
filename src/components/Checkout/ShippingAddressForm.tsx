@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { connect } from 'react-redux';
 import CountrySelect from './CountrySelect';
@@ -22,7 +22,7 @@ const initialFormState = {
 }
 
 const ShippingAddressForm = props =>{
-    const [formData, setFormData] = useState(initialFormState)
+    const [formData, setFormData] = useState(props.address ? props.address : initialFormState)
     const match = useHistory();
     let filled = false
     if( 
@@ -31,6 +31,12 @@ const ShippingAddressForm = props =>{
     ){
         filled = true
     }
+
+    useEffect(() => {
+        if(props.address.firstName){
+            match.push('/checkout/billing')
+        } 
+    }, [])
 
     const changeHandler = event =>{
         setFormData({...formData, [event.target.name]: event.target.value})
@@ -51,6 +57,7 @@ const ShippingAddressForm = props =>{
             zip: formData.zip,
             country: formData.country
         }, match)
+
     }
 
     return (
@@ -62,7 +69,7 @@ const ShippingAddressForm = props =>{
             </label>
             <label className='company-container' htmlFor='company'>
                 Company
-                <input type='text' name='company' value={formData.company} placeholder='company' onChange={changeHandler} />
+                <input type='text' name='company' value={formData.company} placeholder='Company' onChange={changeHandler} />
             </label>
             <label className='email-container' htmlFor='email'>
                 Email
@@ -98,6 +105,7 @@ const ShippingAddressForm = props =>{
 
 const mapStateToProps = state => {
     return {
+        address: state.checkoutReducer.address
     };
 };
 
