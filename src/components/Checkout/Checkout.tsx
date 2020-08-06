@@ -5,7 +5,7 @@ import { Route } from 'react-router';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import ShippingAddressForm from './ShippingAddressForm'
-import Stripe from './Billing/Billing'
+import Stripe from './Billing/Stripe'
 import PaypalButton from './Billing/PaypalButton'
 import Cart from '../Shop/Cart/Cart'
 import Confirm from './Confirm'
