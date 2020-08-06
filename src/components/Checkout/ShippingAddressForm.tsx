@@ -88,7 +88,7 @@ const ShippingAddressForm = props =>{
                     <CountrySelect country={formData.country} changeHandler={changeHandler} />
                 {/* </div> */}
             </label>
-            <div className='button-container'>
+            <div className='shipping-button-container'>
                 {filled ? <input onClick={submitAddress} type='submit' /> : null }
             </div>
         </form>

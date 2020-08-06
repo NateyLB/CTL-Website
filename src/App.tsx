@@ -30,7 +30,7 @@ function App() {
        <Nav/>
       </header>
       <div id="modal" className='modal'>
-      <Cart/> 
+      <Cart checkout={true}/> 
       </div>
       <Route exact path={["/", "/home"]} >
         <About/>

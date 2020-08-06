@@ -9,7 +9,7 @@ import {
 
 import { axiosBase } from '../../../utils/axiosBase'
 
-const Billing = props => {
+const Stripe = props => {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState(false);
@@ -74,6 +74,7 @@ const Billing = props => {
     }
   };
   return (
+    <div className='stripe-container'>
     <form id="payment-form" onSubmit={handleSubmit}>
       <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
       <button
@@ -98,6 +99,7 @@ const Billing = props => {
         Payment succeeded
       </p>
     </form>
+    </div>
   );
 }
 
@@ -109,4 +111,4 @@ const mapStateToProps = state => {
 
 export default connect(
 mapStateToProps
-)(Billing)
+)(Stripe)

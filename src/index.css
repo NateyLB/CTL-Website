@@ -719,6 +719,11 @@ header {
     margin: 2% 0%;
   }
 }
+@media (min-width: 1200px) {
+  #checkout .shipping-address-form label {
+    margin: 1.5%;
+  }
+}
 #checkout .shipping-address-form input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
@@ -739,6 +744,11 @@ header {
   justify-content: space-evenly;
   align-items: center;
 }
+@media (min-width: 768px) {
+  #checkout .shipping-address-form .company-container {
+    padding-right: 18%;
+  }
+}
 #checkout .shipping-address-form .company-container input {
   width: 60%;
 }
@@ -755,11 +765,26 @@ header {
   justify-content: space-evenly;
   align-items: center;
 }
+@media (min-width: 768px) {
+  #checkout .shipping-address-form .phone-number-container {
+    padding-right: 18%;
+  }
+}
 #checkout .shipping-address-form .phone-number-container .area-code {
   width: 8%;
 }
 #checkout .shipping-address-form .phone-number-container .phone-number {
   width: 25%;
+}
+@media (min-width: 768px) {
+  #checkout .shipping-address-form .address-container {
+    padding-left: 6%;
+  }
+}
+@media (min-width: 1200px) {
+  #checkout .shipping-address-form .address-container {
+    padding-left: 7%;
+  }
 }
 #checkout .shipping-address-form .address-container input {
   margin-left: 5%;
@@ -777,12 +802,12 @@ header {
   width: 33%;
   margin-left: 5%;
 }
-#checkout .shipping-address-form .button-container {
+#checkout .shipping-address-form .shipping-button-container {
   width: 100%;
   display: flex;
   justify-content: flex-end;
 }
-#checkout .shipping-address-form .button-container input {
+#checkout .shipping-address-form .shipping-button-container input {
   font-family: "Tenali Ramakrishna", sans-serif;
   font-size: 1.25rem;
   height: 3vh;
@@ -800,50 +825,199 @@ header {
   align-items: center;
 }
 @media (min-width: 1200px) {
-  #checkout .shipping-address-form .button-container input {
+  #checkout .shipping-address-form .shipping-button-container input {
     height: 4vh;
   }
 }
-#checkout .shipping-address-form .button-container input:hover {
+#checkout .shipping-address-form .shipping-button-container input:hover {
   background-color: #8a00b4;
   color: white;
   border: 1px solid black;
 }
-#checkout #payment-form {
+#checkout .billing-confirm {
+  padding: 0 2%;
+  width: 95%;
+  /* Could be more or less, dependin */
+  height: 60vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#checkout .billing-confirm .CTL-logo {
+  height: 10vh;
+  width: 35%;
+  position: relative;
+  right: 12%;
+}
+@media (min-width: 768px) {
+  #checkout .billing-confirm .CTL-logo {
+    right: 8%;
+  }
+}
+@media(min-width: 992px) {
+  #checkout .billing-confirm .CTL-logo {
+    right: 4%;
+    height: 15vh;
+    width: 22.5%;
+  }
+}
+@media(min-width: 1200px) {
+  #checkout .billing-confirm .CTL-logo {
+    width: 17.5%;
+    right: 2%;
+  }
+}
+#checkout .billing-confirm .cart-card {
+  font-size: 1rem;
+  position: relative;
+  border-bottom: 1px solid black;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  height: fit-content;
+}
+#checkout .billing-confirm .cart-card h1 {
+  width: 50px;
+  margin: 0% 3%;
+}
+@media (min-width: 992px) {
+  #checkout .billing-confirm .cart-card h1 {
+    width: 100px;
+  }
+}
+#checkout .billing-confirm .cart-card form {
+  width: 15%;
+  margin: 0 1%;
+}
+@media (min-width: 768px) {
+  #checkout .billing-confirm .cart-card form {
+    margin: 0 -2%;
+    padding-left: 4%;
+  }
+}
+#checkout .billing-confirm .cart-card form input {
+  margin-top: 5%;
+  width: 75%;
+}
+@media (min-width: 768px) {
+  #checkout .billing-confirm .cart-card form input {
+    margin-top: 2%;
+    width: 25%;
+  }
+}
+#checkout .billing-confirm .cart-card img, #checkout .billing-confirm .cart-card div {
+  height: 4.5vh;
+  margin-top: 2%;
+  width: 15.5%;
+}
+@media (min-width: 992px) {
+  #checkout .billing-confirm .cart-card img, #checkout .billing-confirm .cart-card div {
+    height: 15vh;
+    margin-top: 3px;
+    width: 10%;
+  }
+}
+#checkout .billing-confirm .cart-card .cancel {
+  position: absolute;
+  font-size: 1.5rem;
+  right: 0px;
+  top: 2px;
+  cursor: pointer;
+}
+#checkout .billing-confirm a {
+  margin-top: -4%;
+  text-decoration: none;
+  color: black;
+}
+@media (min-width: 768px) {
+  #checkout .billing-confirm a {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2%;
+  }
+}
+#checkout .billing-confirm a .checkout-button {
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4vh;
+  width: 100%;
+  border-radius: 7px;
+  background-color: white;
+  border: 1px solid #8a00b4;
+  cursor: pointer;
+}
+#checkout .billing-confirm a .checkout-button:hover {
+  background-color: #8a00b4;
+  color: white;
+  border: 1px solid black;
+}
+@media (min-width: 768px) {
+  #checkout .billing-confirm a .checkout-button {
+    width: 20%;
+    height: 5vh;
+    font-size: 1.25rem;
+  }
+}
+#checkout .payment-buttons-container {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 992px) {
+  #checkout .payment-buttons-container {
+    flex-direction: row;
+    padding-left: 25%;
+  }
+}
+#checkout .paypal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#checkout .stripe-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 992px) {
+  #checkout .stripe-container {
+    width: 100%;
+  }
+}
+#checkout .stripe-container #payment-form {
+  margin-top: 2%;
   width: 90%;
   /* Buttons and links */
   /* spinner/processing state, errors */
 }
 @media (min-width: 768px) {
-  #checkout #payment-form {
-    width: 50%;
+  #checkout .stripe-container #payment-form {
+    width: 70%;
   }
 }
-@media (min-width: 992px) {
-  #checkout #payment-form {
-    width: 40%;
-  }
-}
-#checkout #payment-form .result-message {
+#checkout .stripe-container #payment-form .result-message {
   line-height: 22px;
   font-size: 16px;
 }
-#checkout #payment-form .result-message a {
+#checkout .stripe-container #payment-form .result-message a {
   color: #8a00b4;
   font-weight: 600;
   text-decoration: none;
 }
-#checkout #payment-form .hidden {
+#checkout .stripe-container #payment-form .hidden {
   display: none;
 }
-#checkout #payment-form #card-error {
+#checkout .stripe-container #payment-form #card-error {
   color: #697386;
   font-size: 16px;
   line-height: 20px;
   margin-top: 12px;
   text-align: center;
 }
-#checkout #payment-form #card-element {
+#checkout .stripe-container #payment-form #card-element {
   border-radius: 4px 4px 0 0;
   padding: 12px;
   border: 1px solid rgba(50, 50, 93, 0.1);
@@ -852,10 +1026,10 @@ header {
   background: white;
   box-sizing: border-box;
 }
-#checkout #payment-form #payment-request-button {
+#checkout .stripe-container #payment-form #payment-request-button {
   margin-bottom: 32px;
 }
-#checkout #payment-form button {
+#checkout .stripe-container #payment-form button {
   background: #8a00b4;
   font-family: "Tenali Ramakrishna", sans-serif;
   color: #ffffff;
@@ -870,19 +1044,19 @@ header {
   box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
   width: 100%;
 }
-#checkout #payment-form button:hover {
+#checkout .stripe-container #payment-form button:hover {
   filter: contrast(115%);
 }
-#checkout #payment-form button:disabled {
+#checkout .stripe-container #payment-form button:disabled {
   opacity: 0.5;
   cursor: default;
 }
-#checkout #payment-form .spinner,
-#checkout #payment-form .spinner:before,
-#checkout #payment-form .spinner:after {
+#checkout .stripe-container #payment-form .spinner,
+#checkout .stripe-container #payment-form .spinner:before,
+#checkout .stripe-container #payment-form .spinner:after {
   border-radius: 50%;
 }
-#checkout #payment-form .spinner {
+#checkout .stripe-container #payment-form .spinner {
   color: #ffffff;
   font-size: 22px;
   text-indent: -99999px;
@@ -895,12 +1069,12 @@ header {
   -ms-transform: translateZ(0);
   transform: translateZ(0);
 }
-#checkout #payment-form .spinner:before,
-#checkout #payment-form .spinner:after {
+#checkout .stripe-container #payment-form .spinner:before,
+#checkout .stripe-container #payment-form .spinner:after {
   position: absolute;
   content: "";
 }
-#checkout #payment-form .spinner:before {
+#checkout .stripe-container #payment-form .spinner:before {
   width: 10.4px;
   height: 20.4px;
   background: #5469d4;
@@ -912,7 +1086,7 @@ header {
   -webkit-animation: loading 2s infinite ease 1.5s;
   animation: loading 2s infinite ease 1.5s;
 }
-#checkout #payment-form .spinner:after {
+#checkout .stripe-container #payment-form .spinner:after {
   width: 10.4px;
   height: 10.2px;
   background: #5469d4;
@@ -935,7 +1109,7 @@ header {
   }
 }
 @media only screen and (max-width: 600px) {
-  #checkout #payment-form form {
+  #checkout .stripe-container #payment-form form {
     width: 80vw;
   }
 }

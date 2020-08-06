@@ -24,21 +24,16 @@ interface Product{
 
 const Cart = props => {
 
-    // const [cart, setCart] :any[] = useState([]);
     const [totalQuantity, setTotalQuantity] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {
-        // if (localStorage.getItem("cart")){
-            // let localCart = JSON.parse(localStorage.getItem("cart"))
-            // setCart(localCart)
             setTotalQuantity(0)
             setTotalPrice(0)
             props.cart.cart.forEach(product => {
                 setTotalQuantity(cur => cur += product.size.quantity)
                 setTotalPrice(cur => cur += product.price * product.size.quantity)
             })
-        // } 
         
     },[props.cart.cart])
     //close cart
@@ -59,17 +54,18 @@ const Cart = props => {
         }
     })
     return(
-        <div className='cart-overlay'>
+        <div className={props.checkout ? 'cart-overlay' : 'billing-confirm'}>
             <div>
             <img className='CTL-logo' src={require('../../../resources/favicon_io_transparent/android-chrome-512x512.png')} alt='Lost Cause'/>
-            <span className="close" onClick={closeCart}>&times;</span>
+            {props.checkout? <span className="close" onClick={closeCart}>&times;</span> : null}
             <CartHeader/>
             {createCartCards()}
             <CartFooter totalQuantity={totalQuantity} totalPrice={totalPrice}/>
             </div>
-            {props.cart.cart.length > 0 ? <Link to='/checkout'  >
+            {props.checkout && totalPrice > 0 ? (props.cart.cart.length > 0 ? <Link to='/checkout'  >
                 <div className="checkout-button" onClick={closeCart}>Checkout</div>
-            </Link> : null}
+            </Link> : null) : null}
+            {}
             
         </div>
     )
