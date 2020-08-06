@@ -463,6 +463,7 @@ header {
 .product-container {
   display: flex;
   flex-direction: column;
+  padding-bottom: 10%;
 }
 @media (min-width: 992px) {
   .product-container {

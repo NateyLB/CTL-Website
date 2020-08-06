@@ -497,7 +497,7 @@ body {
   
   display:flex;
   flex-direction: column;
-
+  padding-bottom: 10%;
   @media #{$large} {
     flex-direction: row;
   }
