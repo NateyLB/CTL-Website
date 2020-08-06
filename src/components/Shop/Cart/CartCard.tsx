@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { removeFromCart, updateProductQuantity } from '../../../actions/cartActions'
 
 const CartCard = props => {
     let quantity = props.product.size.quantity;
     const product = props.product;
+
+    let maxQuantity = 0
+
     const removeFromCart = () =>{
         if (localStorage.getItem("cart")){
             let cart = JSON.parse(localStorage.getItem("cart"))
@@ -45,12 +48,18 @@ const CartCard = props => {
             event.preventDefault();
         }, false);
     }
+    //get max quantity of sizes
+    if(props.products.products.length > 0){
+        const index1 = props.products.products.findIndex(element => element.product_id === product.product_id);
+        const index2 = props.products.products[index1].sizes.findIndex(element => element.id === product.size.id )
+        maxQuantity = props.products.products[index1].sizes[index2].quantity
+    }
     return (
         <div className='cart-card'>
             <img src={product.img_urls[0].img_url} alt='Product Image'/>
             <h1>{product.name}</h1>
             <h1>{product.size.size}</h1>
-            <form id="quantity-form"><input type='number' value={quantity} step='1' min='0' onChange={changeHandler}  /></form>
+            <form id="quantity-form"><input type='number' value={quantity} step='1' min='0' max={maxQuantity} onChange={changeHandler}  /></form>
             <h1>${product.price * product.size.quantity}</h1>
             <span className='cancel' onClick={removeFromCart}>{window.screen.width >= 768 ? "REMOVE" : "X"}</span>
         </div>
@@ -59,7 +68,8 @@ const CartCard = props => {
 
 const mapStateToProps = state => {
     return {
-        cart: state.cartReducer
+        cart: state.cartReducer,
+        products: state.productsReducer
     };
 };
 
