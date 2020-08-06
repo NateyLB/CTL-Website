@@ -11,7 +11,7 @@ export const axiosWithAdminAuth = () => {
       Authorization: token,
       "Access-Control-Allow-Origin": "*"
     },
-    // baseURL: 'https://ctl-shop.herokuapp.com/api/admin'
-    baseURL: 'http://localhost:5000/api/admin'
+    baseURL: 'https://ctl-shop.herokuapp.com/api/admin'
+    // baseURL: 'http://localhost:5000/api/admin'
   });
 };
