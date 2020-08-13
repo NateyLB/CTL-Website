@@ -1,4 +1,3 @@
-
 import {
   POST_PRODUCT_START,
   POST_PRODUCT_SUCCESS,
@@ -8,135 +7,139 @@ import {
   UPDATE_PRODUCT_FAILURE,
   DELETE_IMG_START,
   DELETE_IMG_SUCCESS,
-  DELETE_IMG_FAILURE
-} from '../actions/adminActions'
+  DELETE_IMG_FAILURE,
+} from "../actions/adminActions";
 
 import {
   GET_PRODUCT_START,
   GET_PRODUCT_SUCCESS,
-  GET_PRODUCT_FAILURE
-} from '../actions/productActions'
-
+  GET_PRODUCT_FAILURE,
+} from "../actions/productActions";
 
 interface Size {
-  id: number,
-  product_id: number,
-  size: string,
-  quantity: number
+  id: number;
+  product_id: number;
+  size: string;
+  quantity: number;
 }
-interface Sizes extends Array<Size> { }
+interface Sizes extends Array<Size> {}
 
 interface Img_url {
-  id: number,
-  product_id: number,
-  img_url: string
+  id: number;
+  product_id: number;
+  img_url: string;
 }
 
-interface Img_urls extends Array<Img_url> { }
+interface Img_urls extends Array<Img_url> {}
 
 interface Product {
-  product_id: number,
-  name: string,
-  item_type: number,
-  description: string,
-  color: string,
-  sizes: Sizes
-  price: number,
-  quantity: number,
-  img_urls: Img_urls
+  product_id: number;
+  name: string;
+  item_type: number;
+  description: string;
+  color: string;
+  sizes: Sizes;
+  price: number;
+  quantity: number;
+  img_urls: Img_urls;
 }
 
-interface Products extends Array<Product> { }
+interface Products extends Array<Product> {}
 
 interface State {
-  loading: boolean,
-  products: Products,
-  error: string
+  loading: boolean;
+  products: Products;
+  error: string;
 }
 export const initialState: State = {
   loading: false,
   products: [],
-  error: ""
+  error: "",
 };
 
 /**
- * @desc 
- * @param state state that is shared 
+ * @desc
+ * @param state state that is shared
  * @param action action from the store
  */
 
 export const productsReducer = (state = initialState, action) => {
   switch (action.type) {
     case POST_PRODUCT_START: {
-      console.log(POST_PRODUCT_START)
-      return { ...state, loading: true }
-
+      console.log(POST_PRODUCT_START);
+      return { ...state, loading: true };
     }
 
     case POST_PRODUCT_SUCCESS: {
-      console.log(POST_PRODUCT_SUCCESS)
-      return { ...state, loading: false, products: [...state.products, action.payload] }
+      console.log(POST_PRODUCT_SUCCESS);
+      return {
+        ...state,
+        loading: false,
+        products: [...state.products, action.payload],
+      };
     }
 
     case POST_PRODUCT_FAILURE: {
-      console.log(POST_PRODUCT_FAILURE)
-      return { ...state, loading: false, error: action.payload }
+      console.log(POST_PRODUCT_FAILURE);
+      return { ...state, loading: false, error: action.payload };
     }
 
     case GET_PRODUCT_START: {
-      console.log("GET_PRODUCTS_START")
-      return { ...state, loading: true }
+      console.log("GET_PRODUCTS_START");
+      return { ...state, loading: true };
     }
 
     case GET_PRODUCT_SUCCESS: {
-      console.log("GET_PRODUCTS_SUCCESS")
-      return { ...state, loading: false, products: [...state.products, ...action.payload] }
+      console.log("GET_PRODUCTS_SUCCESS");
+      return {
+        ...state,
+        loading: false,
+        products: [...state.products, ...action.payload],
+      };
     }
 
     case GET_PRODUCT_FAILURE: {
-      console.log("GET_PRODUCT_FAILURE")
-      return { ...state, loading: false, error: action.payload }
+      console.log("GET_PRODUCT_FAILURE");
+      return { ...state, loading: false, error: action.payload };
     }
 
     case UPDATE_PRODUCT_START: {
-      console.log("UPDATE_PRODUCTS_START")
-      return { ...state, loading: true }
+      console.log("UPDATE_PRODUCTS_START");
+      return { ...state, loading: true };
     }
 
     case UPDATE_PRODUCT_SUCCESS: {
-      console.log("UPDATE_PRODUCT_SUCCESS")
+      console.log("UPDATE_PRODUCT_SUCCESS");
       const productsCopy = JSON.parse(JSON.stringify(state.products));
-      productsCopy[action.payload.index] = action.payload.product
-      return {...state, loading:false, products: productsCopy}
+      productsCopy[action.payload.index] = action.payload.product;
+      return { ...state, loading: false, products: productsCopy };
     }
 
     case UPDATE_PRODUCT_FAILURE: {
-      console.log("UPDATE_PRODUCT_FAILURE")
-      return { ...state, loading: false, error: action.payload } 
+      console.log("UPDATE_PRODUCT_FAILURE");
+      return { ...state, loading: false, error: action.payload };
     }
 
     case DELETE_IMG_START: {
-      console.log("DELETE_IMG_START")
-      return { ...state, loading: true }
+      console.log("DELETE_IMG_START");
+      return { ...state, loading: true };
     }
 
     case DELETE_IMG_SUCCESS: {
-      console.log("DELETE_IMG_SUCCESS")
-      console.log(action.payload)
+      console.log("DELETE_IMG_SUCCESS");
+      console.log(action.payload);
       const productsCopy = JSON.parse(JSON.stringify(state.products));
-      productsCopy[action.payload.index].img_urls = action.payload.imgs
-      console.log(productsCopy[action.payload.index])
-      return {...state, loading:false, products: productsCopy}
+      productsCopy[action.payload.index].img_urls = action.payload.imgs;
+      console.log(productsCopy[action.payload.index]);
+      return { ...state, loading: false, products: productsCopy };
     }
 
     case DELETE_IMG_FAILURE: {
-      console.log("DELETE_IMG_FAILURE")
-      return { ...state, loading: false, error: action.payload } 
+      console.log("DELETE_IMG_FAILURE");
+      return { ...state, loading: false, error: action.payload };
     }
-
-    
 
     default:
       return state;
   }
-}
+};
