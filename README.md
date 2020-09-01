@@ -35,7 +35,7 @@ A single page application built for a stakeholder. It includes a landing page wi
 ![Redux](https://img.shields.io/badge/react--redux-v7.2.0-blue.svg)
 
 - Redux is a predictable state container for JavaScript apps
-- Redux provides a solution for "prop drilling", where state gets passed as props from a top level component into a deeply nested component
+- Redux provides a solution for "prop drilling", where state gets passed as props from a top level component down into a deeply nested component
 - Redux is an elegant solution for a messy problem, it can also be scaled up
 
 #### Front-end deployed to Vercel
@@ -53,7 +53,7 @@ A single page application built for a stakeholder. It includes a landing page wi
 
 #### Paypal
 - Payment processing
-- ease of use, a user can log in and be verified instead of entering a 16 digit credit card number and all pertaining information
+- Ease of use, a user can log in and be verified instead of entering a 16 digit credit card number and all pertaining information
 
 ## Installation Instructions
 
