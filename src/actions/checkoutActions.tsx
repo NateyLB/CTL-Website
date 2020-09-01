@@ -9,7 +9,6 @@ export const verifyAddress = (address, match) => (dispatch) => {
   axiosBase()
     .post("/shipping/verify", address)
     .then((res) => {
-      console.log(res);
       localStorage.setItem("address", JSON.stringify({
           name: { firstName: address.firstName, lastName: address.lastName },
           email: address.email,

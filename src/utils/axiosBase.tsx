@@ -7,7 +7,7 @@ export const axiosBase = () => {
     headers: {
       "Access-Control-Allow-Origin": "*",
     },
-    baseURL: 'https://ctl-shop.herokuapp.com/api/'
-    // baseURL: "http://localhost:5000/api/",
+    // baseURL: 'https://ctl-shop.herokuapp.com/api/'
+    baseURL: "http://localhost:5000/api/",
   });
 };

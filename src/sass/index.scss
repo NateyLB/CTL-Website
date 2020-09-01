@@ -199,8 +199,7 @@ header {
       position: relative;
       border-bottom: 1px solid black;
       width: 100%;
-      display: flex;
-      justify-content: space-around;
+      @include display-flex(space-around, center);
       height: fit-content;
       h1 {
         width: 15%;
@@ -332,19 +331,45 @@ header {
 }
 
 //GALLERY
-#gallery {
+#gallery{
+  width: 100%;
   padding-top: 10.5vh;
   margin-top: -7.5vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
   h1 {
     font-family: $title-font;
     font-size: 1.75rem;
   }
+}
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media #{$medium}{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
   img {
-    height: 100vh;
-    width: 100%;
+    height: 65vh;
+    width: 95%;
+    margin-top: 10%;
+
+    @media #{$medium}{
+      height: 55vh;
+      width: 40%;
+      margin: 0;
+    }
+
+    @media #{$large}{
+      height: 65vh;
+    }
+
+    @media #{$xlarge}{
+      height: 75vh;
+    }
+
   }
 }
 //CONTACT
@@ -845,8 +870,7 @@ header {
       position: relative;
       border-bottom: 1px solid black;
       width: 100%;
-      display: flex;
-      justify-content: space-around;
+      @include display-flex(space-around, center);
       height: fit-content;
       h1 {
         width: 50px;

@@ -5,6 +5,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import Stripe from "./Stripe";
 import PaypalButton from "./PaypalButton";
 import Cart from "../../Shop/Cart/Cart";
+import AddressConfirm from "./AddressConfirm"
 
 const promise = loadStripe(
     "pk_test_51GskCkDff7659YjxexBIJDvJWbJkniud4UAEahaunSvGhShEV3lDmtY5VXjZNa45T4UZ9T8Cdj8yhpNc5ri71Qtu003qZcgH99"
@@ -24,6 +25,7 @@ const Billing = props => {
     return (
         <div className="billing-container">
           <Cart checkout={false} />
+          <AddressConfirm />
           {totalPrice > 0 ? (
             <div className="payment-buttons-container">
               <PaypalButton />

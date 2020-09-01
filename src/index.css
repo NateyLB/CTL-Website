@@ -168,6 +168,7 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   height: fit-content;
 }
 .modal .cart-overlay .cart-card h1 {
@@ -309,19 +310,49 @@ header {
 }
 
 #gallery {
+  width: 100%;
   padding-top: 10.5vh;
   margin-top: -7.5vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
 }
 #gallery h1 {
   font-family: OldEnglish, sans-serif;
   font-size: 1.75rem;
 }
-#gallery img {
-  height: 100vh;
-  width: 100%;
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .gallery {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}
+.gallery img {
+  height: 65vh;
+  width: 95%;
+  margin-top: 10%;
+}
+@media (min-width: 768px) {
+  .gallery img {
+    height: 55vh;
+    width: 40%;
+    margin: 0;
+  }
+}
+@media (min-width: 992px) {
+  .gallery img {
+    height: 65vh;
+  }
+}
+@media (min-width: 1200px) {
+  .gallery img {
+    height: 75vh;
+  }
 }
 
 #contact {
@@ -885,6 +916,7 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   height: fit-content;
 }
 #checkout .billing-confirm .cart-card h1 {
