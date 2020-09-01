@@ -32,6 +32,8 @@ A single page application built for a stakeholder. It includes a landing page wi
 - React puts most of the rendering on the client, thus reducing the amount of server power required
 
 #### Redux
+![Redux](https://img.shields.io/badge/redux-v7.2.0-blue.svg)
+
 - Redux is a predictable state container for JavaScript apps
 - Redux provides a solution for "prop drilling", where state gets passed as props from a top level component into a deeply nested component
 - Redux is an elegant solution for a messy problem, it can also be scaled up
