@@ -25,7 +25,7 @@ A single page application built for a stakeholder. It includes a landing page wi
 ### Front end built using:
 
 #### React
-![React](https://img.shields.io/badge/react-v16.13.1--alpha.2-blue.svg)
+![React](https://img.shields.io/badge/react-v16.13.1-blue.svg)
 
 - React is highly customizable with 3rd party wrappers and libraries
 - React handles single page applications extremely well and can be expanded to multipage applications easily
