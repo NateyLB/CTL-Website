@@ -8,8 +8,6 @@
 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NateyLB)                                                                        |
 |         [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/nathan-howland-3611241a6/)         |
 
-![React](https://img.shields.io/badge/react-v16.13.1--alpha.2-blue.svg)
-
 ## Project Overview
 
  [Trello Board](https://trello.com/b/QVRRlVbs/causing-the-lost-website)
@@ -27,6 +25,7 @@ A single page application built for a stakeholder. It includes a landing page wi
 ### Front end built using:
 
 #### React
+![React](https://img.shields.io/badge/react-v16.13.1--alpha.2-blue.svg)
 
 - React is highly customizable with 3rd party wrappers and libraries
 - React handles single page applications extremely well and can be expanded to multipage applications easily
